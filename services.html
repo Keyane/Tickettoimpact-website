@@ -1,0 +1,1048 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>How we work · Ticket to Impact</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --bg:        #f1ead7;
+    --bg-soft:   #e6dcc2;
+    --paper:     #faf5e8;
+    --ink:       #243524;
+    --ink-soft:  #44503f;
+    --ink-mute:  #6b7563;
+    --leaf:      #5a9a5a;
+    --leaf-deep: #3f7a44;
+    --sun:       #f0a050;
+    --sun-deep:  #e07346;
+    --coral:     #ec6a4a;
+    --accent:    var(--sun-deep);
+    --accent-deep:var(--coral);
+    --line:      rgba(36, 53, 36, 0.16);
+    --line-soft: rgba(36, 53, 36, 0.08);
+    --serif: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+    --sans:  "DM Sans", ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  img{ display:block; max-width:100%; height:auto; }
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background:var(--accent); color:var(--paper); }
+
+  /* ── layout ── */
+  .wrap{ width:min(1240px, 92vw); margin:0 auto; }
+  .rule{ height:1px; background:var(--line); border:0; margin:0; }
+
+  /* ── nav ── */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(244,236,218,.82);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    height:72px;
+  }
+  .logo{
+    display:flex; align-items:center; gap:12px;
+    font-family:var(--sans); font-weight:500; font-size:16px;
+    letter-spacing:.005em; color:var(--ink); line-height:1.05;
+  }
+  .logo-mark{
+    width:38px; height:38px; flex:0 0 38px;
+    background-image: url("photos/logo.png");
+    background-size: contain; background-repeat: no-repeat; background-position: center;
+  }
+  .logo-text{ display:flex; flex-direction:column; gap:1px; }
+  .logo-text .l1{ font-weight:600; letter-spacing:.005em; }
+  .logo-text .l2{ font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-mute); }
+  .nav-links{ display:flex; align-items:center; gap:32px; }
+  .nav-links a{ font-size:14px; color:var(--ink-soft); transition:color .2s ease; }
+  .nav-links a:hover{ color:var(--accent-deep); }
+  .nav-links a.is-active{ color:var(--ink); font-weight:500; }
+  .nav-cta{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 18px; border-radius:10px;
+    background:var(--ink); color:var(--paper);
+    font-size:13.5px; font-weight:500; letter-spacing:.01em;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .nav-cta:hover{ background:#172417; transform:translateY(-1px); }
+  .nav-cta .dot{
+    width:7px; height:7px; border-radius:50%;
+    background: linear-gradient(180deg, var(--sun) 0%, var(--coral) 100%);
+    box-shadow:0 0 0 3px rgba(240,160,80,.25);
+  }
+  .lang-toggle{
+    display:inline-flex; align-items:center;
+    border:1px solid var(--line); border-radius:999px;
+    padding:3px; background: rgba(250,245,232,.5);
+    margin-right: 4px;
+  }
+  .lang-toggle button{
+    border:0; background:transparent; cursor:pointer;
+    padding: 5px 11px; border-radius:999px;
+    color: var(--ink-mute); font-family: var(--sans);
+    font-size: 11.5px; letter-spacing:.08em; font-weight:600;
+    transition: background .25s ease, color .25s ease;
+  }
+  .lang-toggle button:hover{ color: var(--ink); }
+  .lang-toggle button.is-active{ background: var(--ink); color: var(--paper); }
+  .nav-burger{ display:none; }
+
+  /* ── page header ── */
+  .page-header{
+    padding: 72px 0 80px;
+    position:relative; overflow:hidden;
+  }
+  .page-header::before{
+    content:""; position:absolute;
+    top: 40px; right: -140px; width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(240,160,80,.15) 0%, rgba(240,160,80,0) 60%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--ink-mute); margin-bottom:24px;
+  }
+  .eyebrow::before{
+    content:""; width:28px; height:1px; background:var(--ink-mute);
+  }
+  .page-header h1{
+    font-family:var(--serif); font-weight:500;
+    font-size: clamp(42px, 5.8vw, 72px);
+    line-height: 1.04; letter-spacing: -0.022em;
+    margin:0 0 20px; max-width: 18ch;
+    text-wrap: balance;
+  }
+  .page-header h1 em{
+    font-style:normal; font-weight:500; color:var(--leaf-deep);
+  }
+  .page-header p.lead{
+    font-size:18px; line-height:1.65; color:var(--ink-soft);
+    max-width: 52ch; margin: 0 0 40px;
+  }
+
+  /* ── service nav ── */
+  .service-nav{
+    display:flex; gap:8px; flex-wrap:wrap;
+  }
+  .service-nav a{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:10px 18px; border-radius:999px;
+    border:1px solid var(--line); font-size:13.5px;
+    color:var(--ink-soft); font-weight:500;
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .service-nav a:hover{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+  .service-nav a .pip{
+    width:7px; height:7px; border-radius:50%;
+  }
+  .service-nav a:nth-child(1) .pip{ background: var(--leaf); }
+  .service-nav a:nth-child(2) .pip{ background: var(--sun-deep); }
+  .service-nav a:nth-child(3) .pip{ background: var(--coral); }
+
+  /* ── service sections ── */
+  .service-section{
+    padding: 96px 0;
+    position:relative;
+    scroll-margin-top: 90px;
+  }
+  .service-section + .service-section{ border-top: 1px solid var(--line-soft); }
+  .service-section.bg-paper{ background: var(--paper); }
+  .service-section.bg-bg{ background: var(--bg); }
+
+  /* ── service photo band ── */
+  .svc-photo{
+    position:relative; margin:0 0 64px;
+    border-radius:16px; overflow:hidden;
+    aspect-ratio: 16 / 5;
+    box-shadow: 0 20px 54px -30px rgba(36,53,36,.55);
+  }
+  .svc-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .svc-photo::after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background: linear-gradient(180deg, rgba(36,53,36,0) 52%, rgba(36,53,36,.5) 100%);
+  }
+  .svc-photo .frame{
+    position:absolute; inset:12px; z-index:2; pointer-events:none;
+    border:1px solid rgba(251,246,234,.22); border-radius:11px;
+  }
+  .svc-caption{
+    position:absolute; left:22px; bottom:16px; z-index:3;
+    display:inline-flex; align-items:center; gap:9px;
+    color: rgba(251,246,234,.9);
+    font-size:11px; letter-spacing:.16em; text-transform:uppercase; font-weight:500;
+    text-shadow: 0 1px 10px rgba(36,53,36,.6);
+    animation: svcCapIn 1.2s cubic-bezier(.22,.61,.36,1) .2s both;
+  }
+  .svc-caption .pip{
+    width:6px; height:6px; border-radius:50%; flex:0 0 6px;
+    box-shadow: 0 0 0 4px rgba(251,246,234,.12);
+  }
+  @keyframes svcCapIn{ from{ opacity:0; transform: translateY(8px); } to{ opacity:1; transform:none; } }
+  .s1 .svc-caption .pip{ background: var(--leaf); }
+  .s2 .svc-caption .pip{ background: var(--sun); }
+  .s3 .svc-caption .pip{ background: var(--coral); }
+
+  .section-label{
+    font-size:12px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--ink-mute); margin-bottom: 18px;
+  }
+  .service-intro{
+    display:grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items:start; margin-bottom: 64px;
+  }
+  .service-intro-left{}
+  .service-num{
+    display:inline-flex; align-items:center; gap:10px;
+    font-weight:600; font-size:12.5px; letter-spacing:.08em;
+    margin-bottom: 20px;
+  }
+  .service-num .n{
+    padding: 5px 12px; border-radius:8px;
+    background:var(--paper); border:1px solid;
+    font-variant-numeric: tabular-nums;
+  }
+  .s1 .service-num .n{ border-color: var(--leaf); color: var(--leaf-deep); background:var(--bg); }
+  .s2 .service-num .n{ border-color: var(--sun);  color: var(--sun-deep); background:var(--paper); }
+  .s3 .service-num .n{ border-color: var(--coral); color: var(--coral); background:var(--bg); }
+
+  .service-intro h2{
+    font-family:var(--serif); font-weight:500;
+    font-size: clamp(38px, 4.5vw, 58px);
+    line-height:1.06; letter-spacing:-0.018em;
+    margin:0 0 12px; color:var(--ink);
+  }
+  .service-tagline{
+    font-size:13px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-mute); margin-bottom:24px; font-weight:500;
+  }
+  .service-intro-right p{
+    font-size:18px; line-height:1.7; color:var(--ink-soft); margin:0 0 20px;
+  }
+  .service-intro-right p:last-of-type{ margin-bottom:0; }
+  .pricing-note{
+    margin-top: 24px; padding: 16px 20px;
+    border-radius:10px; border:1px solid var(--line-soft);
+    background: rgba(36,53,36,.04);
+    font-size:13.5px; color:var(--ink-mute); line-height:1.55;
+  }
+  .pricing-note strong{ color:var(--ink-soft); }
+
+  /* what's included grid */
+  .what-grid{
+    display:grid; grid-template-columns: repeat(2, 1fr); gap:16px;
+    margin-bottom: 32px;
+  }
+  .what-card{
+    background:var(--paper); border:1px solid var(--line-soft);
+    border-radius:14px; padding:28px 26px;
+    transition: border-color .25s ease, transform .25s ease;
+  }
+  .what-card:hover{
+    border-color:var(--line);
+    transform:translateY(-2px);
+  }
+  .what-card h4{
+    font-family:var(--sans); font-weight:600; font-size:15px;
+    margin:0 0 12px; color:var(--ink); letter-spacing:-.005em;
+  }
+  .what-card ul{
+    list-style:none; padding:0; margin:0;
+  }
+  .what-card li{
+    font-size:14px; color:var(--ink-soft); line-height:1.6;
+    padding:4px 0; display:flex; align-items:baseline; gap:10px;
+  }
+  .what-card li::before{
+    content:""; width:5px; height:5px; border-radius:50%;
+    flex:0 0 5px; margin-top:6px;
+  }
+  .s1 .what-card li::before{ background: var(--leaf); }
+  .s2 .what-card li::before{ background: var(--sun-deep); }
+  .s3 .what-card li::before{ background: var(--coral); }
+
+  /* fit + investment row */
+  .fit-invest{
+    display:grid; grid-template-columns: 1fr 1fr; gap:16px;
+    margin-bottom: 40px;
+  }
+  .fit-card, .invest-card{
+    background:var(--paper); border:1px solid var(--line-soft);
+    border-radius:14px; padding:28px 26px;
+  }
+  .fit-card h4, .invest-card h4{
+    font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--ink-mute); font-weight:500; margin:0 0 16px;
+  }
+  .fit-card ul, .invest-card ul{
+    list-style:none; padding:0; margin:0;
+  }
+  .fit-card li, .invest-card li{
+    font-size:14.5px; color:var(--ink-soft); line-height:1.65;
+    padding: 5px 0; display:flex; gap:10px; align-items:baseline;
+  }
+  .fit-card li::before{
+    content:"✓"; font-size:13px; flex:0 0 auto;
+    color: var(--leaf);
+  }
+  .invest-card li::before{
+    content:"→"; font-size:13px; flex:0 0 auto;
+    color: var(--sun-deep);
+  }
+
+  /* impact block */
+  .impact-block{
+    background: var(--ink); color:var(--paper);
+    border-radius:16px; padding:36px 40px;
+    margin-bottom: 40px;
+    display:grid; grid-template-columns: auto 1fr; gap:32px; align-items:start;
+  }
+  .impact-icon{
+    width:48px; height:48px; border-radius:50%;
+    background: linear-gradient(135deg, var(--sun) 0%, var(--coral) 100%);
+    display:flex; align-items:center; justify-content:center;
+    flex:0 0 48px;
+  }
+  .impact-icon svg{ width:22px; height:22px; stroke:white; }
+  .impact-block h4{
+    font-family:var(--sans); font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+    color:rgba(251,246,234,.5); font-weight:500; margin:0 0 16px;
+  }
+  .impact-block ul{
+    list-style:none; padding:0; margin:0;
+    display:grid; grid-template-columns: 1fr 1fr; gap:10px;
+  }
+  .impact-block li{
+    font-size:15px; color:rgba(251,246,234,.82); line-height:1.55;
+    display:flex; gap:10px; align-items:baseline;
+  }
+  .impact-block li::before{
+    content:""; width:5px; height:5px; border-radius:50%;
+    background: var(--sun); flex:0 0 5px; margin-top:6px;
+  }
+
+  /* process steps */
+  .process{
+    margin-bottom: 40px;
+  }
+  .process h4{
+    font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--ink-mute); font-weight:500; margin:0 0 20px;
+  }
+  .process-steps{
+    display:flex; gap:0;
+    position:relative;
+  }
+  .process-step{
+    flex:1; display:flex; flex-direction:column; align-items:center;
+    text-align:center; position:relative; padding:0 12px;
+  }
+  .process-step::after{
+    content:""; position:absolute;
+    top:18px; left:calc(50% + 20px); right:calc(-50% + 20px);
+    height:1px;
+    background: repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 10px);
+  }
+  .process-step:last-child::after{ display:none; }
+  .process-dot{
+    width:36px; height:36px; border-radius:50%;
+    border:1px solid var(--line);
+    background:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    font-size:12px; font-weight:600; color:var(--ink-soft);
+    margin-bottom: 12px; position:relative; z-index:1;
+  }
+  .process-step p{
+    font-size:13.5px; color:var(--ink-soft); line-height:1.5; margin:0;
+  }
+
+  /* CTA row at bottom of section */
+  .section-cta{
+    display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:15px 24px; border-radius:10px;
+    font-size:14.5px; font-weight:500; letter-spacing:.005em;
+    cursor:pointer; border:1px solid transparent;
+    transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+    font-family:var(--sans);
+  }
+  .btn-primary{ background:var(--ink); color:var(--paper); }
+  .btn-primary:hover{ background:#172417; transform:translateY(-1px); }
+  .btn-primary .arr{ color: var(--sun); }
+  .btn-ghost{ background:transparent; color:var(--ink); border-color:var(--ink); }
+  .btn-ghost:hover{ background:var(--ink); color:var(--paper); }
+  .btn .arr{ width:14px; height:14px; display:inline-block; transition: transform .25s ease; }
+  .btn:hover .arr{ transform: translateX(3px); }
+
+  /* ── final CTA ── */
+  .final{
+    background:var(--bg); padding:100px 0 120px;
+    text-align:center; position:relative; overflow:hidden;
+  }
+  .final::before{
+    content:""; position:absolute;
+    left:50%; top:60px; transform:translateX(-50%);
+    width: 480px; height: 480px;
+    background: radial-gradient(circle, rgba(90,154,90,.13) 0%, rgba(90,154,90,0) 60%);
+    pointer-events:none;
+  }
+  .final-inner{ position:relative; max-width: 680px; margin:0 auto; }
+  .final .section-label{ display:inline-block; }
+  .final h2{
+    font-family:var(--serif); font-weight:400;
+    font-size: clamp(40px, 5.5vw, 72px); line-height:1.04;
+    letter-spacing:-0.015em;
+    margin: 16px 0 24px; color: var(--ink);
+    text-wrap:balance;
+  }
+  .final h2 em{ font-style:normal; font-weight:500; color: var(--leaf-deep); }
+  .final p{ font-size:17px; line-height:1.65; color: var(--ink-soft); margin: 0 auto 36px; }
+  .final .cta-row{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .final-meta{
+    margin-top: 36px; display:flex; gap: 24px; justify-content:center; flex-wrap:wrap;
+    font-size: 13px; color: var(--ink-mute);
+  }
+  .final-meta span{ display:inline-flex; align-items:center; gap:8px; }
+  .final-meta .dot{ width:6px; height:6px; border-radius:50%; }
+  .final-meta span:nth-child(1) .dot{ background: var(--leaf); }
+  .final-meta span:nth-child(2) .dot{ background: var(--sun); }
+  .final-meta span:nth-child(3) .dot{ background: var(--coral); }
+
+  /* ── footer ── */
+  footer{
+    background: var(--ink); color: rgba(251,246,234,.65);
+    padding: 56px 0 32px;
+  }
+  .foot-grid{
+    display:grid; grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 48px; align-items:start;
+  }
+  .foot-grid h4{
+    font-family:var(--sans); font-size:12px; letter-spacing:.18em;
+    text-transform:uppercase; color: rgba(251,246,234,.5);
+    margin: 0 0 18px; font-weight:500;
+  }
+  .foot-grid ul{ list-style:none; padding:0; margin:0; }
+  .foot-grid li{ margin-bottom: 10px; font-size:14px; }
+  .foot-grid a:hover{ color: var(--paper); }
+  .foot-brand p{ font-size:14px; line-height:1.6; color: rgba(251,246,234,.55); max-width: 32ch; }
+  .foot-base{
+    margin-top: 56px; padding-top:24px;
+    border-top: 1px solid rgba(251,246,234,.1);
+    display:flex; justify-content:space-between; align-items:center;
+    font-size: 12.5px; color: rgba(251,246,234,.4);
+  }
+  .foot-base a{ color: rgba(251,246,234,.55); }
+  .foot-base a:hover{ color: var(--paper); }
+
+  /* ── responsive ── */
+  @media (max-width: 900px){
+    .nav-links{ display:none; }
+    .nav-burger{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:40px; height:40px; border-radius:999px;
+      border:1px solid var(--line); background:transparent;
+    }
+    .service-intro{ grid-template-columns: 1fr; gap: 32px; }
+    .what-grid{ grid-template-columns: 1fr; }
+    .fit-invest{ grid-template-columns: 1fr; }
+    .impact-block{ grid-template-columns: 1fr; gap:20px; }
+    .impact-block ul{ grid-template-columns: 1fr; }
+    .process-steps{ flex-direction:column; gap:12px; }
+    .process-step::after{ display:none; }
+    .process-step{ align-items:flex-start; text-align:left; flex-direction:row; gap:14px; align-items:center; }
+    .process-dot{ flex:0 0 36px; margin-bottom:0; }
+    .foot-grid{ grid-template-columns: 1fr 1fr; gap: 36px; }
+    .foot-base{ flex-direction:column; gap:10px; }
+    .service-section{ padding: 72px 0; }
+    .svc-photo{ aspect-ratio: 16 / 10; margin-bottom: 40px; }
+  }
+  @media (max-width:520px){
+    .foot-grid{ grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="Homepage.html" class="logo" aria-label="Ticket to Impact home">
+      <span class="logo-mark" role="img" aria-label="Ticket to Impact logo"></span>
+      <span class="logo-text">
+        <span class="l1">Ticket to Impact</span>
+        <span class="l2">Algarve · Est. 2021</span>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="Homepage.html#how">How we work</a>
+      <a href="Homepage.html#story">Our story</a>
+      <a href="Homepage.html#testimonials">Voices</a>
+    </nav>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" data-lang="en" class="is-active">EN</button>
+      <button type="button" data-lang="nl">NL</button>
+    </div>
+    <a href="https://calendly.com/keyane-keyanecc/30min" target="_blank" rel="noopener" class="nav-cta">
+      <span class="dot" aria-hidden="true"></span>
+      <span>Book a call</span>
+    </a>
+    <button class="nav-burger" aria-label="Open menu">
+      <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M1 1h16M1 7h16M1 13h16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ── PAGE HEADER ── -->
+<section class="page-header">
+  <div class="wrap">
+    <div class="eyebrow">How we work</div>
+    <h1>One path, three places to <em>begin.</em></h1>
+    <p class="lead">Most people come to us somewhere along this arc, from "I'm not sure what to do next" to "I know exactly what I want to build". You don't pick a service. We meet you where you are.</p>
+    <nav class="service-nav" aria-label="Jump to service">
+      <a href="#think-sidestream"><span class="pip"></span>Think Sidestream</a>
+      <a href="#business-hub"><span class="pip"></span>The Business Hub</a>
+      <a href="#high-ticket-sales"><span class="pip"></span>High Ticket Sales</a>
+    </nav>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ══════════════════════════════════════════
+     01 · THINK SIDESTREAM
+══════════════════════════════════════════ -->
+<section class="service-section bg-paper s1" id="think-sidestream">
+  <div class="wrap">
+
+    <figure class="svc-photo">
+      <img src="photos/svc-forest.jpeg" alt="Golden light through the Algarve forest" style="object-position:center 58%;" />
+      <div class="frame" aria-hidden="true"></div>
+    </figure>
+
+    <div class="service-intro">
+      <div class="service-intro-left">
+        <div class="service-num s1">
+          <span class="n">01</span>
+          <span>Start here · Clarity</span>
+        </div>
+        <div class="service-tagline">For when you can't see the next step</div>
+        <h2>Think Sidestream</h2>
+        <div style="display:flex;gap:8px;margin:0 0 28px;" aria-hidden="true">
+          <span style="width:36px;height:4px;border-radius:2px;background:var(--leaf);"></span>
+          <span style="width:36px;height:4px;border-radius:2px;background:var(--leaf-deep);opacity:.5;"></span>
+        </div>
+        <div class="pricing-note">
+          <strong>Investment from €150 per session.</strong> Strategy packages, decision bundles, and ongoing sparring are priced on scope. We'll always be clear about what it costs before we begin.
+        </div>
+      </div>
+      <div class="service-intro-right">
+        <p>Your strategic side channel, a place alongside your daily operations to step out, reflect, and make decisions that actually hold. Not theoretical. Not a workshop. A real conversation with someone who understands the difference between motion and movement.</p>
+        <p>The Business Hub builds things. Think Sidestream decides what's worth building. That distinction matters more than most people realise until they're twelve months in and wondering why the doing hasn't made them feel better.</p>
+        <p>Sessions are slower by design. We sit with what's actually going on, the business, the life, the things you haven't said out loud yet, and find the real next step together. You leave with focus, not more to-dos.</p>
+      </div>
+    </div>
+
+    <!-- What's included -->
+    <div class="section-label" style="margin-bottom:20px;">What's included</div>
+    <div class="what-grid">
+      <div class="what-card">
+        <h4>Strategic Deep-Dive</h4>
+        <ul>
+          <li>Zoom out from daily operations</li>
+          <li>Examine direction, positioning and priorities</li>
+          <li>Clarify what to stop doing, often the biggest shift</li>
+          <li>Leave with a clear focus for the period ahead</li>
+        </ul>
+      </div>
+      <div class="what-card">
+        <h4>Offer &amp; Customer Journey</h4>
+        <ul>
+          <li>Review offers, pricing and structure</li>
+          <li>Map how clients move from first contact to working with you</li>
+          <li>Simplify where things have become unclear over time</li>
+          <li>When the offer is clean, sales and marketing follow naturally</li>
+        </ul>
+      </div>
+      <div class="what-card">
+        <h4>Decisions &amp; Scenarios</h4>
+        <ul>
+          <li>Explore directions, investments or changes you're weighing</li>
+          <li>Map consequences across team, cashflow and customer impact</li>
+          <li>Stop overthinking and start deciding with overview</li>
+          <li>Calmer decisions, fewer regrets</li>
+        </ul>
+      </div>
+      <div class="what-card">
+        <h4>Ongoing Strategic Sparring</h4>
+        <ul>
+          <li>Monthly or quarterly sessions that keep you sharp</li>
+          <li>Check in on direction, decisions and drift</li>
+          <li>A thinking partner who knows your business</li>
+          <li>Prevents the slow slide back into reactive mode</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Is this a fit + investment -->
+    <div class="fit-invest">
+      <div class="fit-card">
+        <h4>Is this a fit?</h4>
+        <ul>
+          <li>You're moving, but lack direction</li>
+          <li>You want clarity in decisions, not more options</li>
+          <li>You have a solid foundation and want strategic depth</li>
+          <li>You're ready to buy clarity instead of delay</li>
+        </ul>
+      </div>
+      <div class="invest-card">
+        <h4>How it's structured</h4>
+        <ul>
+          <li>Deep-Dives → single sessions or bundles</li>
+          <li>Offer &amp; Journey Design → project-based</li>
+          <li>Decision Labs → bundles of 3–5 sessions</li>
+          <li>Ongoing Sparring → monthly retainer</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- What you gain -->
+    <div class="impact-block">
+      <div class="impact-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <div>
+        <h4>Think in impact, not in noise</h4>
+        <ul>
+          <li>Real decisions, not what-if conversations</li>
+          <li>Clarity you can act on the next morning</li>
+          <li>Less overthinking, more direction</li>
+          <li>A business that fits your actual life</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Process -->
+    <div class="process">
+      <h4>Our process</h4>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-dot">1</div>
+          <p>Initial call to check if we're a good match</p>
+        </div>
+        <div class="process-step">
+          <div class="process-dot">2</div>
+          <p>Impact scan, what's actually going on</p>
+        </div>
+        <div class="process-step">
+          <div class="process-dot">3</div>
+          <p>First session, tailored to where you are</p>
+        </div>
+        <div class="process-step">
+          <div class="process-dot">4</div>
+          <p>We decide together what comes next</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-cta">
+      <a href="https://calendly.com/keyane-keyanecc/30min" target="_blank" rel="noopener" class="btn btn-primary">
+        Book a call
+        <svg class="arr" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#business-hub" class="btn btn-ghost">Next: The Business Hub →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     02 · THE BUSINESS HUB
+══════════════════════════════════════════ -->
+<section class="service-section bg-bg s2" id="business-hub">
+  <div class="wrap">
+
+    <figure class="svc-photo">
+      <img src="photos/svc-bay.jpeg" alt="Soft evening light over the bay and islands" style="object-position: center 88%; object-fit: cover" />
+      <div class="frame" aria-hidden="true"></div>
+    </figure>
+
+    <div class="service-intro">
+      <div class="service-intro-left">
+        <div class="service-num s2">
+          <span class="n">02</span>
+          <span>Build · Structure</span>
+        </div>
+        <div class="service-tagline">For when it's time to make it real</div>
+        <h2>The Business Hub</h2>
+        <div style="display:flex;gap:8px;margin:0 0 28px;" aria-hidden="true">
+          <span style="width:36px;height:4px;border-radius:2px;background:var(--sun);"></span>
+          <span style="width:36px;height:4px;border-radius:2px;background:var(--sun-deep);opacity:.5;"></span>
+        </div>
+        <div class="pricing-note">
+          <strong>Most projects start from €500.</strong> Depending on what needs to be built, improved or automated. You can come in for a single service or build it as one connected system, we'll scope it clearly up front.
+        </div>
+      </div>
+      <div class="service-intro-right">
+        <p>Hands-on work, alongside you. Websites, branding, systems, and operational support, divided into four clear categories, each with a specific function. Practical by design: you can pick individual services or have everything work together as one clean whole.</p>
+        <p>This is the unglamorous middle layer, the part that quietly holds everything else up. The part that lets you stop context-switching a hundred times a day. Built around how you actually want to spend your time, not how business is supposed to look.</p>
+        <p>No loose projects, no chaos. Just steady progress on the things that move the needle.</p>
+      </div>
+    </div>
+
+    <!-- What's included -->
+    <div class="section-label" style="margin-bottom:20px;">What's included</div>
+    <div class="what-grid">
+      <div class="what-card">
+        <h4>Website &amp; Online Presence</h4>
+        <ul>
+          <li>Website design &amp; build</li>
+          <li>Landing page setup</li>
+          <li>Website updates &amp; changes</li>
+          <li>Contact &amp; booking forms</li>
+          <li>Basic SEO &amp; page structure</li>
+        </ul>
+      </div>
+      <div class="what-card">
+        <h4>Branding &amp; Visual Design</h4>
+        <ul>
+          <li>Logo &amp; brand identity</li>
+          <li>Business cards &amp; PDF design</li>
+          <li>Social media templates</li>
+          <li>Brand colours &amp; font setup</li>
+          <li>Presentation &amp; document design</li>
+        </ul>
+      </div>
+      <div class="what-card">
+        <h4>Communication Systems</h4>
+        <ul>
+          <li>Google Business Profile setup</li>
+          <li>Automatic email confirmations</li>
+          <li>Intake &amp; contact forms</li>
+          <li>Calendar &amp; appointment systems</li>
+          <li>Basic email &amp; workflow automation</li>
+        </ul>
+      </div>
+      <div class="what-card">
+        <h4>Virtual Assistant &amp; Daily Support</h4>
+        <ul>
+          <li>Inbox management</li>
+          <li>Calendar management</li>
+          <li>Uploading content to platforms</li>
+          <li>Document formatting &amp; PDFs</li>
+          <li>Small administrative tasks</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Fit + invest -->
+    <div class="fit-invest">
+      <div class="fit-card">
+        <h4>Is this a fit?</h4>
+        <ul>
+          <li>You know what needs to be built and want to get moving</li>
+          <li>Your operations don't yet match your vision</li>
+          <li>You're losing time to tasks someone else could own</li>
+          <li>You want things done properly, not just done</li>
+        </ul>
+      </div>
+      <div class="invest-card">
+        <h4>How it's structured</h4>
+        <ul>
+          <li>Single services → fixed project price</li>
+          <li>Bundled systems → scoped together, priced clearly</li>
+          <li>VA support → hourly or monthly retainer</li>
+          <li>We work in EU-based tools with secure access</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- What you gain -->
+    <div class="impact-block">
+      <div class="impact-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <div>
+        <h4>What a working system gives you</h4>
+        <ul>
+          <li>Fewer things to hold in your head</li>
+          <li>Consistent brand across every touchpoint</li>
+          <li>Operations that match the business you actually want</li>
+          <li>Space to lead instead of manage</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Process -->
+    <div class="process">
+      <h4>Our process</h4>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-dot">1</div>
+          <p>Intake call to scope what needs doing</p>
+        </div>
+        <div class="process-step">
+          <div class="process-dot">2</div>
+          <p>Clear proposal with timeline and price</p>
+        </div>
+        <div class="process-step">
+          <div class="process-dot">3</div>
+          <p>We build, you stay in the loop</p>
+        </div>
+        <div class="process-step">
+          <div class="process-dot">4</div>
+          <p>Handover, training and ongoing support</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-cta">
+      <a href="https://calendly.com/keyane-keyanecc/30min" target="_blank" rel="noopener" class="btn btn-primary">
+        Book a call
+        <svg class="arr" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#high-ticket-sales" class="btn btn-ghost">Next: High Ticket Sales →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     03 · HIGH TICKET SALES
+══════════════════════════════════════════ -->
+<section class="service-section bg-paper s3" id="high-ticket-sales">
+  <div class="wrap">
+
+    <figure class="svc-photo">
+      <img src="photos/sunset-hills.jpeg" alt="The wooded Algarve hills at dusk" style="object-position:center 82%;" />
+      <div class="frame" aria-hidden="true"></div>
+    </figure>
+
+    <div class="service-intro">
+      <div class="service-intro-left">
+        <div class="service-num s3">
+          <span class="n">03</span>
+          <span>Grow · Sales</span>
+        </div>
+        <div class="service-tagline">For when the offer is ready to land</div>
+        <h2>High Ticket Sales</h2>
+        <div style="display:flex;gap:8px;margin:0 0 28px;" aria-hidden="true">
+          <span style="width:36px;height:4px;border-radius:2px;background:var(--coral);"></span>
+          <span style="width:36px;height:4px;border-radius:2px;background:var(--sun-deep);opacity:.5;"></span>
+        </div>
+        <div class="pricing-note">
+          <strong>Performance-based or project-based.</strong> Closing is commission. CRM optimisation and sales architecture are priced per project or hourly. Starts from €1,500 for structural work. We apply a holistic view to every investment, including yours.
+        </div>
+      </div>
+      <div class="service-intro-right">
+        <p>For when the offer is real, the foundations hold, and it's time for fewer, better conversations with the right people. Sales that feel like care, not pressure.</p>
+        <p>This goes beyond appointing a closer or generating meetings. We design and guide a fully integrated sales process, where lead generation, qualification, closing, and CRM structure work together as one system. No loose ends. No lost leads.</p>
+        <p>The approach is built on transparency and trust. No pressure tactics, no tricks, just clear decisions and professional guidance that protects your reputation while growing your revenue.</p>
+      </div>
+    </div>
+
+    <!-- What's included -->
+    <div class="section-label" style="margin-bottom:20px;">What's included</div>
+    <div class="what-grid">
+      <div class="what-card">
+        <h4>Appointment Setting</h4>
+        <ul>
+          <li>High-quality meetings with your actual target audience</li>
+          <li>Carefully selected prospects aligned with your offer and values</li>
+          <li>Not volume, fit</li>
+        </ul>
+      </div>
+      <div class="what-card">
+        <h4>High Ticket Closing</h4>
+        <ul>
+          <li>Relationship-first approach built on trust</li>
+          <li>No pressure tactics, no tricks</li>
+          <li>Clear decisions and professional guidance</li>
+          <li>Conversations that feel right to both sides</li>
+        </ul>
+      </div>
+      <div class="what-card">
+        <h4>CRM Structure &amp; Follow-up</h4>
+        <ul>
+          <li>Build or optimise your CRM from the ground up</li>
+          <li>No lead lost, no follow-up forgotten</li>
+          <li>Structured communication at every stage</li>
+          <li>Clear pipeline that your team actually uses</li>
+        </ul>
+      </div>
+      <div class="what-card">
+        <h4>Full Sales Architecture</h4>
+        <ul>
+          <li>From first contact to long-term client relationship</li>
+          <li>Your team knows what happens, when, and why</li>
+          <li>Predictable process that scales with you</li>
+          <li>Built around your offer, your values, your pace</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Fit + invest -->
+    <div class="fit-invest">
+      <div class="fit-card">
+        <h4>Is this a fit?</h4>
+        <ul>
+          <li>You have a proven high-ticket offer</li>
+          <li>You're generating monthly revenue and want to grow it</li>
+          <li>You're willing to invest in structural growth</li>
+          <li>You understand sales as a relationship, not a one-time fix</li>
+        </ul>
+      </div>
+      <div class="invest-card">
+        <h4>How it's structured</h4>
+        <ul>
+          <li>Closing → performance commission</li>
+          <li>Appointment Setting → performance commission</li>
+          <li>CRM optimisation → project-based or hourly</li>
+          <li>Sales architecture → fixed project scope</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- What you gain -->
+    <div class="impact-block">
+      <div class="impact-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div>
+        <h4>Think in impact, not in cost</h4>
+        <ul>
+          <li>Predictable revenue, you know where it comes from</li>
+          <li>No lost leads, no loose ends</li>
+          <li>Stronger conversations, higher conversion</li>
+          <li>Less chasing, more leading</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Process -->
+    <div class="process">
+      <h4>Our process</h4>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-dot">1</div>
+          <p>Initial call to check if we match</p>
+        </div>
+        <div class="process-step">
+          <div class="process-dot">2</div>
+          <p>Impact scan, analysis &amp; alignment</p>
+        </div>
+        <div class="process-step">
+          <div class="process-dot">3</div>
+          <p>Tailored proposal, clear on scope and cost</p>
+        </div>
+        <div class="process-step">
+          <div class="process-dot">4</div>
+          <p>We build the system, you see the results</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-cta">
+      <a href="https://calendly.com/keyane-keyanecc/30min" target="_blank" rel="noopener" class="btn btn-primary">
+        Book a call
+        <svg class="arr" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="Homepage.html" class="btn btn-ghost">← Back to homepage</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="final" id="book">
+  <div class="wrap final-inner">
+    <div class="section-label" style="display:inline-block;">A 30-minute conversation</div>
+    <h2>Book your <em>free call.</em></h2>
+    <div style="display:flex;gap:8px;margin:8px 0 24px;justify-content:center;" aria-hidden="true">
+      <span style="width:32px;height:4px;border-radius:2px;background:var(--leaf);"></span>
+      <span style="width:32px;height:4px;border-radius:2px;background:var(--sun);"></span>
+      <span style="width:32px;height:4px;border-radius:2px;background:var(--coral);"></span>
+    </div>
+    <p>No pitch, no pressure. Bring whatever you're sitting with and we'll listen. If we're a fit, we'll say so. If we're not, we'll point you somewhere that is.</p>
+    <div class="cta-row">
+      <a href="https://tickettoimpact.com/contact/" class="btn btn-primary">
+        Find a time
+        <svg class="arr" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="/cdn-cgi/l/email-protection#6d04030b022d19040e060819190204001d0c0e19430e0200" class="btn btn-ghost">Or send a note</a>
+    </div>
+    <div class="final-meta">
+      <span><span class="dot"></span>Replies within 24 hours</span>
+      <span><span class="dot"></span>English · Nederlands · Português</span>
+      <span><span class="dot"></span>Remote &amp; in-person, Algarve</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <div class="logo" style="color:var(--paper); margin-bottom:16px;">
+        <span class="logo-mark" style="filter:drop-shadow(0 0 0.5px rgba(255,255,255,.2));"></span>
+        <span class="logo-text">
+          <span class="l1" style="color:var(--paper);">Ticket to Impact</span>
+          <span class="l2" style="color:rgba(251,246,234,.5);">Algarve · Est. 2021</span>
+        </span>
+      </div>
+      <p>Family-run business support for purpose-driven entrepreneurs. Based in the Algarve, working anywhere people show up honestly.</p>
+    </div>
+    <div>
+      <h4>How we help</h4>
+      <ul>
+        <li><a href="#think-sidestream">Think Sidestream</a></li>
+        <li><a href="#business-hub">The Business Hub</a></li>
+        <li><a href="#high-ticket-sales">High Ticket Sales</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="Homepage.html#story">Our story</a></li>
+        <li><a href="Homepage.html#testimonials">Voices</a></li>
+        <li><a href="algemene-voorwaarden.html">Terms &amp; conditions</a></li>
+        <li><a href="privacyverklaring.html">Privacy statement</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Say hi</h4>
+      <ul>
+        <li><a href="/cdn-cgi/l/email-protection#d8b1b6beb798acb1bbb3bdacacb7b1b5a8b9bbacf6bbb7b5"><span class="__cf_email__" data-cfemail="543d3a323b14203d373f3120203b3d39243537207a373b39">[email&#160;protected]</span></a></li>
+        <li><a href="https://www.instagram.com/ticket.to.impact">Instagram</a></li>
+        <li><a href="https://calendly.com/keyane-keyanecc/30min" target="_blank" rel="noopener">Book a call →</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-base">
+    <span>© 2026 Ticket to Impact · Loulé, Portugal</span>
+    <span class="foot-legal"><a href="algemene-voorwaarden.html">Terms &amp; conditions</a> · <a href="privacyverklaring.html">Privacy statement</a></span>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>

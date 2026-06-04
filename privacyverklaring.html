@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Privacyverklaring · Ticket to Impact</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f1ead7; --bg-soft:#e6dcc2; --paper:#faf5e8;
+    --ink:#243524; --ink-soft:#44503f; --ink-mute:#6b7563;
+    --leaf:#5a9a5a; --leaf-deep:#3f7a44;
+    --sun:#f0a050; --sun-deep:#e07346; --coral:#ec6a4a;
+    --accent:var(--sun-deep); --accent-deep:var(--coral);
+    --line:rgba(36,53,36,0.16); --line-soft:rgba(36,53,36,0.08);
+    --serif:"Cormorant Garamond","Cormorant",Georgia,"Times New Roman",serif;
+    --sans:"DM Sans",ui-sans-serif,system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  }
+  *,*::before,*::after{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background:var(--accent); color:var(--paper); }
+  .wrap{ width:min(1240px,92vw); margin:0 auto; }
+
+  .nav{ position:sticky; top:0; z-index:50; background:rgba(244,236,218,.82); backdrop-filter:blur(14px) saturate(140%); -webkit-backdrop-filter:blur(14px) saturate(140%); border-bottom:1px solid var(--line-soft); }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; height:72px; }
+  .logo{ display:flex; align-items:center; gap:12px; font-family:var(--sans); font-weight:500; font-size:16px; color:var(--ink); line-height:1.05; }
+  .logo-mark{ width:38px; height:38px; flex:0 0 38px; background-image:url("photos/logo.png"); background-size:contain; background-repeat:no-repeat; background-position:center; }
+  .logo-text{ display:flex; flex-direction:column; gap:1px; }
+  .logo-text .l1{ font-weight:600; }
+  .logo-text .l2{ font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-mute); }
+  .nav-links{ display:flex; align-items:center; gap:32px; }
+  .nav-links a{ font-size:14px; color:var(--ink-soft); transition:color .2s ease; }
+  .nav-links a:hover{ color:var(--accent-deep); }
+  .nav-cta{ display:inline-flex; align-items:center; gap:8px; padding:11px 18px; border-radius:10px; background:var(--ink); color:var(--paper); font-size:13.5px; font-weight:500; transition:background .2s ease, transform .2s ease; }
+  .nav-cta:hover{ background:#172417; transform:translateY(-1px); }
+  .nav-cta .dot{ width:7px; height:7px; border-radius:50%; background:linear-gradient(180deg,var(--sun) 0%,var(--coral) 100%); box-shadow:0 0 0 3px rgba(240,160,80,.25); }
+
+  .legal-hero{ background:var(--paper); border-bottom:1px solid var(--line-soft); padding:80px 0 56px; position:relative; overflow:hidden; }
+  .legal-hero::before{ content:""; position:absolute; top:-80px; right:-120px; width:340px; height:340px; background:radial-gradient(circle,rgba(90,154,90,.16) 0%,rgba(90,154,90,0) 60%); pointer-events:none; }
+  .crumbs{ display:flex; align-items:center; gap:10px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-mute); margin-bottom:22px; }
+  .crumbs a:hover{ color:var(--accent-deep); }
+  .crumbs .sep{ width:14px; height:1px; background:var(--ink-mute); }
+  .legal-hero h1{ font-family:var(--serif); font-weight:500; font-size:clamp(38px,5vw,64px); line-height:1.04; letter-spacing:-0.02em; margin:0; color:var(--ink); }
+  .legal-hero .sub{ margin-top:16px; font-size:14px; color:var(--ink-mute); }
+  .legal-hero .meta{ margin-top:18px; display:flex; gap:8px; }
+  .legal-hero .meta span{ width:36px; height:4px; border-radius:2px; }
+  .legal-hero .meta span:nth-child(1){ background:var(--leaf); }
+  .legal-hero .meta span:nth-child(2){ background:var(--sun); }
+  .legal-hero .meta span:nth-child(3){ background:var(--coral); }
+
+  .doc{ padding:72px 0 100px; }
+  .doc-inner{ display:grid; grid-template-columns:240px 1fr; gap:64px; align-items:start; }
+  .toc{ position:sticky; top:104px; font-size:13.5px; }
+  .toc h4{ font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-mute); margin:0 0 16px; font-weight:600; }
+  .toc ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
+  .toc a{ color:var(--ink-soft); line-height:1.35; display:block; transition:color .2s ease; }
+  .toc a:hover{ color:var(--accent-deep); }
+
+  .body{ max-width:680px; }
+  .body .intro{ font-family:var(--serif); font-size:clamp(20px,1.8vw,24px); line-height:1.5; color:var(--ink); margin:0 0 40px; }
+  article.art{ padding-top:40px; margin-top:40px; border-top:1px solid var(--line-soft); scroll-margin-top:96px; }
+  article.art:first-of-type{ border-top:0; margin-top:0; padding-top:0; }
+  article.art h2{ font-family:var(--serif); font-weight:500; font-size:26px; line-height:1.15; letter-spacing:-0.01em; margin:0 0 18px; color:var(--ink); display:flex; gap:14px; align-items:baseline; }
+  article.art h2 .n{ font-family:var(--sans); font-size:12px; font-weight:600; letter-spacing:.06em; color:var(--leaf-deep); background:var(--paper); border:1px solid var(--line); border-radius:7px; padding:4px 9px; flex:0 0 auto; }
+  .body p{ color:var(--ink-soft); font-size:15.5px; line-height:1.7; margin:0 0 16px; }
+  .body ul.bullets{ list-style:none; margin:6px 0 16px; padding:0; }
+  .body ul.bullets li{ position:relative; padding-left:22px; margin-bottom:9px; color:var(--ink-soft); font-size:15.5px; line-height:1.6; }
+  .body ul.bullets li::before{ content:""; position:absolute; left:2px; top:10px; width:6px; height:6px; border-radius:50%; background:var(--leaf); }
+  .body strong{ color:var(--ink); font-weight:600; }
+  .contact-card{ background:var(--paper); border:1px solid var(--line-soft); border-radius:16px; padding:26px 28px; }
+  .contact-card .name{ font-family:var(--serif); font-size:22px; font-weight:500; color:var(--ink); margin-bottom:12px; }
+  .contact-card .row{ font-size:15px; color:var(--ink-soft); margin-bottom:7px; }
+  .contact-card a{ color:var(--sun-deep); }
+  .contact-card a:hover{ color:var(--coral); }
+  .callout{ margin-top:44px; background:var(--paper); border:1px solid var(--line-soft); border-radius:16px; padding:28px 30px; }
+  .callout p{ margin:0; font-family:var(--serif); font-size:19px; line-height:1.5; color:var(--ink); }
+  .body .updated{ margin-top:28px; font-size:13.5px; color:var(--ink-mute); }
+
+  footer{ background:var(--ink); color:rgba(251,246,234,.65); padding:56px 0 32px; }
+  .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:48px; align-items:start; }
+  .foot-grid h4{ font-family:var(--sans); font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:rgba(251,246,234,.5); margin:0 0 18px; font-weight:500; }
+  .foot-grid ul{ list-style:none; padding:0; margin:0; }
+  .foot-grid li{ margin-bottom:10px; font-size:14px; }
+  .foot-grid a:hover{ color:var(--paper); }
+  .foot-brand .logo{ color:var(--paper); margin-bottom:16px; }
+  .foot-brand p{ font-size:14px; line-height:1.6; color:rgba(251,246,234,.55); max-width:32ch; }
+  .foot-base{ margin-top:56px; padding-top:24px; border-top:1px solid rgba(251,246,234,.1); display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:rgba(251,246,234,.4); }
+  .foot-base a:hover{ color:var(--paper); }
+
+  @media (max-width:900px){
+    .nav-links{ display:none; }
+    .doc-inner{ grid-template-columns:1fr; gap:0; }
+    .toc{ display:none; }
+    .foot-grid{ grid-template-columns:1fr 1fr; gap:36px; }
+    .foot-base{ flex-direction:column; gap:10px; }
+    .legal-hero{ padding:56px 0 44px; }
+    .doc{ padding:52px 0 80px; }
+  }
+  @media (max-width:520px){ .foot-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="Homepage.html" class="logo" aria-label="Ticket to Impact home">
+      <span class="logo-mark" role="img" aria-label="Ticket to Impact logo"></span>
+      <span class="logo-text"><span class="l1">Ticket to Impact</span><span class="l2">Algarve · Est. 2021</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="Homepage.html#how">Hoe wij werken</a>
+      <a href="Homepage.html#story">Ons verhaal</a>
+      <a href="Homepage.html#testimonials">Stemmen</a>
+    </nav>
+    <a href="https://calendly.com/keyane-keyanecc/30min" target="_blank" rel="noopener" class="nav-cta"><span class="dot" aria-hidden="true"></span><span>Plan een gesprek</span></a>
+  </div>
+</header>
+
+<section class="legal-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="Homepage.html">Home</a><span class="sep"></span><span>Privacyverklaring</span></div>
+    <h1>Privacyverklaring</h1>
+    <div class="sub">Versie: januari 2026</div>
+    <div class="meta" aria-hidden="true"><span></span><span></span><span></span></div>
+  </div>
+</section>
+
+<section class="doc">
+  <div class="wrap doc-inner">
+    <aside class="toc" aria-label="Inhoud">
+      <h4>Inhoud</h4>
+      <ul>
+        <li><a href="#art-1">1 · Contactgegevens</a></li>
+        <li><a href="#art-2">2 · Welke gegevens</a></li>
+        <li><a href="#art-3">3 · Doeleinden</a></li>
+        <li><a href="#art-4">4 · Grondslagen</a></li>
+        <li><a href="#art-5">5 · Cookies</a></li>
+        <li><a href="#art-6">6 · Beveiliging &amp; bewaartermijn</a></li>
+        <li><a href="#art-7">7 · Delen met derden</a></li>
+        <li><a href="#art-8">8 · Uw rechten</a></li>
+        <li><a href="#art-9">9 · Wijzigingen</a></li>
+      </ul>
+    </aside>
+
+    <div class="body">
+      <p class="intro">Bij Ticket To Impact hechten we veel waarde aan de privacy van onze opdrachtgevers en websitebezoekers. In deze privacyverklaring leggen we uit welke persoonsgegevens we verzamelen, hoe we deze verwerken en beveiligen, en welke rechten u heeft met betrekking tot uw gegevens.</p>
+
+      <article class="art" id="art-1">
+        <h2><span class="n">01</span>Contactgegevens</h2>
+        <div class="contact-card">
+          <div class="name">Ticket To Impact</div>
+          <div class="row">Oranje Nassaustraat 28, 6372 CJ Landgraaf, Netherlands</div>
+          <div class="row">KvK-nummer: 74534726</div>
+          <div class="row">E-mail: <a href="/cdn-cgi/l/email-protection#147d7a727b54607d777f7160607b7d79647577603a777b79"><span class="__cf_email__" data-cfemail="10797e767f506479737b7564647f797d607173643e737f7d">[email&#160;protected]</span></a></div>
+          <div class="row">Website: <a href="https://www.tickettoimpact.com">www.tickettoimpact.com</a></div>
+        </div>
+      </article>
+
+      <article class="art" id="art-2">
+        <h2><span class="n">02</span>Welke persoonsgegevens verzamelen wij?</h2>
+        <p>Wij verwerken de volgende persoonsgegevens, afhankelijk van uw interactie met ons:</p>
+        <ul class="bullets">
+          <li>Naam en bedrijfsgegevens</li>
+          <li>Adresgegevens</li>
+          <li>E-mailadres</li>
+          <li>Telefoonnummer</li>
+          <li>Betaal- en factuurgegevens</li>
+          <li>IP-adres en websitegedrag (via cookies)</li>
+        </ul>
+      </article>
+
+      <article class="art" id="art-3">
+        <h2><span class="n">03</span>Doeleinden van de gegevensverwerking</h2>
+        <p>Wij verwerken persoonsgegevens uitsluitend voor de volgende doeleinden:</p>
+        <ul class="bullets">
+          <li>Het uitvoeren van overeenkomsten met onze opdrachtgevers.</li>
+          <li>Het onderhouden van contact via e-mail, telefoon of het contactformulier.</li>
+          <li>Het verzenden van facturen en betalingsherinneringen.</li>
+          <li>Het verbeteren van onze website en diensten door middel van analytische tools zoals Google Analytics.</li>
+          <li>Het voldoen aan wettelijke verplichtingen.</li>
+        </ul>
+      </article>
+
+      <article class="art" id="art-4">
+        <h2><span class="n">04</span>Grondslagen voor gegevensverwerking</h2>
+        <p>Wij verwerken persoonsgegevens alleen wanneer dit noodzakelijk is op basis van:</p>
+        <ul class="bullets">
+          <li>De uitvoering van een overeenkomst.</li>
+          <li>Een wettelijke verplichting.</li>
+          <li>Een gerechtvaardigd belang (zoals marketing of verbetering van onze dienstverlening).</li>
+          <li>Uw uitdrukkelijke toestemming, indien vereist.</li>
+        </ul>
+      </article>
+
+      <article class="art" id="art-5">
+        <h2><span class="n">05</span>Cookies en websiteanalyse</h2>
+        <p>Onze website maakt gebruik van cookies om de gebruikservaring te optimaliseren. Cookies zijn kleine tekstbestanden die op uw apparaat worden geplaatst. Wij gebruiken:</p>
+        <ul class="bullets">
+          <li><strong>Functionele cookies:</strong> noodzakelijk voor het goed functioneren van de website.</li>
+          <li><strong>Analytische cookies</strong> (zoals Google Analytics): om inzicht te krijgen in het gebruik van onze website.</li>
+        </ul>
+        <p>Indien gewenst kunt u cookies uitschakelen via de instellingen van uw browser.</p>
+      </article>
+
+      <article class="art" id="art-6">
+        <h2><span class="n">06</span>Beveiliging en bewaartermijn</h2>
+        <p>Wij nemen passende technische en organisatorische maatregelen om uw gegevens te beschermen tegen verlies, misbruik of ongeoorloofde toegang. Persoonsgegevens worden niet langer bewaard dan noodzakelijk voor de hierboven genoemde doeleinden of zoals wettelijk verplicht.</p>
+      </article>
+
+      <article class="art" id="art-7">
+        <h2><span class="n">07</span>Delen van gegevens met derden</h2>
+        <p>Wij delen uw gegevens niet met derden, tenzij dit noodzakelijk is voor de uitvoering van onze diensten of om te voldoen aan wettelijke verplichtingen. Denk hierbij aan:</p>
+        <ul class="bullets">
+          <li>Boekhoudsoftware en betalingsverwerkers voor facturatie.</li>
+          <li>Overheidsinstanties indien wettelijk verplicht.</li>
+          <li>Verwerkers die namens ons diensten uitvoeren, met wie wij verwerkersovereenkomsten sluiten.</li>
+        </ul>
+      </article>
+
+      <article class="art" id="art-8">
+        <h2><span class="n">08</span>Uw rechten</h2>
+        <p>U heeft het recht om:</p>
+        <ul class="bullets">
+          <li>Inzage te vragen in uw persoonsgegevens.</li>
+          <li>Uw gegevens te laten corrigeren of verwijderen.</li>
+          <li>Bezwaar te maken tegen bepaalde vormen van verwerking.</li>
+          <li>Uw gegevens over te laten dragen aan een andere partij (dataportabiliteit).</li>
+          <li>Uw toestemming in te trekken (indien van toepassing).</li>
+        </ul>
+        <p>Wilt u gebruik maken van deze rechten? Stuur dan een e-mail naar <a href="/cdn-cgi/l/email-protection#5b32353d341b2f3238303e2f2f3432362b3a382f75383436" style="color:var(--sun-deep);"><span class="__cf_email__" data-cfemail="dcb5b2bab39ca8b5bfb7b9a8a8b3b5b1acbdbfa8f2bfb3b1">[email&#160;protected]</span></a>. Wij reageren binnen 14 dagen op uw verzoek.</p>
+      </article>
+
+      <article class="art" id="art-9">
+        <h2><span class="n">09</span>Wijzigingen in deze privacyverklaring</h2>
+        <p>Wij behouden ons het recht voor om deze privacyverklaring te wijzigen. De meest actuele versie is altijd te vinden op onze website.</p>
+        <div class="callout"><p>Door gebruik te maken van onze diensten of website, gaat u akkoord met deze privacyvoorwaarden.</p></div>
+        <p class="updated">Laatst bijgewerkt: januari 2026</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <div class="logo" style="color:var(--paper);">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span class="logo-text"><span class="l1" style="color:var(--paper);">Ticket to Impact</span><span class="l2" style="color:rgba(251,246,234,.5);">Algarve · Est. 2021</span></span>
+      </div>
+      <p>Familiebedrijf in ondernemersbegeleiding voor mensen met een missie. Gevestigd in de Algarve, werkzaam overal waar mensen zich eerlijk laten zien.</p>
+    </div>
+    <div>
+      <h4>Hoe wij helpen</h4>
+      <ul>
+        <li><a href="services.html#think-sidestream">Think Sidestream</a></li>
+        <li><a href="services.html#business-hub">The Business Hub</a></li>
+        <li><a href="services.html#high-ticket-sales">High Ticket Sales</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Bedrijf</h4>
+      <ul>
+        <li><a href="Homepage.html#story">Ons verhaal</a></li>
+        <li><a href="Homepage.html#testimonials">Stemmen</a></li>
+        <li><a href="algemene-voorwaarden.html">Algemene voorwaarden</a></li>
+        <li><a href="privacyverklaring.html">Privacyverklaring</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Zeg hallo</h4>
+      <ul>
+        <li><a href="/cdn-cgi/l/email-protection#86efe8e0e9c6f2efe5ede3f2f2e9efebf6e7e5f2a8e5e9eb"><span class="__cf_email__" data-cfemail="c5acaba3aa85b1aca6aea0b1b1aaaca8b5a4a6b1eba6aaa8">[email&#160;protected]</span></a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="https://calendly.com/keyane-keyanecc/30min" target="_blank" rel="noopener">Plan een gesprek →</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-base">
+    <span>© 2026 Ticket to Impact · Loulé, Portugal</span>
+    <span><a href="algemene-voorwaarden.html">Algemene voorwaarden</a> · <a href="privacyverklaring.html">Privacyverklaring</a></span>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>

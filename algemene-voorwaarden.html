@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Algemene Voorwaarden · Ticket to Impact</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f1ead7; --bg-soft:#e6dcc2; --paper:#faf5e8;
+    --ink:#243524; --ink-soft:#44503f; --ink-mute:#6b7563;
+    --leaf:#5a9a5a; --leaf-deep:#3f7a44;
+    --sun:#f0a050; --sun-deep:#e07346; --coral:#ec6a4a;
+    --accent:var(--sun-deep); --accent-deep:var(--coral);
+    --line:rgba(36,53,36,0.16); --line-soft:rgba(36,53,36,0.08);
+    --serif:"Cormorant Garamond","Cormorant",Georgia,"Times New Roman",serif;
+    --sans:"DM Sans",ui-sans-serif,system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  }
+  *,*::before,*::after{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background:var(--accent); color:var(--paper); }
+  .wrap{ width:min(1240px,92vw); margin:0 auto; }
+
+  /* nav */
+  .nav{ position:sticky; top:0; z-index:50; background:rgba(244,236,218,.82); backdrop-filter:blur(14px) saturate(140%); -webkit-backdrop-filter:blur(14px) saturate(140%); border-bottom:1px solid var(--line-soft); }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; height:72px; }
+  .logo{ display:flex; align-items:center; gap:12px; font-family:var(--sans); font-weight:500; font-size:16px; color:var(--ink); line-height:1.05; }
+  .logo-mark{ width:38px; height:38px; flex:0 0 38px; background-image:url("photos/logo.png"); background-size:contain; background-repeat:no-repeat; background-position:center; }
+  .logo-text{ display:flex; flex-direction:column; gap:1px; }
+  .logo-text .l1{ font-weight:600; }
+  .logo-text .l2{ font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-mute); }
+  .nav-links{ display:flex; align-items:center; gap:32px; }
+  .nav-links a{ font-size:14px; color:var(--ink-soft); transition:color .2s ease; }
+  .nav-links a:hover{ color:var(--accent-deep); }
+  .nav-cta{ display:inline-flex; align-items:center; gap:8px; padding:11px 18px; border-radius:10px; background:var(--ink); color:var(--paper); font-size:13.5px; font-weight:500; transition:background .2s ease, transform .2s ease; }
+  .nav-cta:hover{ background:#172417; transform:translateY(-1px); }
+  .nav-cta .dot{ width:7px; height:7px; border-radius:50%; background:linear-gradient(180deg,var(--sun) 0%,var(--coral) 100%); box-shadow:0 0 0 3px rgba(240,160,80,.25); }
+
+  /* hero band */
+  .legal-hero{ background:var(--paper); border-bottom:1px solid var(--line-soft); padding:80px 0 56px; position:relative; overflow:hidden; }
+  .legal-hero::before{ content:""; position:absolute; top:-80px; right:-120px; width:340px; height:340px; background:radial-gradient(circle,rgba(240,160,80,.16) 0%,rgba(240,160,80,0) 60%); pointer-events:none; }
+  .crumbs{ display:flex; align-items:center; gap:10px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-mute); margin-bottom:22px; }
+  .crumbs a:hover{ color:var(--accent-deep); }
+  .crumbs .sep{ width:14px; height:1px; background:var(--ink-mute); }
+  .legal-hero h1{ font-family:var(--serif); font-weight:500; font-size:clamp(38px,5vw,64px); line-height:1.04; letter-spacing:-0.02em; margin:0; color:var(--ink); }
+  .legal-hero .meta{ margin-top:18px; display:flex; gap:8px; }
+  .legal-hero .meta span{ width:36px; height:4px; border-radius:2px; }
+  .legal-hero .meta span:nth-child(1){ background:var(--leaf); }
+  .legal-hero .meta span:nth-child(2){ background:var(--sun); }
+  .legal-hero .meta span:nth-child(3){ background:var(--coral); }
+
+  /* document layout */
+  .doc{ padding:72px 0 100px; }
+  .doc-inner{ display:grid; grid-template-columns:240px 1fr; gap:64px; align-items:start; }
+  .toc{ position:sticky; top:104px; font-size:13.5px; }
+  .toc h4{ font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-mute); margin:0 0 16px; font-weight:600; }
+  .toc ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
+  .toc a{ color:var(--ink-soft); line-height:1.35; display:block; transition:color .2s ease; }
+  .toc a:hover{ color:var(--accent-deep); }
+  .toc li{ counter-increment:toc; }
+
+  .body{ max-width:680px; }
+  .body .intro{ font-family:var(--serif); font-size:clamp(20px,1.8vw,24px); line-height:1.5; color:var(--ink); margin:0 0 8px; }
+  .body .lead-meta{ font-size:13.5px; color:var(--ink-mute); margin:0 0 40px; }
+  article.art{ padding-top:40px; margin-top:40px; border-top:1px solid var(--line-soft); scroll-margin-top:96px; }
+  article.art:first-of-type{ border-top:0; margin-top:0; padding-top:0; }
+  article.art h2{ font-family:var(--serif); font-weight:500; font-size:26px; line-height:1.15; letter-spacing:-0.01em; margin:0 0 18px; color:var(--ink); display:flex; gap:14px; align-items:baseline; }
+  article.art h2 .n{ font-family:var(--sans); font-size:12px; font-weight:600; letter-spacing:.06em; color:var(--sun-deep); background:var(--paper); border:1px solid var(--line); border-radius:7px; padding:4px 9px; flex:0 0 auto; }
+  .body p{ color:var(--ink-soft); font-size:15.5px; line-height:1.7; margin:0 0 16px; }
+  .body ol.clauses{ list-style:none; counter-reset:cl; margin:0; padding:0; }
+  .body ol.clauses>li{ counter-increment:cl; position:relative; padding-left:38px; margin-bottom:16px; color:var(--ink-soft); font-size:15.5px; line-height:1.7; }
+  .body ol.clauses>li::before{ content:counter(cl); position:absolute; left:0; top:1px; width:24px; height:24px; border-radius:50%; background:var(--bg-soft); color:var(--ink); font-family:var(--sans); font-size:12px; font-weight:600; display:flex; align-items:center; justify-content:center; }
+  .body ul.bullets{ list-style:none; margin:6px 0 16px; padding:0; }
+  .body ul.bullets li{ position:relative; padding-left:22px; margin-bottom:9px; color:var(--ink-soft); font-size:15.5px; line-height:1.6; }
+  .body ul.bullets li::before{ content:""; position:absolute; left:2px; top:10px; width:6px; height:6px; border-radius:50%; background:var(--leaf); }
+  .body .defs{ display:flex; flex-direction:column; gap:14px; margin:8px 0 4px; }
+  .body .defs .def{ padding-left:16px; border-left:2px solid var(--line); }
+  .body .defs .term{ font-weight:600; color:var(--ink); }
+  .body strong{ color:var(--ink); font-weight:600; }
+  .callout{ margin-top:44px; background:var(--paper); border:1px solid var(--line-soft); border-radius:16px; padding:28px 30px; }
+  .callout p{ margin:0; font-family:var(--serif); font-size:19px; line-height:1.5; color:var(--ink); }
+  .sign{ margin-top:40px; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .sign .card{ background:var(--paper); border:1px solid var(--line-soft); border-radius:14px; padding:24px; }
+  .sign h4{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-mute); margin:0 0 14px; font-weight:600; }
+  .sign .row{ font-size:14px; color:var(--ink-soft); margin-bottom:10px; }
+  .sign .row b{ color:var(--ink); font-weight:600; }
+  .sign .line{ margin-top:18px; height:1px; background:var(--line); }
+  .sign .line-label{ font-size:12px; color:var(--ink-mute); margin-top:6px; }
+
+  /* footer */
+  footer{ background:var(--ink); color:rgba(251,246,234,.65); padding:56px 0 32px; }
+  .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:48px; align-items:start; }
+  .foot-grid h4{ font-family:var(--sans); font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:rgba(251,246,234,.5); margin:0 0 18px; font-weight:500; }
+  .foot-grid ul{ list-style:none; padding:0; margin:0; }
+  .foot-grid li{ margin-bottom:10px; font-size:14px; }
+  .foot-grid a:hover{ color:var(--paper); }
+  .foot-brand .logo{ color:var(--paper); margin-bottom:16px; }
+  .foot-brand p{ font-size:14px; line-height:1.6; color:rgba(251,246,234,.55); max-width:32ch; }
+  .foot-base{ margin-top:56px; padding-top:24px; border-top:1px solid rgba(251,246,234,.1); display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:rgba(251,246,234,.4); }
+  .foot-base a:hover{ color:var(--paper); }
+
+  @media (max-width:900px){
+    .nav-links{ display:none; }
+    .doc-inner{ grid-template-columns:1fr; gap:0; }
+    .toc{ display:none; }
+    .sign{ grid-template-columns:1fr; }
+    .foot-grid{ grid-template-columns:1fr 1fr; gap:36px; }
+    .foot-base{ flex-direction:column; gap:10px; }
+    .legal-hero{ padding:56px 0 44px; }
+    .doc{ padding:52px 0 80px; }
+  }
+  @media (max-width:520px){ .foot-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="Homepage.html" class="logo" aria-label="Ticket to Impact home">
+      <span class="logo-mark" role="img" aria-label="Ticket to Impact logo"></span>
+      <span class="logo-text"><span class="l1">Ticket to Impact</span><span class="l2">Algarve · Est. 2021</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="Homepage.html#how">Hoe wij werken</a>
+      <a href="Homepage.html#story">Ons verhaal</a>
+      <a href="Homepage.html#testimonials">Stemmen</a>
+    </nav>
+    <a href="https://calendly.com/keyane-keyanecc/30min" target="_blank" rel="noopener" class="nav-cta"><span class="dot" aria-hidden="true"></span><span>Plan een gesprek</span></a>
+  </div>
+</header>
+
+<section class="legal-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="Homepage.html">Home</a><span class="sep"></span><span>Algemene Voorwaarden</span></div>
+    <h1>Algemene Voorwaarden</h1>
+    <div class="meta" aria-hidden="true"><span></span><span></span><span></span></div>
+  </div>
+</section>
+
+<section class="doc">
+  <div class="wrap doc-inner">
+    <aside class="toc" aria-label="Inhoud">
+      <h4>Inhoud</h4>
+      <ul>
+        <li><a href="#art-1">1 · Definities</a></li>
+        <li><a href="#art-2">2 · Toepasselijkheid</a></li>
+        <li><a href="#art-3">3 · Diensten en tarieven</a></li>
+        <li><a href="#art-4">4 · Offertes en overeenkomsten</a></li>
+        <li><a href="#art-5">5 · Betaling</a></li>
+        <li><a href="#art-6">6 · Annulering en beëindiging</a></li>
+        <li><a href="#art-7">7 · Aansprakelijkheid</a></li>
+        <li><a href="#art-8">8 · Overmacht</a></li>
+        <li><a href="#art-9">9 · Intellectuele eigendom</a></li>
+        <li><a href="#art-10">10 · Persoonsgegevens en privacy</a></li>
+        <li><a href="#art-11">11 · Klachtenregeling</a></li>
+        <li><a href="#art-12">12 · Toepasselijk recht</a></li>
+        <li><a href="#art-13">13 · Uitbesteding van werkzaamheden</a></li>
+      </ul>
+    </aside>
+
+    <div class="body">
+      <p class="intro">Deze voorwaarden gelden voor alle samenwerkingen met Ticket To Impact, Business Support &amp; Sales.</p>
+      <p class="lead-meta">Ticket To Impact · Oranje Nassaustraat 28, 6372 CJ Landgraaf, Nederland · KvK 74534726</p>
+
+      <article class="art" id="art-1">
+        <h2><span class="n">Art. 1</span>Definities</h2>
+        <p>In deze algemene voorwaarden wordt verstaan onder:</p>
+        <div class="defs">
+          <div class="def"><span class="term">Opdrachtnemer:</span> Ticket To Impact; Business Support &amp; Sales, gevestigd aan Oranje Nassaustraat 28, 6372 CJ Landgraaf, Nederland, KvK 74534726.</div>
+          <div class="def"><span class="term">Opdrachtgever:</span> de natuurlijke of rechtspersoon die een opdracht verstrekt aan Opdrachtnemer.</div>
+          <div class="def"><span class="term">Diensten:</span> alle door Ticket To Impact geleverde werkzaamheden, waaronder high ticket sales, The Business Hub, Think Sidestream, consultancy, projectmanagement, salesondersteuning, business support, funnelanalyse, strategie, implementatie en begeleiding.</div>
+          <div class="def"><span class="term">Overeenkomst:</span> iedere afspraak tussen Opdrachtgever en Opdrachtnemer, schriftelijk of digitaal vastgelegd.</div>
+          <div class="def"><span class="term">Traject:</span> een gefaseerde dienstverlening binnen een vooraf overeengekomen periode.</div>
+          <div class="def"><span class="term">Digitale inhoud:</span> gegevens die in digitale vorm worden geproduceerd en geleverd.</div>
+          <div class="def"><span class="term">Annulering:</span> het beëindigen van de overeenkomst vóór of tijdens de uitvoering daarvan.</div>
+        </div>
+      </article>
+
+      <article class="art" id="art-2">
+        <h2><span class="n">Art. 2</span>Toepasselijkheid</h2>
+        <ol class="clauses">
+          <li>Deze algemene voorwaarden zijn van toepassing op alle overeenkomsten tussen Opdrachtnemer en Opdrachtgever.</li>
+          <li>Afwijkingen van deze voorwaarden zijn alleen geldig indien schriftelijk overeengekomen.</li>
+          <li>Indien bepaalde voorwaarden in strijd zijn met wettelijke bepalingen, blijven de overige voorwaarden onverminderd van kracht.</li>
+        </ol>
+      </article>
+
+      <article class="art" id="art-3">
+        <h2><span class="n">Art. 3</span>Diensten en tarieven</h2>
+        <ol class="clauses">
+          <li>Ticket To Impact biedt de volgende diensten aan:
+            <ul class="bullets">
+              <li><strong>High Ticket Sales</strong></li>
+              <li><strong>The Business Hub</strong></li>
+              <li><strong>Think Sidestream</strong></li>
+            </ul>
+          </li>
+          <li>Alle tarieven zijn exclusief BTW.</li>
+          <li>Ticket To Impact behoudt zich het recht voor om prijzen en diensten aan te passen. Eventuele wijzigingen worden vooraf gecommuniceerd.</li>
+        </ol>
+      </article>
+
+      <article class="art" id="art-4">
+        <h2><span class="n">Art. 4</span>Offertes en overeenkomsten</h2>
+        <ol class="clauses">
+          <li>Offertes zijn vrijblijvend en 14 dagen geldig, tenzij anders vermeld.</li>
+          <li>De overeenkomst komt tot stand na schriftelijke bevestiging van de Opdracht Tot Dienstverlening door Opdrachtgever.</li>
+          <li>Ticket To Impact is niet gebonden aan kennelijke fouten of vergissingen in offertes.</li>
+        </ol>
+      </article>
+
+      <article class="art" id="art-5">
+        <h2><span class="n">Art. 5</span>Betaling</h2>
+        <ol class="clauses">
+          <li>Facturen dienen binnen 14 dagen na factuurdatum te worden voldaan, of zoals afgesproken.</li>
+          <li>Bij niet-tijdige betaling is Opdrachtgever wettelijke rente verschuldigd.</li>
+          <li>Alle kosten die voortvloeien uit niet-betaling komen voor rekening van Opdrachtgever.</li>
+        </ol>
+      </article>
+
+      <article class="art" id="art-6">
+        <h2><span class="n">Art. 6</span>Annulering en beëindiging</h2>
+        <ol class="clauses">
+          <li>Annulering binnen 14 dagen voor de start van de werkzaamheden resulteert in volledige vergoeding van 100%.</li>
+          <li>Annulering vóór deze termijn is kosteloos.</li>
+          <li>Ticket To Impact behoudt zich het recht voor om een overeenkomst te beëindigen bij wanbetaling of andere zwaarwegende redenen.</li>
+        </ol>
+      </article>
+
+      <article class="art" id="art-7">
+        <h2><span class="n">Art. 7</span>Aansprakelijkheid</h2>
+        <ol class="clauses">
+          <li>Ticket To Impact garandeert de kwaliteit van de geleverde diensten, maar er kunnen geen rechten aan worden ontleend.</li>
+          <li>Ticket To Impact is niet aansprakelijk voor schade veroorzaakt door externe factoren buiten haar controle.</li>
+          <li>De aansprakelijkheid van Ticket To Impact is beperkt tot het bedrag dat voor de dienst in rekening is gebracht.</li>
+        </ol>
+      </article>
+
+      <article class="art" id="art-8">
+        <h2><span class="n">Art. 8</span>Overmacht</h2>
+        <ol class="clauses">
+          <li>In geval van overmacht kan Ticket To Impact de opdracht opschorten of annuleren zonder aansprakelijkheid met een Pro Rato clausule. (De tot dan toe en uitsluitend tot dan toe uitgevoerde werkzaamheden worden gefactureerd aan de klant.)</li>
+          <li>Onder overmacht wordt verstaan: ziekte, technische storingen, natuurrampen, pandemieën, overheidsmaatregelen of andere onvoorziene omstandigheden.</li>
+          <li>Ticket To Impact zal Opdrachtgever zo spoedig mogelijk op de hoogte stellen van een situatie van overmacht en eventuele alternatieve oplossingen bespreken.</li>
+        </ol>
+      </article>
+
+      <article class="art" id="art-9">
+        <h2><span class="n">Art. 9</span>Intellectuele eigendom</h2>
+        <ol class="clauses">
+          <li>Alle door Ticket To Impact geleverde diensten en digitale inhoud blijven intellectueel eigendom van Ticket To Impact, tenzij anders overeengekomen.</li>
+          <li>Opdrachtgever mag het geleverde niet kopiëren, verspreiden of gebruiken voor andere doeleinden dan waarvoor het verstrekt is.</li>
+        </ol>
+      </article>
+
+      <article class="art" id="art-10">
+        <h2><span class="n">Art. 10</span>Persoonsgegevens en privacy</h2>
+        <ol class="clauses">
+          <li>Door het aangaan van een overeenkomst geeft Opdrachtgever toestemming voor de verwerking van persoonsgegevens door Ticket To Impact voor administratieve en uitvoerende doeleinden.</li>
+          <li>Ticket To Impact respecteert de privacy van Opdrachtgever en zal persoonsgegevens niet delen met derden zonder expliciete toestemming, tenzij vereist door de wet.</li>
+          <li>Opdrachtgever heeft te allen tijde het recht om inzage te vragen in de opgeslagen persoonsgegevens en verzoeken om verwijdering.</li>
+        </ol>
+      </article>
+
+      <article class="art" id="art-11">
+        <h2><span class="n">Art. 11</span>Klachtenregeling</h2>
+        <ol class="clauses">
+          <li>Klachten over de uitvoering van de overeenkomst dienen binnen 14 dagen na constatering schriftelijk te worden gemeld bij Ticket To Impact.</li>
+          <li>Ticket To Impact streeft ernaar om klachten binnen 14 dagen te behandelen en een passende oplossing te bieden.</li>
+          <li>Indien een klacht niet naar tevredenheid wordt afgehandeld, kunnen partijen het geschil voorleggen aan een onafhankelijke bemiddelaar of de bevoegde rechter.</li>
+        </ol>
+      </article>
+
+      <article class="art" id="art-12">
+        <h2><span class="n">Art. 12</span>Toepasselijk recht en geschillen</h2>
+        <ol class="clauses">
+          <li>Op alle overeenkomsten tussen Ticket To Impact en Opdrachtgever is Nederlands recht van toepassing.</li>
+          <li>Geschillen worden voorgelegd aan de bevoegde rechter in het arrondissement waar Ticket To Impact is gevestigd.</li>
+        </ol>
+        <div class="callout"><p>Door akkoord te gaan met een offerte of dienst van Ticket To Impact verklaart de Opdrachtgever zich akkoord met deze algemene voorwaarden.</p></div>
+      </article>
+
+      <article class="art" id="art-13">
+        <h2><span class="n">Art. 13</span>Uitbesteding van werkzaamheden</h2>
+        <ol class="clauses">
+          <li>Ticket To Impact heeft het recht om werkzaamheden uit de overeenkomst geheel of gedeeltelijk te laten uitvoeren door derden, indien dit naar haar oordeel een goede en zorgvuldige uitvoering van de opdracht bevordert.</li>
+          <li>Indien Ticket To Impact werkzaamheden uitbesteedt, blijft Ticket To Impact volledig verantwoordelijk voor de kwaliteit en correcte uitvoering van de overeengekomen dienstverlening.</li>
+          <li>Ticket To Impact blijft in alle gevallen het enige aanspreekpunt voor Opdrachtgever met betrekking tot de uitvoering van de overeenkomst.</li>
+          <li>Opdrachtgever geeft door akkoord te gaan met deze algemene voorwaarden toestemming voor mogelijke inschakeling van derden.</li>
+        </ol>
+
+        <p style="margin-top:36px;font-weight:600;color:var(--ink);">Aldus overeengekomen en in tweevoud opgemaakt en getekend:</p>
+        <div class="sign">
+          <div class="card">
+            <h4>Ticket To Impact</h4>
+            <div class="row">Vertegenwoordigd door: <b>Florian Moorman</b></div>
+            <div class="row">Datum: [datum]</div>
+            <div class="line"></div>
+            <div class="line-label">Handtekening</div>
+          </div>
+          <div class="card">
+            <h4>Opdrachtgever</h4>
+            <div class="row">Vertegenwoordigd door: [naam]</div>
+            <div class="row">Datum: [datum]</div>
+            <div class="line"></div>
+            <div class="line-label">Handtekening</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <div class="logo" style="color:var(--paper);">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span class="logo-text"><span class="l1" style="color:var(--paper);">Ticket to Impact</span><span class="l2" style="color:rgba(251,246,234,.5);">Algarve · Est. 2021</span></span>
+      </div>
+      <p>Familiebedrijf in ondernemersbegeleiding voor mensen met een missie. Gevestigd in de Algarve, werkzaam overal waar mensen zich eerlijk laten zien.</p>
+    </div>
+    <div>
+      <h4>Hoe wij helpen</h4>
+      <ul>
+        <li><a href="services.html#think-sidestream">Think Sidestream</a></li>
+        <li><a href="services.html#business-hub">The Business Hub</a></li>
+        <li><a href="services.html#high-ticket-sales">High Ticket Sales</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Bedrijf</h4>
+      <ul>
+        <li><a href="Homepage.html#story">Ons verhaal</a></li>
+        <li><a href="Homepage.html#testimonials">Stemmen</a></li>
+        <li><a href="algemene-voorwaarden.html">Algemene voorwaarden</a></li>
+        <li><a href="privacyverklaring.html">Privacyverklaring</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Zeg hallo</h4>
+      <ul>
+        <li><a href="/cdn-cgi/l/email-protection#157c7b737a55617c767e7061617a7c78657476613b767a78"><span class="__cf_email__" data-cfemail="660f08000926120f050d031212090f0b160705124805090b">[email&#160;protected]</span></a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="https://calendly.com/keyane-keyanecc/30min" target="_blank" rel="noopener">Plan een gesprek →</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-base">
+    <span>© 2026 Ticket to Impact · Loulé, Portugal</span>
+    <span><a href="algemene-voorwaarden.html">Algemene voorwaarden</a> · <a href="privacyverklaring.html">Privacyverklaring</a></span>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
