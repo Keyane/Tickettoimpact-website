@@ -211,6 +211,20 @@
     box-shadow: 0 6px 18px -6px rgba(36,53,36,.25);
     z-index: 2;
   }
+  .hero-caption a{
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: rgba(90,154,90,.5);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    cursor: pointer;
+    transition: text-decoration-color .2s ease, color .2s ease;
+  }
+  .hero-caption a:hover{
+    color: var(--leaf-deep);
+    text-decoration-color: var(--leaf-deep);
+    text-decoration-thickness: 2px;
+  }
   .hero-caption .pin{
     width:8px; height:8px; border-radius:50%;
     background: var(--leaf); position:relative; flex:0 0 8px;
