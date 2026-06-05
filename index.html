@@ -317,10 +317,13 @@
     transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
   }
   .step:hover{
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     border-color: var(--line);
-    box-shadow: 0 20px 50px -30px rgba(36,53,36,.35);
+    box-shadow: 0 16px 40px -20px rgba(36,53,36,.22);
   }
+  .step:nth-child(1):hover{ border-color: var(--leaf); }
+  .step:nth-child(2):hover{ border-color: var(--sun); }
+  .step:nth-child(3):hover{ border-color: var(--coral); }
   .step-num{
     position:relative; z-index:1;
     display:inline-flex; align-items:center; gap:10px;
@@ -344,9 +347,13 @@
     margin:0 0 14px; color:var(--ink);
   }
   .step .tagline{
-    font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
-    color:var(--ink-mute); margin-bottom:18px; font-weight:500;
+    font-size:13.5px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:22px; font-weight:500;
   }
+  /* per-card tagline accent colors */
+  .step:nth-child(1) .tagline{ color: var(--leaf-deep); }
+  .step:nth-child(2) .tagline{ color: var(--sun-deep); }
+  .step:nth-child(3) .tagline{ color: var(--coral); }
   .step p{
     color:var(--ink-soft); font-size:15.5px; line-height:1.6; margin:0 0 24px;
   }
@@ -355,8 +362,21 @@
     display:flex; align-items:center; justify-content:space-between;
     font-size:13px; color:var(--ink-mute);
   }
-  .step-foot .more{ color:var(--ink); display:inline-flex; gap:6px; align-items:center; }
-  .step-foot .more:hover{ color:var(--accent-deep); }
+  /* "Read more" ghost button with per-card accent */
+  .step-foot .more{
+    display:inline-flex; align-items:center; gap:6px;
+    padding:6px 14px; border-radius:8px;
+    border:1px solid currentColor;
+    font-size:13px; font-weight:500; letter-spacing:.01em;
+    background:transparent;
+    transition: background .2s ease, color .2s ease;
+  }
+  .step:nth-child(1) .step-foot .more{ color: var(--leaf-deep); }
+  .step:nth-child(2) .step-foot .more{ color: var(--sun-deep); }
+  .step:nth-child(3) .step-foot .more{ color: var(--coral); }
+  .step:nth-child(1) .step-foot .more:hover{ background: var(--leaf); color: var(--paper); }
+  .step:nth-child(2) .step-foot .more:hover{ background: var(--sun-deep); color: var(--paper); }
+  .step:nth-child(3) .step-foot .more:hover{ background: var(--coral); color: var(--paper); }
 
   .progression-caption{
     text-align:center; margin-top:40px;
