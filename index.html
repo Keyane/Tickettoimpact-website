@@ -296,6 +296,10 @@
   .who-inner{
     display:grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items:start;
   }
+  .who-label-prominent{
+    font-size:13px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--leaf-deep); font-weight:600; margin-bottom:18px;
+  }
   .who-copy p{
     font-family: var(--serif);
     font-size: clamp(22px, 2vw, 28px);
@@ -313,6 +317,7 @@
     border:1px solid var(--line);
     background:transparent;
     font-size:13px; color:var(--ink-soft);
+    cursor:default;
     transition: background .2s ease, color .2s ease, border-color .2s ease;
   }
   .tag:hover{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
@@ -323,6 +328,19 @@
   .tag:nth-child(2) .bullet{ background: var(--sun); }
   .tag:nth-child(3) .bullet{ background: var(--leaf-deep); }
   .tag:nth-child(4) .bullet{ background: var(--coral); }
+  /* hover expand zone */
+  .tag-expand{
+    min-height: 52px;
+    margin-top: 20px;
+    display:flex; align-items:center;
+  }
+  .tag-expand-text{
+    font-size:14px; color:var(--ink-mute); line-height:1.6;
+    opacity:0;
+    transition: opacity .3s ease;
+    pointer-events:none;
+  }
+  .tag-expand-text.is-visible{ opacity:1; }
 
   /* ───────── how we work ───────── */
   .how{ background: var(--bg); }
@@ -747,20 +765,28 @@
 <!-- ─────────────── WHO ─────────────── -->
 <section class="who" id="who" data-screen-label="who">
   <div class="wrap who-inner">
-    <div>
-      <div class="section-label" data-i18n="who.label">Who this is for</div>
-      <h2 data-i18n="who.h2" style="font-family:var(--serif); font-weight:500; font-size:clamp(34px,4.2vw,54px); line-height:1.06; letter-spacing:-.018em; margin:0; max-width:14ch;">
-        If any of this sounds familiar, <em style="font-style:normal;color:var(--leaf-deep);font-weight:500;">read on.</em>
-      </h2>
-    </div>
+    <!-- LEFT: body copy + pills -->
     <div class="who-copy">
       <p data-i18n="who.copy">You're juggling a thousand things, none of them moving. You feel the pull to do things <span class="em">differently</span>, more balanced, more intentional, more you. But you can't quite see the next step from where you're standing. <span class="em">That's exactly where we start.</span> Not with a plan, but with a conversation.</p>
       <div class="tags" role="list">
-        <span class="tag" role="listitem"><span class="bullet" aria-hidden="true"></span><span data-i18n="tag.1">Coaches &amp; practitioners</span></span>
-        <span class="tag" role="listitem"><span class="bullet" aria-hidden="true"></span><span data-i18n="tag.2">Sustainable brands</span></span>
-        <span class="tag" role="listitem"><span class="bullet" aria-hidden="true"></span><span data-i18n="tag.3">Holistic entrepreneurs</span></span>
-        <span class="tag" role="listitem"><span class="bullet" aria-hidden="true"></span><span data-i18n="tag.4">Conscious product businesses</span></span>
+        <span class="tag" role="listitem" data-expand="tag-1"><span class="bullet" aria-hidden="true"></span><span data-i18n="tag.1">Hospitality &amp; tourism</span></span>
+        <span class="tag" role="listitem" data-expand="tag-2"><span class="bullet" aria-hidden="true"></span><span data-i18n="tag.2">Coaches &amp; practitioners</span></span>
+        <span class="tag" role="listitem" data-expand="tag-3"><span class="bullet" aria-hidden="true"></span><span data-i18n="tag.3">Conscious brands</span></span>
+        <span class="tag" role="listitem" data-expand="tag-4"><span class="bullet" aria-hidden="true"></span><span data-i18n="tag.4">Founders &amp; startups</span></span>
       </div>
+      <div class="tag-expand" aria-live="polite">
+        <p class="tag-expand-text" id="tag-1" data-i18n="tag.1.expand">Vakantieverhuur, appartementen, B&amp;B's, hotels, restaurants, bars, cafés, horeca, venues, retreat centra, toeristische activiteiten, ervaringen &amp; tours</p>
+        <p class="tag-expand-text" id="tag-2" data-i18n="tag.2.expand">Coaches, therapeuten, holistische begeleiders, trainers en energetisch werkers</p>
+        <p class="tag-expand-text" id="tag-3" data-i18n="tag.3.expand">Sustainable brands, conscious product businesses, purpose-driven creatives, impact-gedreven ondernemers</p>
+        <p class="tag-expand-text" id="tag-4" data-i18n="tag.4.expand">Beginnende ondernemers, startups, freelancers en bedrijven</p>
+      </div>
+    </div>
+    <!-- RIGHT: label + heading -->
+    <div>
+      <div class="who-label-prominent" data-i18n="who.label">Is this for me?</div>
+      <h2 data-i18n="who.h2" style="font-family:var(--serif); font-weight:500; font-size:clamp(34px,4.2vw,54px); line-height:1.06; letter-spacing:-.018em; margin:0; max-width:14ch;">
+        If any of this sounds familiar, <em style="font-style:normal;color:var(--leaf-deep);font-weight:500;">read on.</em>
+      </h2>
     </div>
   </div>
 </section>
@@ -873,13 +899,17 @@
       'hero.btn2':    'Ik ben klaar om te bouwen',
       'hero.meta':    'Sinds 2021 · Familiebedrijf',
 
-      'who.label': 'Voor wie dit is',
-      'who.h2':    'If any of this sounds familiar, <em style="font-style:normal;color:var(--leaf-deep);font-weight:500;">read on.</em>',
+      'who.label': 'Is dit voor mij?',
+      'who.h2':    'Als dit herkenbaar klinkt, <em style="font-style:normal;color:var(--leaf-deep);font-weight:500;">lees verder.</em>',
       'who.copy':  'Je houdt alles draaiende, maar niets komt echt van de grond. Je wil het anders doen: meer in balans, bewuster, meer <span class="em">jij</span>. Maar de volgende stap zien vanuit waar je nu staat, dat lukt nog niet. <span class="em">Precies daar beginnen wij.</span> Niet met een plan, maar met een gesprek.',
-      'tag.1': 'Coaches &amp; therapeuten',
-      'tag.2': 'Duurzame merken',
-      'tag.3': 'Holistische ondernemers',
-      'tag.4': 'Bewuste productbedrijven',
+      'tag.1': 'Hospitality &amp; toerisme',
+      'tag.2': 'Coaches &amp; therapeuten',
+      'tag.3': 'Bewuste merken',
+      'tag.4': 'Founders &amp; startups',
+      'tag.1.expand': 'Vakantieverhuur, appartementen, B&amp;B\'s, hotels, restaurants, bars, cafés, horeca, venues, retreat centra, toeristische activiteiten, ervaringen &amp; tours',
+      'tag.2.expand': 'Coaches, therapeuten, holistische begeleiders, trainers en energetisch werkers',
+      'tag.3.expand': 'Sustainable brands, conscious product businesses, purpose-driven creatives, impact-gedreven ondernemers',
+      'tag.4.expand': 'Beginnende ondernemers, startups, freelancers en bedrijven',
 
       'how.label': 'Hoe wij werken',
       'how.h2':    'One path, three places to <em>begin.</em>',
@@ -991,6 +1021,28 @@
       slides[i].classList.add('is-active');
       dots[i].classList.add('is-active');
     }, 4500);
+  })();
+</script>
+
+<script>
+  (function(){
+    const tags = document.querySelectorAll('.tag[data-expand]');
+    const texts = document.querySelectorAll('.tag-expand-text');
+    let active = null;
+    tags.forEach(tag => {
+      tag.addEventListener('mouseenter', function(){
+        const id = this.dataset.expand;
+        texts.forEach(t => t.classList.remove('is-visible'));
+        const target = document.getElementById(id);
+        if (target){ target.classList.add('is-visible'); active = id; }
+      });
+      tag.addEventListener('mouseleave', function(){
+        const id = this.dataset.expand;
+        const target = document.getElementById(id);
+        if (target) target.classList.remove('is-visible');
+        active = null;
+      });
+    });
   })();
 </script>
 
