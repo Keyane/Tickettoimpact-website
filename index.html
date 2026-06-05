@@ -210,6 +210,16 @@
     backdrop-filter: blur(6px);
     box-shadow: 0 6px 18px -6px rgba(36,53,36,.25);
     z-index: 2;
+    transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+  }
+  .hero-photo:hover .hero-caption{
+    transform: translateY(-3px) scale(1.05);
+    background: rgba(250,245,232,1);
+    box-shadow: 0 10px 28px -8px rgba(36,53,36,.32);
+  }
+  .hero-photo:hover .hero-caption a{
+    color: var(--leaf-deep);
+    text-decoration-color: var(--leaf-deep);
   }
   .hero-caption a{
     color: var(--ink);
