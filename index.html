@@ -330,15 +330,15 @@
   .tag:nth-child(4) .bullet{ background: var(--coral); }
   /* hover expand zone */
   .tag-expand{
-    min-height: 24px;
-    margin-top: 12px;
-    display:flex; align-items:center;
+    margin-top: 24px;
   }
   .tag-expand-text{
-    font-size:14px; color:var(--ink-mute); line-height:1.6;
+    font-size:0.9rem; color:var(--ink-mute); line-height:1.55;
+    margin:0;
     opacity:0;
     transition: opacity .3s ease;
     pointer-events:none;
+    position:absolute;
   }
   .tag-expand-text.is-visible{ opacity:1; }
 
@@ -774,19 +774,19 @@
         <span class="tag" role="listitem" data-expand="tag-3"><span class="bullet" aria-hidden="true"></span><span data-i18n="tag.3">Conscious brands</span></span>
         <span class="tag" role="listitem" data-expand="tag-4"><span class="bullet" aria-hidden="true"></span><span data-i18n="tag.4">Founders &amp; startups</span></span>
       </div>
-      <div class="tag-expand" aria-live="polite">
-        <p class="tag-expand-text" id="tag-1" data-i18n="tag.1.expand">Holiday rentals, apartments, B&amp;Bs, hotels, restaurants, bars, cafés, venues, retreat centres, tourist activities, experiences &amp; tours</p>
-        <p class="tag-expand-text" id="tag-2" data-i18n="tag.2.expand">Coaches, therapists, holistic guides, trainers and energy workers</p>
-        <p class="tag-expand-text" id="tag-3" data-i18n="tag.3.expand">Sustainable brands, conscious product businesses, purpose-driven creatives, impact-oriented entrepreneurs</p>
-        <p class="tag-expand-text" id="tag-4" data-i18n="tag.4.expand">Early-stage entrepreneurs, startups, freelancers and businesses</p>
-      </div>
     </div>
-    <!-- RIGHT: label + heading -->
+    <!-- RIGHT: label + heading + expand zone -->
     <div>
       <div class="who-label-prominent" data-i18n="who.label">Is this for me?</div>
       <h2 data-i18n="who.h2" style="font-family:var(--serif); font-weight:500; font-size:clamp(34px,4.2vw,54px); line-height:1.06; letter-spacing:-.018em; margin:0; max-width:14ch;">
         If any of this sounds familiar, <em style="font-style:normal;color:var(--leaf-deep);font-weight:500;">read on.</em>
       </h2>
+      <div class="tag-expand" aria-live="polite" style="position:relative; min-height:1.4rem;">
+        <p class="tag-expand-text" id="tag-1" data-i18n="tag.1.expand">Holiday rentals, apartments, B&amp;Bs, hotels, restaurants, bars, cafés, venues, retreat centres, tourist activities, experiences &amp; tours</p>
+        <p class="tag-expand-text" id="tag-2" data-i18n="tag.2.expand">Coaches, therapists, holistic guides, trainers and energy workers</p>
+        <p class="tag-expand-text" id="tag-3" data-i18n="tag.3.expand">Sustainable brands, conscious product businesses, purpose-driven creatives, impact-oriented entrepreneurs</p>
+        <p class="tag-expand-text" id="tag-4" data-i18n="tag.4.expand">Early-stage entrepreneurs, startups, freelancers and businesses</p>
+      </div>
     </div>
   </div>
 </section>
