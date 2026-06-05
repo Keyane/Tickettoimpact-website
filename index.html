@@ -143,6 +143,14 @@
     font-size:18px; line-height:1.65; color:var(--ink-soft);
     max-width: 46ch; margin: 0 0 40px;
   }
+  .hero p.lead .lead-line{ display:block; }
+  .hero p.lead .lead-motto{
+    display:block;
+    font-size:21px; font-weight:600;
+    color: var(--leaf-deep);
+    letter-spacing: -.01em;
+    margin: 4px 0;
+  }
   .cta-row{ display:flex; flex-wrap:wrap; gap:14px; }
   .btn{
     display:inline-flex; align-items:center; gap:10px;
@@ -715,7 +723,7 @@
   <div class="wrap hero-inner">
     <div class="hero-copy">
       <h1 data-i18n="hero.h1">Your business, your life.<br/><em>Let's make them work together.</em></h1>
-      <p class="lead" data-i18n="hero.lead">You know something needs to change, but you're too close to it to see clearly. We listen first, then help you move forward. Whether that means thinking it through or getting things done.</p>
+      <p class="lead" data-i18n="hero.lead"><span class="lead-line">You know something needs to change.</span><span class="lead-motto">We listen, we connect, you grow.</span><span class="lead-line">Clarity, practical support and sales.</span></p>
       <div class="cta-row">
         <a href="#sidestream" class="btn btn-ghost">
           <span data-i18n="hero.btn1">I need clarity first</span>
@@ -864,7 +872,7 @@
 
       'hero.eyebrow': 'Algarve, Portugal · Bedrijfsondersteuning voor mensen met een missie',
       'hero.h1':      'Your business, your life.<br/><em>Let\'s make them work together.</em>',
-      'hero.lead':    'Je weet dat er iets moet veranderen, maar je staat er te dicht op om het helder te zien. Wij luisteren eerst. Dan helpen we je verder. Of dat nu betekent: eerst goed nadenken, of gewoon aan de slag gaan.',
+      'hero.lead':    '<span class="lead-line">Je weet dat er iets moet veranderen.</span><span class="lead-motto">Wij luisteren, wij verbinden, jij groeit.</span><span class="lead-line">Helderheid, praktische ondersteuning en sales.</span>',
       'hero.btn1':    'Ik wil eerst helderheid',
       'hero.btn2':    'Ik ben klaar om te bouwen',
       'hero.meta':    'Sinds 2021 · Familiebedrijf',
