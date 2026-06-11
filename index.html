@@ -441,9 +441,7 @@
   /* ───────── story ───────── */
   .story{ background: var(--ink); color: var(--paper); }
   .story .section-label{ color: rgba(251,246,234,.55); }
-  .story-inner{
-    display:grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items:center;
-  }
+  .story-head{ margin-bottom: 64px; }
   .story h2{
     font-family:var(--serif); font-weight:400;
     font-size: clamp(38px, 4.5vw, 60px); line-height:1.06;
@@ -454,52 +452,35 @@
   .story p{
     font-size: 18px; line-height:1.7;
     color: rgba(251,246,234,.78);
-    max-width: 50ch; margin:0 0 24px;
+    max-width: 52ch; margin:0 0 24px;
   }
-  .story-sig{
-    margin-top: 36px;
-    display:flex; align-items:center; gap:14px;
-    font-size: 14px; color: rgba(251,246,234,.65);
+  .story p:last-child{ margin-bottom:0; }
+  .story-block{
+    display:flex; flex-direction:row; gap: 80px; align-items:center;
+    padding: 56px 0;
   }
-  .story-sig .names{
-    font-family:var(--serif); font-style:italic; font-size:22px;
-    color: var(--paper);
+  .story-block + .story-block{
+    border-top: 0.5px solid rgba(251,246,234,.12);
   }
-  .story-photo{
-    position:relative;
-    aspect-ratio: 1 / 1;
-    border-radius: 24px;
-    overflow:hidden;
+  .story-block.reverse{ flex-direction:row-reverse; }
+  .story-block-text{ flex: 1.2; }
+  .story-block-photo{ flex: 1; }
+  .story-block-photo img{
+    width:100%; height:360px; object-fit:cover;
+    border-radius: 24px; display:block;
   }
-  .story-photo .slide{
-    position:absolute; inset:0;
-    opacity:0;
-    transition: opacity 1.4s ease;
+  .story-closing{
+    text-align:center; margin-top:56px;
+    font-family:var(--serif); font-style:italic;
+    font-size: clamp(18px, 2vw, 22px); line-height:1.5;
+    color: rgba(251,246,234,.65); max-width:none !important;
   }
-  .story-photo .slide.is-active{ opacity:1; }
-  .story-photo .slide img{
-    width:100%; height:100%; object-fit:cover;
-  }
-  .story-photo .slide-1 img{ object-position: 50% 50%; }
-  .story-photo .slide-2 img{ object-position: 50% 50%; }
-  .story-photo .slide-3 img{ object-position: 50% 50%; }
-  .story-photo .frame{
-    position:absolute; inset:14px; border:1px solid rgba(251,246,234,.18);
-    border-radius: 14px; pointer-events:none;
-    z-index: 2;
-  }
-  .story-dots{
-    position:absolute; left:50%; bottom:18px; transform:translateX(-50%);
-    display:flex; gap:8px; z-index:3;
-  }
-  .story-dots span{
-    width:6px; height:6px; border-radius:50%;
-    background: rgba(251,246,234,.4);
-    transition: background .35s ease, width .35s ease;
-  }
-  .story-dots span.is-active{
-    background: var(--sun);
-    width: 22px; border-radius: 3px;
+  @media(max-width:768px){
+    .story-block, .story-block.reverse{
+      flex-direction:column; gap:32px; padding:40px 0;
+    }
+    .story-block-photo{ order:-1; }
+    .story-block-photo img{ height:260px; }
   }
 
   /* ───────── testimonials ───────── */
@@ -667,8 +648,6 @@
     .who-inner{ grid-template-columns: 1fr; gap: 40px; }
     .progression{ grid-template-columns: 1fr; }
     .progression::before{ display:none; }
-    .story-inner{ grid-template-columns: 1fr; gap: 48px; }
-    .story-photo{ max-width: 460px; }
     .story-quote{ font-size:16px; padding:18px 20px; }
     .test-grid{ grid-template-columns: 1fr; }
     .final{ padding: 96px 0 110px; }
@@ -850,8 +829,10 @@
 
 <!-- ─────────────── STORY ─────────────── -->
 <section class="story" id="story" data-screen-label="story">
-  <div class="wrap story-inner">
-    <div>
+  <div class="wrap">
+
+    <!-- Section header -->
+    <div class="story-head">
       <div class="section-label" data-i18n="story.label">Our story</div>
       <h2 data-i18n="story.h2">We didn't start as a company. We started as a <em>family.</em></h2>
       <div style="display:flex;gap:8px;margin:0 0 28px;" aria-hidden="true">
@@ -859,34 +840,47 @@
         <span style="width:36px;height:4px;border-radius:2px;background:var(--sun);"></span>
         <span style="width:36px;height:4px;border-radius:2px;background:var(--coral);"></span>
       </div>
-      <p data-i18n="story.p1">We were both running our own businesses, each with our own clients, projects and responsibilities. Over time, our paths naturally merged into one direction.</p>
-      <p data-i18n="story.p2">Before that, we spent years working in healthcare and government. Years of responsibility, problem-solving, working with people, systems and organisations. Valuable experience that taught us how to listen, understand what lies beneath the surface, and create structure where it matters most.</p>
-      <p data-i18n="story.p3">Then we made a different choice.</p>
-      <p data-i18n="story.p4">We chose freedom over routine and moved from the Netherlands to the Algarve. Not because we wanted to work less, but because we wanted work to fit life, not the other way around.</p>
-      <p data-i18n="story.p5">That shift taught us what truly sustainable growth looks like. The slow mornings. The difficult decisions. Building a business while raising a family. Creating something meaningful without sacrificing everything else that matters.</p>
-      <p data-i18n="story.p6">Today, that's exactly what we help others do.</p>
-      <p data-i18n="story.p7">Not just with websites, systems, sales, communication or operations, but by helping create a business that supports the life behind it. Because the person behind the business matters just as much as the business itself.</p>
-      <p data-i18n="story.p8">Nature, animals, family and genuine connection are what give us energy. We bring that same approach into our work: practical, honest, calm and human.</p>
-      <p data-i18n="story.p9">Because businesses grow best when they're built around people, not around pressure.</p>
-      <p class="story-closing" data-i18n="story.closing">Built around people. Connected by purpose. Designed to fit real life.</p>
     </div>
-    <div class="story-photo" id="storyPhoto">
-      <div class="slide slide-1 is-active">
-        <img src="photos/story-lift.jpeg" alt="Mother lifting her child into the air at sunset" />
+
+    <!-- Block 1: text left, photo right -->
+    <div class="story-block">
+      <div class="story-block-text">
+        <p data-i18n="story.p1">We were both running our own businesses, each with our own clients, projects and responsibilities. Over time, our paths naturally merged into one direction.</p>
+        <p data-i18n="story.p2">Before that, we spent years working in healthcare and government. Years of responsibility, problem-solving, working with people, systems and organisations. Valuable experience that taught us how to listen, understand what lies beneath the surface, and create structure where it matters most.</p>
+        <p data-i18n="story.p3">Then we made a different choice.</p>
       </div>
-      <div class="slide slide-2">
-        <img src="photos/story-lookout.jpeg" alt="Father and daughter celebrating on rocks above the bay" style="object-fit: cover;" />
-      </div>
-      <div class="slide slide-3">
+      <div class="story-block-photo">
         <img src="photos/story-beach.jpeg" alt="Family at the beach on the Algarve coast" />
       </div>
-      <div class="frame" aria-hidden="true"></div>
-      <div class="story-dots" aria-hidden="true">
-        <span class="is-active"></span>
-        <span></span>
-        <span></span>
+    </div>
+
+    <!-- Block 2: photo left, text right -->
+    <div class="story-block reverse">
+      <div class="story-block-text">
+        <p data-i18n="story.p4">We chose freedom over routine and moved from the Netherlands to the Algarve. Not because we wanted to work less, but because we wanted work to fit life, not the other way around.</p>
+        <p data-i18n="story.p5">That shift taught us what truly sustainable growth looks like. The slow mornings. The difficult decisions. Building a business while raising a family. Creating something meaningful without sacrificing everything else that matters.</p>
+        <p data-i18n="story.p6">Today, that's exactly what we help others do.</p>
+      </div>
+      <div class="story-block-photo">
+        <img src="photos/story-lift.jpeg" alt="Mother lifting her child into the air at sunset" />
       </div>
     </div>
+
+    <!-- Block 3: text left, photo right -->
+    <div class="story-block">
+      <div class="story-block-text">
+        <p data-i18n="story.p7">Not just with websites, systems, sales, communication or operations, but by helping create a business that supports the life behind it. Because the person behind the business matters just as much as the business itself.</p>
+        <p data-i18n="story.p8">Nature, animals, family and genuine connection are what give us energy. We bring that same approach into our work: practical, honest, calm and human.</p>
+        <p data-i18n="story.p9">Because businesses grow best when they're built around people, not around pressure.</p>
+      </div>
+      <div class="story-block-photo">
+        <img src="photos/story-lookout.jpeg" alt="Father and daughter celebrating on rocks above the bay" />
+      </div>
+    </div>
+
+    <!-- Closing line -->
+    <p class="story-closing" data-i18n="story.closing">Built around people. Connected by purpose. Designed to fit real life.</p>
+
   </div>
 </section>
 
@@ -1018,22 +1012,6 @@
   });
 </script>
 
-<script>
-  (function(){
-    const root = document.getElementById('storyPhoto');
-    if (!root) return;
-    const slides = root.querySelectorAll('.slide');
-    const dots   = root.querySelectorAll('.story-dots span');
-    let i = 0;
-    setInterval(function(){
-      slides[i].classList.remove('is-active');
-      dots[i].classList.remove('is-active');
-      i = (i + 1) % slides.length;
-      slides[i].classList.add('is-active');
-      dots[i].classList.add('is-active');
-    }, 4500);
-  })();
-</script>
 
 <script>
   (function(){
