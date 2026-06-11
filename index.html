@@ -901,9 +901,8 @@
 
       <!-- Photo column -->
       <div class="story-photo-col" id="storyPhotoCol">
-        <img id="storyImg1" src="photos/story-beach.jpeg"   alt="Family at the beach on the Algarve coast"        style="object-position:center 40%; opacity:1;" />
-        <img id="storyImg2" src="photos/story-lift.jpeg"    alt="Mother lifting her child into the air at sunset" style="object-position:center 30%; opacity:0;" />
-        <img id="storyImg3" src="photos/story-lookout.jpeg" alt="Father and daughter on rocks above the bay"      style="object-position:center 50%; opacity:0;" />
+        <img id="storyImg1" src="photos/story-beach.jpeg" alt="Family at the beach on the Algarve coast"        style="object-position:center 40%; opacity:1;" />
+        <img id="storyImg2" src="photos/story-lift.jpeg"  alt="Mother lifting her child into the air at sunset" style="object-position:center 30%; opacity:0;" />
       </div>
 
     </div>
@@ -921,9 +920,8 @@
 
     textCol.addEventListener('scroll', function(){
       var progress = textCol.scrollTop / (textCol.scrollHeight - textCol.clientHeight);
-      imgs[0].style.opacity = progress < 0.33 ? 1 : 0;
-      imgs[1].style.opacity = (progress >= 0.33 && progress < 0.66) ? 1 : 0;
-      imgs[2].style.opacity = progress >= 0.66 ? 1 : 0;
+      imgs[0].style.opacity = progress < 0.5 ? 1 : 0;
+      imgs[1].style.opacity = progress >= 0.5 ? 1 : 0;
       if (hint) hint.style.opacity = progress > 0.85 ? '0' : '1';
     }, { passive: true });
   })();
