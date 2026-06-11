@@ -971,8 +971,6 @@
       'contact.label':   'Neem contact op',
       'contact.h2':      'Een vraag? <em>Laten we praten.</em>',
       'contact.desc':    'Stuur ons een bericht en we reageren persoonlijk.',
-      'contact.send':    'Verstuur bericht',
-      'contact.thanks':  'Bedankt, we nemen snel contact met je op.',
       'foot.book':       'Plan een gesprek →',
       'foot.base.right': 'Met zorg gemaakt, in ons eigen tempo.'
     };
@@ -1189,32 +1187,7 @@
       </div>
     </div>
 
-    <form class="contact-form" id="contactForm" action="mail.php" method="POST">
-      <div class="field">
-        <label for="cf-name">Name</label>
-        <input type="text" id="cf-name" name="name" placeholder="Your name" required />
-      </div>
-      <div class="field">
-        <label for="cf-email">Email</label>
-        <input type="email" id="cf-email" name="email" placeholder="Your email address" required />
-      </div>
-      <div class="field">
-        <label for="cf-phone">Phone</label>
-        <input type="tel" id="cf-phone" name="phone" placeholder="Your phone number" />
-      </div>
-      <div class="field">
-        <label for="cf-message">Message</label>
-        <textarea id="cf-message" name="message" rows="4" placeholder="What's on your mind?" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary" data-i18n="contact.send">Send message</button>
-    </form>
-
-    <div class="form-confirm" id="contactConfirm" role="status" aria-live="polite">
-      <span class="check" aria-hidden="true">
-        <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 7.5l3.2 3.2L12 4" stroke="#faf5e8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </span>
-      <span data-i18n="contact.thanks">Thanks, we'll be in touch soon.</span>
-    </div>
+    <!-- Contact form placeholder -->
   </div>
 </section>
 
@@ -1265,53 +1238,6 @@
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  (function(){
-    var form = document.getElementById('contactForm');
-    var confirm = document.getElementById('contactConfirm');
-    var confirmSpan = confirm ? confirm.querySelector('[data-i18n="contact.thanks"]') : null;
-    if (!form || !confirm) return;
-
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      var btn = form.querySelector('button[type="submit"]');
-      btn.disabled = true;
-
-      fetch('mail.php', {
-        method: 'POST',
-        body: new FormData(form)
-      })
-      .then(function(res){ return res.json(); })
-      .then(function(data){
-        if (data.success) {
-          if (confirmSpan) {
-            confirmSpan.removeAttribute('data-i18n');
-            confirmSpan.textContent = document.documentElement.lang === 'nl'
-              ? 'Bedankt, we nemen snel contact met je op.'
-              : 'Thanks, we\'ll be in touch soon.';
-          }
-          confirm.classList.add('is-visible');
-          form.reset();
-        } else {
-          confirm.style.background = '#b94040';
-          if (confirmSpan) {
-            confirmSpan.removeAttribute('data-i18n');
-            confirmSpan.textContent = data.error || 'Something went wrong. Please try again.';
-          }
-          confirm.classList.add('is-visible');
-          btn.disabled = false;
-        }
-      })
-      .catch(function(){
-        confirm.style.background = '#b94040';
-        if (confirmSpan) {
-          confirmSpan.removeAttribute('data-i18n');
-          confirmSpan.textContent = 'Something went wrong. Please try again.';
-        }
-        confirm.classList.add('is-visible');
-        btn.disabled = false;
-      });
-    });
-  })();
 </script>
 
 <!-- ─────────────── TWEAKS ─────────────── -->
