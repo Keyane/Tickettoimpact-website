@@ -525,7 +525,6 @@
     border-radius: 18px;
     padding: 36px 30px 30px;
     display:flex; flex-direction:column;
-    min-height: 280px;
     position:relative;
   }
   .quote .mark{
@@ -1017,6 +1016,8 @@
       't.2.role': 'The LiveLabCompany',
       't.3.q':    'Wat de samenwerking met Florian en Keyane voor mij zo bijzonder maakt, is dat ze vooral kijken naar wie ik ben als ondernemer. Bij belangrijke keuzes over de toekomst van mijn bedrijf, de keuze voor systemen en groeimogelijkheden, hebben ze mij met heldere analyses en goed onderbouwde inzichten geholpen. Tegelijkertijd voelde ik me echt gezien. Florian en Keyane denken niet vanuit een standaard aanpak of wat zou moeten, maar vanuit wat bij mij past. Die combinatie van data, expertise en oprechte betrokkenheid is ontzettend waardevol.',
       't.3.role': 'Eigenaresse · CuteCotton &amp; Menstruatiecups.nl',
+      't.1.more': 'Lees meer',
+      't.2.more': 'Lees meer',
       't.3.more': 'Lees meer',
 
 
@@ -1129,7 +1130,13 @@
       <!-- Card 2: Kasper -->
       <article class="quote">
         <div class="mark" aria-hidden="true">"</div>
-        <blockquote data-i18n="t.1.q">I was paying thousands a year for my online platform. Ticket To Impact took one look and showed me exactly where I was overpaying. Within three weeks, all my sites were migrated to a leaner setup, significant savings, zero stress.</blockquote>
+        <blockquote>
+          <span class="quote-clamp" id="kasperQuote" data-i18n="t.1.q">I was paying thousands a year for my online platform. Ticket To Impact took one look and showed me exactly where I was overpaying. Within three weeks, all my sites were migrated to a leaner setup, significant savings, zero stress.</span>
+          <button class="quote-toggle" id="kasperToggle" aria-expanded="false" aria-controls="kasperQuote">
+            <span class="toggle-label" data-i18n="t.1.more">Read more</span>
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </blockquote>
         <div class="who">
           <img class="avatar a-1" src="photos/plntr.jpeg" alt="Kasper" />
           <div>
@@ -1142,7 +1149,13 @@
       <!-- Card 3: Marjon -->
       <article class="quote">
         <div class="mark" aria-hidden="true">"</div>
-        <blockquote data-i18n="t.2.q">What stood out immediately was how fast she got up to speed with our work. Within no time she understood our content and knew how to communicate it clearly and convincingly to our clients. Keyane is goal-oriented, thinks along proactively, and moves fast, and she continuously fed us valuable insights that helped us make better decisions about our offer. Not just a strong executor. She genuinely adds strategic value.</blockquote>
+        <blockquote>
+          <span class="quote-clamp" id="marjonQuote" data-i18n="t.2.q">What stood out immediately was how fast she got up to speed with our work. Within no time she understood our content and knew how to communicate it clearly and convincingly to our clients. Keyane is goal-oriented, thinks along proactively, and moves fast, and she continuously fed us valuable insights that helped us make better decisions about our offer. Not just a strong executor. She genuinely adds strategic value.</span>
+          <button class="quote-toggle" id="marjonToggle" aria-expanded="false" aria-controls="marjonQuote">
+            <span class="toggle-label" data-i18n="t.2.more">Read more</span>
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </blockquote>
         <div class="who">
           <img class="avatar a-2" src="photos/thelivelabcompany.jpeg" alt="Marjon" />
           <div>
@@ -1155,23 +1168,30 @@
   </div>
 </section>
 
-<!-- ─────────────── JUDITH READ MORE ─────────────── -->
+<!-- ─────────────── REVIEW READ MORE ─────────────── -->
 <script>
   (function(){
-    var toggle = document.getElementById('judithToggle');
-    var quote  = document.getElementById('judithQuote');
-    var label  = toggle ? toggle.querySelector('.toggle-label') : null;
-    if (!toggle || !quote) return;
-    toggle.addEventListener('click', function(){
-      var open = quote.classList.toggle('is-open');
-      toggle.classList.toggle('is-open', open);
-      toggle.setAttribute('aria-expanded', open);
-      if (label){
-        var isNL = document.documentElement.lang === 'nl';
-        label.textContent = open
-          ? (isNL ? 'Minder lezen' : 'Read less')
-          : (isNL ? 'Lees meer'    : 'Read more');
-      }
+    var pairs = [
+      ['judithToggle', 'judithQuote'],
+      ['kasperToggle', 'kasperQuote'],
+      ['marjonToggle', 'marjonQuote']
+    ];
+    pairs.forEach(function(pair){
+      var toggle = document.getElementById(pair[0]);
+      var quote  = document.getElementById(pair[1]);
+      var label  = toggle ? toggle.querySelector('.toggle-label') : null;
+      if (!toggle || !quote) return;
+      toggle.addEventListener('click', function(){
+        var open = quote.classList.toggle('is-open');
+        toggle.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', open);
+        if (label){
+          var isNL = document.documentElement.lang === 'nl';
+          label.textContent = open
+            ? (isNL ? 'Minder lezen' : 'Read less')
+            : (isNL ? 'Lees meer'    : 'Read more');
+        }
+      });
     });
   })();
 </script>
