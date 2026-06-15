@@ -253,6 +253,24 @@
   }
   .pricing-note strong{ color:var(--ink-soft); }
 
+  .service-pull-quote{
+    margin: 20px 0 0; padding: 14px 16px;
+    border-left: 3px solid var(--leaf);
+    background: transparent;
+    font-size: 13px; font-style: italic; color: var(--ink-mute);
+    line-height: 1.6;
+  }
+  .service-pull-quote .pull-mark{
+    font-family: var(--serif); font-size: 1.3em;
+    color: var(--leaf-deep); font-style: normal; line-height: 0;
+    vertical-align: -0.15em;
+  }
+  .service-pull-quote cite{
+    display: block; margin-top: 8px;
+    font-size: 12px; font-style: normal;
+    color: var(--ink-soft); letter-spacing: .02em;
+  }
+
   /* what's included grid */
   .what-grid{
     display:grid; grid-template-columns: repeat(2, 1fr); gap:16px;
@@ -560,13 +578,18 @@
           <span style="width:36px;height:4px;border-radius:2px;background:var(--leaf-deep);opacity:.5;"></span>
         </div>
         <div class="pricing-note" data-i18n="s1.price">
-          <strong>Investment from €150 per session.</strong> Strategy packages, decision bundles, and ongoing sparring are priced on scope. We'll always be clear about what it costs before we begin.
+          <strong>Investment from €149 per session.</strong> Strategy packages, decision bundles, and ongoing sparring are priced on scope. We'll always be clear about what it costs before we begin.
         </div>
+        <blockquote class="service-pull-quote" data-i18n="s1.pullquote">
+          <span class="pull-mark">"</span>Florian and Keyane don't work from a standard approach or what 'should' be done, but from what actually fits me.<span class="pull-mark">"</span>
+          <cite>— Judith</cite>
+        </blockquote>
       </div>
       <div class="service-intro-right">
-        <p data-i18n="s1.p1">Your strategic side channel, a place alongside your daily operations to step out, reflect, and make decisions that actually hold. Not theoretical. Not a workshop. A real conversation with someone who understands the difference between motion and movement.</p>
-        <p data-i18n="s1.p2">The Business Hub builds things. Think Sidestream decides what's worth building. That distinction matters more than most people realise until they're twelve months in and wondering why the doing hasn't made them feel better.</p>
-        <p data-i18n="s1.p3">Sessions are slower by design. We sit with what's actually going on, the business, the life, the things you haven't said out loud yet, and find the real next step together. You leave with focus, not more to-dos.</p>
+        <p data-i18n="s1.p1">You're busy, but it doesn't feel like you're actually moving forward. You know something needs to change, you just can't quite put your finger on what.</p>
+        <p data-i18n="s1.p2">That's what Think Sidestream is for. Not theory, not a workshop. A real conversation that helps you step back, see what's really going on, and decide what's worth tackling. That way you build on a solid foundation, with things that actually work.</p>
+        <p data-i18n="s1.p3">Sessions are deliberately slow-paced. We look at what's really going on, the business, the life, the things you haven't quite put into words yet, and find the real next step together. You leave with focus, not an endless to-do list.</p>
+        <p data-i18n="s1.p4" style="font-size:0.9em; font-style:italic; color:var(--ink-soft); margin-top:1.5rem;">And once you know what you want to build? That's where the Business Hub comes in.</p>
       </div>
     </div>
 
@@ -1069,12 +1092,14 @@
       's1.tagline': 'Voor als je de volgende stap niet meer ziet',
 
       /* ── S1 PRICING ── */
-      's1.price': '<strong>Investering vanaf €150 per sessie.</strong> Strategiepakketten, beslisbundels en doorlopende sparring worden geprijsd op basis van scope. We zijn altijd helder over wat het kost voordat we beginnen.',
+      's1.price': '<strong>Investering vanaf €149 per sessie.</strong> Strategiepakketten, beslisbundels en doorlopende sparring worden geprijsd op basis van scope. We zijn altijd helder over wat het kost voordat we beginnen.',
 
       /* ── S1 INTRO PARAGRAPHS ── */
-      's1.p1': 'Je strategische zijkanaal: een plek naast je dagelijkse werk om even uit te stappen, na te denken en beslissingen te nemen die ook echt standhouden. Niet theoretisch. Geen workshop. Een echt gesprek met iemand die het verschil kent tussen bewegen en vooruitkomen.',
-      's1.p2': 'The Business Hub bouwt dingen. Think Sidestream beslist wat de moeite waard is om te bouwen. Dat onderscheid telt zwaarder dan de meeste mensen beseffen, totdat ze twaalf maanden verder zijn en zich afvragen waarom al dat doen ze niet verder heeft gebracht.',
-      's1.p3': 'Sessies zijn bewust langzamer. We kijken naar wat er echt speelt: het bedrijf, het leven, de dingen die je nog niet hardop hebt gezegd, en vinden samen de echte volgende stap. Je gaat weg met focus, niet met meer to-do\'s.',
+      's1.pullquote': '<span class="pull-mark">“</span>Florian en Keyane denken niet vanuit een standaard aanpak of wat zou moeten, maar vanuit wat bij mij past.<span class="pull-mark">”</span><cite>— Judith</cite>',
+      's1.p1': 'Je hebt het druk, maar het voelt niet alsof je echt vooruitgaat. Je weet dat er iets moet veranderen, je kunt alleen niet precies de vinger erop leggen wat.',
+      's1.p2': 'Daarvoor is Think Sidestream. Geen theorie, geen workshop. Een echt gesprek dat je helpt afstand te nemen, te zien wat er werkelijk speelt, en te bepalen wat de moeite waard is om aan te pakken. Zo bouw je verder op een goede basis, met dingen die ook echt werken.',
+      's1.p3': 'De sessies zijn bewust rustig. We kijken naar wat er echt speelt, het bedrijf, het leven, de dingen die je nog niet onder woorden hebt gebracht, en samen vinden we de echte volgende stap. Je gaat weg met focus, niet met een ellenlange lijst met to do\'s.',
+      's1.p4': 'En als je weet wat je wilt bouwen? Dan is de Business Hub er om het ook echt te realiseren.',
 
       /* ── S1 CARDS ── */
       's1.included': 'Wat er inzit',
