@@ -523,7 +523,7 @@
   }
 </style>
 </head>
-<body>
+<body id="top">
 
 <!-- ── NAV ── -->
 <header class="nav">
@@ -536,9 +536,10 @@
       </span>
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="index.html#how" data-i18n="nav.how">How we work</a>
+      <a href="#top" data-i18n="nav.how">How we work</a>
       <a href="index.html#story" data-i18n="nav.story">Our story</a>
-      <a href="index.html#testimonials" data-i18n="nav.voices">Voices</a>
+      <a href="index.html#testimonials" data-i18n="nav.voices">Reviews</a>
+      <a href="#book" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="lang-toggle" role="group" aria-label="Language">
       <button type="button" data-lang="en" class="is-active">EN</button>
@@ -1111,10 +1112,11 @@
   document.addEventListener('DOMContentLoaded', function(){
     const NL = {
       /* ── NAV ── */
-      'nav.how':    'Hoe we werken',
-      'nav.story':  'Ons verhaal',
-      'nav.voices': 'Ervaringen',
-      'nav.book':   'Plan een gesprek',
+      'nav.how':     'Hoe we werken',
+      'nav.story':   'Ons verhaal',
+      'nav.voices':  'Reviews',
+      'nav.contact': 'Contact',
+      'nav.book':    'Plan een gesprek',
 
       /* ── PAGE HEADER ── */
       'ph.seo.h1':  'Diensten voor bewuste ondernemers: clarity, structuur &amp; sales',
