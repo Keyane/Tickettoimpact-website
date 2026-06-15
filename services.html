@@ -254,21 +254,35 @@
   .pricing-note strong{ color:var(--ink-soft); }
 
   .service-pull-quote{
-    margin: 20px 0 0; padding: 14px 16px;
-    border-left: 3px solid var(--leaf);
-    background: transparent;
-    font-size: 13px; font-style: italic; color: var(--ink-mute);
-    line-height: 1.6;
+    margin: 28px 0 0; padding: 20px 22px 18px;
+    border: 1px solid rgba(90,154,90,.18);
+    border-top: none;
+    background: rgba(90,154,90,.05);
+    border-radius: 12px;
+    position: relative;
   }
-  .service-pull-quote .pull-mark{
-    font-family: var(--serif); font-size: 1.3em;
-    color: var(--leaf-deep); font-style: normal; line-height: 0;
-    vertical-align: -0.15em;
+  .service-pull-quote .spq-mark{
+    display: block;
+    font-family: var(--serif); font-size: 52px; line-height: .6;
+    color: var(--leaf); margin-bottom: 10px;
   }
-  .service-pull-quote cite{
-    display: block; margin-top: 8px;
-    font-size: 12px; font-style: normal;
-    color: var(--ink-soft); letter-spacing: .02em;
+  .service-pull-quote .spq-text{
+    font-family: var(--serif); font-weight: 500;
+    font-size: 15px; line-height: 1.55; color: var(--ink);
+    font-style: italic;
+  }
+  .service-pull-quote .spq-who{
+    display: flex; align-items: center; gap: 10px;
+    margin-top: 14px; padding-top: 14px;
+    border-top: 1px solid rgba(90,154,90,.15);
+  }
+  .service-pull-quote .spq-avatar{
+    width: 34px; height: 34px; border-radius: 50%;
+    flex: 0 0 34px; object-fit: cover;
+  }
+  .service-pull-quote .spq-name{
+    font-size: 13px; font-weight: 500; color: var(--ink);
+    font-style: normal; font-family: var(--sans);
   }
 
   /* what's included grid */
@@ -580,9 +594,13 @@
         <div class="pricing-note" data-i18n="s1.price">
           <strong>Investment from €149 per session.</strong> Strategy packages, decision bundles, and ongoing sparring are priced on scope. We'll always be clear about what it costs before we begin.
         </div>
-        <blockquote class="service-pull-quote" data-i18n="s1.pullquote">
-          <span class="pull-mark">"</span>Florian and Keyane don't work from a standard approach or what 'should' be done, but from what actually fits me.<span class="pull-mark">"</span>
-          <cite>— Judith</cite>
+        <blockquote class="service-pull-quote">
+          <span class="spq-mark">"</span>
+          <span class="spq-text" data-i18n="s1.pullquote.q">Florian and Keyane don't work from a standard approach or what 'should' be done, but from what actually fits me.</span>
+          <div class="spq-who">
+            <img class="spq-avatar" src="photos/Judith.jpeg" alt="Judith" />
+            <span class="spq-name" data-i18n="s1.pullquote.attr">— Judith</span>
+          </div>
         </blockquote>
       </div>
       <div class="service-intro-right">
@@ -1095,7 +1113,8 @@
       's1.price': '<strong>Investering vanaf €149 per sessie.</strong> Strategiepakketten, beslisbundels en doorlopende sparring worden geprijsd op basis van scope. We zijn altijd helder over wat het kost voordat we beginnen.',
 
       /* ── S1 INTRO PARAGRAPHS ── */
-      's1.pullquote': '<span class="pull-mark">“</span>Florian en Keyane denken niet vanuit een standaard aanpak of wat zou moeten, maar vanuit wat bij mij past.<span class="pull-mark">”</span><cite>— Judith</cite>',
+      's1.pullquote.q': 'Florian en Keyane denken niet vanuit een standaard aanpak of wat zou moeten, maar vanuit wat bij mij past.',
+      's1.pullquote.attr': '— Judith',
       's1.p1': 'Je hebt het druk, maar het voelt niet alsof je echt vooruitgaat. Je weet dat er iets moet veranderen, je kunt alleen niet precies de vinger erop leggen wat.',
       's1.p2': 'Daarvoor is Think Sidestream. Geen theorie, geen workshop. Een echt gesprek dat je helpt afstand te nemen, te zien wat er werkelijk speelt, en te bepalen wat de moeite waard is om aan te pakken. Zo bouw je verder op een goede basis, met dingen die ook echt werken.',
       's1.p3': 'De sessies zijn bewust rustig. We kijken naar wat er echt speelt, het bedrijf, het leven, de dingen die je nog niet onder woorden hebt gebracht, en samen vinden we de echte volgende stap. Je gaat weg met focus, niet met een ellenlange lijst met to do\'s.',
