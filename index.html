@@ -560,6 +560,24 @@
   .quote .name{ font-size:14px; font-weight:500; color:var(--ink); }
   .quote .role{ font-size:12.5px; color:var(--ink-mute); }
 
+  /* read-more toggle for long quotes */
+  .quote-clamp{
+    display:-webkit-box; -webkit-line-clamp:5; -webkit-box-orient:vertical;
+    overflow:hidden;
+    transition: none;
+  }
+  .quote-clamp.is-open{
+    display:block; overflow:visible;
+  }
+  .quote-toggle{
+    display:inline-flex; align-items:center; gap:4px;
+    background:none; border:none; padding:0; margin:8px 0 0;
+    font-family:var(--sans); font-size:12.5px; color:var(--leaf-deep);
+    cursor:pointer; letter-spacing:.04em;
+  }
+  .quote-toggle svg{ transition:transform .3s ease; }
+  .quote-toggle.is-open svg{ transform:rotate(180deg); }
+
   /* ───────── final CTA ───────── */
   .final{
     background: var(--bg);
@@ -727,7 +745,7 @@
     <nav class="nav-links" aria-label="Primary">
       <a href="#how" data-i18n="nav.how">How we work</a>
       <a href="#story" data-i18n="nav.story">Our story</a>
-      <a href="#testimonials" data-i18n="nav.voices">Voices</a>
+      <a href="#testimonials" data-i18n="nav.voices">Reviews</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="lang-toggle" role="group" aria-label="Language">
@@ -933,7 +951,7 @@
     const NL = {
       'nav.how':   'Hoe wij werken',
       'nav.story': 'Ons verhaal',
-      'nav.voices':'Wat klanten zeggen',
+      'nav.voices':'Reviews',
       'nav.contact':'Contact',
       'nav.book':  'Plan een gesprek',
 
@@ -990,15 +1008,16 @@
       'story.p8':    'Natuur, dieren, gezin en echte verbinding geven ons energie. Die aanpak brengen we mee in ons werk: praktisch, eerlijk, rustig en menselijk.',
       'story.p9':    'Want bedrijven groeien het best als ze zijn gebouwd rondom mensen, niet rondom druk.',
 
-      'voices.label': 'Wat klanten zeggen',
+      'voices.label': 'Reviews',
       'voices.h2':    'What it\'s like to <em class="coral">work with us.</em>',
 
       't.1.q':    'Ik betaalde jaarlijks duizenden euro’s voor mijn online platform. Ticket To Impact keek er één keer naar en liet me precies zien waar ik te veel betaalde. Binnen drie weken waren al mijn sites verhuisd naar een slankere opzet, flinke besparing, nul stress.',
       't.1.role': 'Oprichter · PLNTR',
       't.2.q':    'Wat meteen opviel, was hoe snel ze zich onze materie eigen maakte. In no time begreep ze onze content en wist ze die helder en overtuigend over te brengen naar onze klanten. Keyane is doelgericht, denkt proactief mee en schakelt snel, en ze voedde ons doorlopend met waardevolle inzichten die ons hielpen betere keuzes te maken over ons aanbod. Niet zomaar een sterke uitvoerder. Ze voegt echt strategische waarde toe.',
       't.2.role': 'The LiveLabCompany',
-      't.3.q':    'Binnenkort meer.',
-      't.3.role': 'Binnenkort',
+      't.3.q':    'Wat de samenwerking met Florian en Keyane voor mij zo bijzonder maakt, is dat ze vooral kijken naar wie ik ben als ondernemer. Bij belangrijke keuzes over de toekomst van mijn bedrijf, de keuze voor systemen en groeimogelijkheden, hebben ze mij met heldere analyses en goed onderbouwde inzichten geholpen. Tegelijkertijd voelde ik me echt gezien. Florian en Keyane denken niet vanuit een standaard aanpak of wat zou moeten, maar vanuit wat bij mij past. Die combinatie van data, expertise en oprechte betrokkenheid is ontzettend waardevol.',
+      't.3.role': 'Eigenaresse · CuteCotton &amp; Menstruatiecups.nl',
+      't.3.more': 'Lees meer',
 
 
       'foot.about':      'Je weet dat er iets moet veranderen, maar je staat er te dicht op om het helder te zien. Wij luisteren eerst. Dan helpen we je verder. Of dat nu betekent: eerst goed nadenken, of gewoon aan de slag gaan.',
@@ -1007,7 +1026,7 @@
       'foot.h.company':  'Bedrijf',
       'foot.h.hi':       'Zeg hallo',
       'foot.story':      'Ons verhaal',
-      'foot.voices':     'Wat klanten zeggen',
+      'foot.voices':     'Reviews',
       'foot.journal':    'Journal',
       'foot.contact':    'Contact',
       'foot.terms':      'Algemene voorwaarden',
@@ -1082,12 +1101,32 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <div class="section-label" data-i18n="voices.label">Voices</div>
+        <div class="section-label" data-i18n="voices.label">Reviews</div>
         <h2 data-i18n="voices.h2">What it's like to <em class="coral">work with us.</em></h2>
       </div>
     </div>
 
     <div class="test-grid">
+      <!-- Card 1: Judith -->
+      <article class="quote">
+        <div class="mark" aria-hidden="true">"</div>
+        <blockquote>
+          <span class="quote-clamp" id="judithQuote" data-i18n="t.3.q">What makes working with Florian and Keyane so valuable to me is that they really look at who I am as an entrepreneur. For important decisions about the future of my business, like choosing systems and growth path, they helped me with clear analysis and well-founded insights. At the same time, I felt genuinely seen. Florian and Keyane don't work from a standard approach or what 'should' be done, but from what actually fits me. That combination of data, expertise, and genuine involvement is incredibly valuable.</span>
+          <button class="quote-toggle" id="judithToggle" aria-expanded="false" aria-controls="judithQuote">
+            <span class="toggle-label" data-i18n="t.3.more">Read more</span>
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </blockquote>
+        <div class="who">
+          <img class="avatar a-3" src="photos/Judith.jpeg" alt="Judith" />
+          <div>
+            <div class="name">Judith</div>
+            <div class="role" data-i18n="t.3.role">Owner · CuteCotton &amp; Menstruatiecups.nl</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: Kasper -->
       <article class="quote">
         <div class="mark" aria-hidden="true">"</div>
         <blockquote data-i18n="t.1.q">I was paying thousands a year for my online platform. Ticket To Impact took one look and showed me exactly where I was overpaying. Within three weeks, all my sites were migrated to a leaner setup, significant savings, zero stress.</blockquote>
@@ -1100,6 +1139,7 @@
         </div>
       </article>
 
+      <!-- Card 3: Marjon -->
       <article class="quote">
         <div class="mark" aria-hidden="true">"</div>
         <blockquote data-i18n="t.2.q">What stood out immediately was how fast she got up to speed with our work. Within no time she understood our content and knew how to communicate it clearly and convincingly to our clients. Keyane is goal-oriented, thinks along proactively, and moves fast, and she continuously fed us valuable insights that helped us make better decisions about our offer. Not just a strong executor. She genuinely adds strategic value.</blockquote>
@@ -1111,21 +1151,30 @@
           </div>
         </div>
       </article>
-
-      <article class="quote">
-        <div class="mark" aria-hidden="true">"</div>
-        <blockquote data-i18n="t.3.q">More soon.</blockquote>
-        <div class="who">
-          <div class="avatar a-3" aria-hidden="true">J</div>
-          <div>
-            <div class="name">Judith</div>
-            <div class="role" data-i18n="t.3.role">Coming soon</div>
-          </div>
-        </div>
-      </article>
     </div>
   </div>
 </section>
+
+<!-- ─────────────── JUDITH READ MORE ─────────────── -->
+<script>
+  (function(){
+    var toggle = document.getElementById('judithToggle');
+    var quote  = document.getElementById('judithQuote');
+    var label  = toggle ? toggle.querySelector('.toggle-label') : null;
+    if (!toggle || !quote) return;
+    toggle.addEventListener('click', function(){
+      var open = quote.classList.toggle('is-open');
+      toggle.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', open);
+      if (label){
+        var isNL = document.documentElement.lang === 'nl';
+        label.textContent = open
+          ? (isNL ? 'Minder lezen' : 'Read less')
+          : (isNL ? 'Lees meer'    : 'Read more');
+      }
+    });
+  })();
+</script>
 
 <!-- ─────────────── FINAL CTA ─────────────── -->
 <!-- ─────────────── CONTACT ─────────────── -->
@@ -1186,7 +1235,7 @@
       <h4 data-i18n="foot.h.company">Company</h4>
       <ul>
         <li><a href="#story" data-i18n="foot.story">Our story</a></li>
-        <li><a href="#testimonials" data-i18n="foot.voices">Voices</a></li>
+        <li><a href="#testimonials" data-i18n="foot.voices">Reviews</a></li>
         <li><a href="#contact" data-i18n="foot.contact">Contact</a></li>
         <li><a href="algemene-voorwaarden.html" data-i18n="foot.terms">Terms &amp; conditions</a></li>
         <li><a href="privacyverklaring.html" data-i18n="foot.privacy">Privacy statement</a></li>
