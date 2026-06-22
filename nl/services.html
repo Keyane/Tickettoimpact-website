@@ -541,6 +541,23 @@
   @media (max-width:520px){
     .foot-grid{ grid-template-columns: 1fr; }
   }
+
+  /* ── mobile nav menu ── */
+  .nav-links.is-open{
+    display:flex; flex-direction:column; align-items:flex-start;
+    position:absolute; top:72px; left:0; right:0;
+    background:rgba(244,236,218,.98);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line-soft);
+    padding:20px 24px 24px;
+    gap:0; z-index:49;
+  }
+  .nav-links.is-open a{
+    padding:13px 0;
+    border-bottom:1px solid var(--line-soft);
+    width:100%; font-size:16px;
+  }
+  .nav-links.is-open a:last-child{ border-bottom:0; }
 </style>
 </head>
 <body id="top">
@@ -1319,6 +1336,34 @@
 
     apply('nl');
   });
+</script>
+<script>
+  (function(){
+    var burger = document.querySelector('.nav-burger');
+    var navLinks = document.querySelector('.nav-links');
+    if (!burger || !navLinks) return;
+    burger.addEventListener('click', function(){
+      var open = navLinks.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', open);
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    // Close menu when a nav link is clicked
+    navLinks.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        navLinks.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', false);
+        burger.setAttribute('aria-label', 'Open menu');
+      });
+    });
+    // Close menu on click outside
+    document.addEventListener('click', function(e){
+      if (!burger.contains(e.target) && !navLinks.contains(e.target)){
+        navLinks.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', false);
+        burger.setAttribute('aria-label', 'Open menu');
+      }
+    });
+  })();
 </script>
 </body>
 </html>
