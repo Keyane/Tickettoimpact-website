@@ -404,6 +404,73 @@
     @media (max-width: 768px) {
       .calendly-embed { height: 900px; }
     }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: #2B3A2F;
+      color: rgba(251,246,234,.65);
+      padding: 56px 24px 32px;
+    }
+    .foot-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .foot-grid h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(251,246,234,.5);
+      margin: 0 0 18px;
+      font-weight: 500;
+    }
+    .foot-grid ul { list-style: none; padding: 0; margin: 0; }
+    .foot-grid li { margin-bottom: 10px; font-size: 14px; }
+    .foot-grid a { color: rgba(251,246,234,.65); text-decoration: none; }
+    .foot-grid a:hover { color: #F8F3EA; }
+    .foot-brand-block {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .foot-logo-img { height: 32px; width: auto; }
+    .foot-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #F8F3EA;
+      letter-spacing: .02em;
+    }
+    .foot-est {
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(251,246,234,.45);
+    }
+    .foot-base {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(251,246,234,.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12.5px;
+      color: rgba(251,246,234,.4);
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .foot-base a { color: rgba(251,246,234,.55); text-decoration: none; }
+    .foot-base a:hover { color: #F8F3EA; }
+    @media (max-width: 640px) {
+      .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .foot-brand-block { grid-column: 1 / -1; }
+      .foot-base { flex-direction: column; gap: 10px; text-align: center; }
+    }
   </style>
 </head>
 <body>
@@ -554,6 +621,48 @@
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
   </div>
 </section>
+
+<!-- ── FOOTER ── -->
+<footer class="site-footer">
+  <div class="foot-grid">
+    <div class="foot-brand-block">
+      <img class="foot-logo-img" src="photos/logo.png" alt="Ticket to Impact" />
+      <div class="foot-wordmark">Ticket to Impact</div>
+      <div class="foot-est">Algarve · Est. 2021</div>
+    </div>
+    <div>
+      <h4>How we help</h4>
+      <ul>
+        <li><a href="https://tickettoimpact.com/services.html">Think Sidestream</a></li>
+        <li><a href="https://tickettoimpact.com/services.html">The Business Hub</a></li>
+        <li><a href="https://tickettoimpact.com/services.html">High Ticket Sales</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="https://tickettoimpact.com/index.html#story">Our story</a></li>
+        <li><a href="https://tickettoimpact.com/index.html#testimonials">Reviews</a></li>
+        <li><a href="https://tickettoimpact.com/index.html#contact">Contact</a></li>
+        <li><a href="https://tickettoimpact.com/algemene-voorwaarden.html">Terms &amp; conditions</a></li>
+        <li><a href="https://tickettoimpact.com/privacyverklaring.html">Privacy statement</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Say hi</h4>
+      <ul>
+        <li><a href="mailto:info@tickettoimpact.com">info@tickettoimpact.com</a></li>
+        <li><a href="https://www.instagram.com/ticket.to.impact/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://calendly.com/tickettoimpact-info/call" target="_blank" rel="noopener noreferrer">Book a call →</a></li>
+        <li><a href="https://wa.me/31626889174" target="_blank" rel="noopener noreferrer">WhatsApp →</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>© 2026 Ticket to Impact · Loulé, Portugal</span>
+    <span><a href="https://tickettoimpact.com/algemene-voorwaarden.html">Terms &amp; conditions</a> · <a href="https://tickettoimpact.com/privacyverklaring.html">Privacy statement</a></span>
+  </div>
+</footer>
 
 <script>
   var currentLang = 'en';
