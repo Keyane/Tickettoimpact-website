@@ -304,6 +304,7 @@
     .calendly-section {
       background: var(--ink);
       padding: 48px 24px 48px;
+      overflow: visible;
     }
     .calendly-inner {
       max-width: 780px;
@@ -328,9 +329,13 @@
       margin-right: auto;
     }
     .calendly-embed {
-      min-height: 900px;
+      min-width: 320px;
+      height: 700px;
       border-radius: 10px;
-      overflow: hidden;
+      overflow: visible;
+    }
+    @media (max-width: 768px) {
+      .calendly-embed { height: 900px; }
     }
   </style>
 </head>
