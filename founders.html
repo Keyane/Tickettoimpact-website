@@ -163,7 +163,11 @@
       line-height: 1.55;
     }
     @media (max-width: 768px) {
-      .pillar-desc { display: none; }
+      .pillar { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 0; }
+      .pillar-dot { margin-bottom: 0; flex-shrink: 0; }
+      .pillar-title { font-size: 1.1rem; margin-left: 8px; }
+      .pillar-desc { display: block; font-size: 0.85rem; opacity: .65; margin-top: 4px; margin-left: 22px; flex-basis: 100%; }
+      .pillars-inner { gap: 16px; }
     }
 
     /* ── TAGLINE ── */
@@ -180,6 +184,20 @@
       max-width: 600px;
       margin: 0 auto;
       line-height: 1.6;
+    }
+    @media (max-width: 768px) {
+      .tagline {
+        padding: 32px 24px 32px;
+        text-align: left;
+      }
+      .tagline p {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #2B3A2F;
+        border-left: 3px solid #C97B4A;
+        padding-left: 16px;
+        max-width: 100%;
+      }
     }
 
     /* ── REVIEWS ── */
