@@ -10,11 +10,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --ink:       #2B3A2F;
-      --sun:       #C97B4A;
-      --coral:     #D9533F;
-      --cream:     #F8F3EA;
-      --grey:      #EAE6DC;
+      --ink:   #2B3A2F;
+      --sun:   #C97B4A;
+      --coral: #D9533F;
+      --cream: #F8F3EA;
+      --grey:  #EAE6DC;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -30,7 +30,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 20px 24px;
+      padding: 16px 24px;
       background: var(--cream);
       border-bottom: 1px solid rgba(43,58,47,.1);
     }
@@ -162,30 +162,24 @@
       opacity: .75;
       line-height: 1.55;
     }
-
-    /* ── INTRO ── */
-    .intro {
-      background: var(--grey);
-      padding: 40px 24px 40px;
+    @media (max-width: 768px) {
+      .pillar-desc { display: none; }
     }
-    .intro-card {
-      max-width: 680px;
-      margin: 0 auto;
+
+    /* ── TAGLINE ── */
+    .tagline {
+      background: var(--cream);
+      padding: 24px 24px 24px;
       text-align: center;
     }
-    .intro-card .intro-lead {
+    .tagline p {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
+      color: var(--ink);
+      max-width: 600px;
+      margin: 0 auto;
       line-height: 1.6;
-      color: var(--ink);
-    }
-    .intro-card .intro-body {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--ink);
-      margin-top: 20px;
     }
 
     /* ── REVIEWS ── */
@@ -201,16 +195,36 @@
       text-align: center;
       margin-bottom: 40px;
     }
+
+    /* Desktop grid */
     .reviews-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       max-width: 980px;
       margin: 0 auto;
     }
-    @media (min-width: 640px) {
-      .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+
+    /* Mobile carousel */
+    @media (max-width: 768px) {
+      .reviews-grid {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        max-width: 100%;
+        padding: 0 24px 16px;
+      }
+      .reviews-grid::-webkit-scrollbar { display: none; }
+      .review-card {
+        flex: 0 0 85vw;
+        scroll-snap-align: start;
+      }
     }
+
     .review-card {
       background: #faf5e8;
       border-radius: 18px;
@@ -278,18 +292,8 @@
       flex: 0 0 38px;
       object-fit: cover;
     }
-    .review-avatar.initials {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 16px;
-      color: #faf5e8;
-    }
     .review-avatar.a-1 { background: #3f7a44; }
     .review-avatar.a-2 { background: linear-gradient(180deg, #C97B4A 0%, #D9533F 100%); }
-    .review-avatar.a-3 { background: #2B3A2F; }
     .review-name {
       font-size: 14px;
       font-weight: 500;
@@ -298,6 +302,50 @@
     .review-role {
       font-size: 12.5px;
       color: #6b7563;
+    }
+
+    /* Carousel dots + arrows — mobile only */
+    .carousel-controls {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .carousel-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 16px;
+      }
+      .carousel-arrow {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--sun);
+        font-size: 20px;
+        padding: 4px 8px;
+        line-height: 1;
+      }
+      .carousel-dots {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .carousel-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid;
+        background: transparent;
+        cursor: pointer;
+        padding: 0;
+        transition: background .2s;
+      }
+      .carousel-dot:nth-child(1) { border-color: #2B3A2F; }
+      .carousel-dot:nth-child(2) { border-color: #C97B4A; }
+      .carousel-dot:nth-child(3) { border-color: #D9533F; }
+      .carousel-dot:nth-child(1).active { background: #2B3A2F; }
+      .carousel-dot:nth-child(2).active { background: #C97B4A; }
+      .carousel-dot:nth-child(3).active { background: #D9533F; }
     }
 
     /* ── CALENDLY ── */
@@ -392,22 +440,17 @@
   </div>
 </section>
 
-<!-- ── INTRO ── -->
-<section class="intro">
-  <div class="intro-card">
-    <p class="intro-lead" data-en="You scanned this because something resonated. This is the perfect place to start." data-pt="Leu isto e algo fez sentido. Este é o lugar certo para começar.">
-      You scanned this because something resonated. This is the perfect place to start.
-    </p>
-    <p class="intro-body" data-en="Book your free Impact Scan. In 30 minutes we map out exactly what needs to change in your business, so you walk away with a clear plan and can move forward straight away." data-pt="Marque a sua Impact Scan gratuita. Em 30 minutos analisamos juntos exatamente o que precisa de mudar no seu negócio, para sair com um plano claro e avançar de imediato.">
-      Book your free Impact Scan. In 30 minutes we map out exactly what needs to change in your business, so you walk away with a clear plan and can move forward straight away.
-    </p>
-  </div>
+<!-- ── TAGLINE ── -->
+<section class="tagline">
+  <p data-en="You scanned this because something resonated. This is the perfect place to start." data-pt="Leu isto e algo fez sentido. Este é o lugar certo para começar.">
+    You scanned this because something resonated. This is the perfect place to start.
+  </p>
 </section>
 
 <!-- ── REVIEWS ── -->
 <section class="reviews">
   <h2 class="reviews-heading" data-en="What others say" data-pt="O que dizem os outros">What others say</h2>
-  <div class="reviews-grid">
+  <div class="reviews-grid" id="reviewsGrid">
 
     <article class="review-card">
       <div class="review-mark green">"</div>
@@ -419,7 +462,7 @@
         </button>
       </blockquote>
       <div class="review-who">
-        <img class="review-avatar" src="photos/judith.jpeg" alt="Judith" />
+        <img class="review-avatar" src="photos/Judith.jpeg" alt="Judith" />
         <div>
           <div class="review-name">Judith</div>
           <div class="review-role" data-en="Owner · CuteCotton &amp; Menstruatiecups.nl" data-pt="Owner · CuteCotton &amp; Menstruatiecups.nl">Owner · CuteCotton &amp; Menstruatiecups.nl</div>
@@ -464,14 +507,25 @@
     </article>
 
   </div>
+
+  <!-- Carousel controls (mobile only) -->
+  <div class="carousel-controls" id="carouselControls">
+    <button class="carousel-arrow" id="prevBtn" aria-label="Previous">&#8592;</button>
+    <div class="carousel-dots">
+      <button class="carousel-dot active" data-index="0" aria-label="Review 1"></button>
+      <button class="carousel-dot" data-index="1" aria-label="Review 2"></button>
+      <button class="carousel-dot" data-index="2" aria-label="Review 3"></button>
+    </div>
+    <button class="carousel-arrow" id="nextBtn" aria-label="Next">&#8594;</button>
+  </div>
 </section>
 
 <!-- ── CALENDLY ── -->
 <section class="calendly-section">
   <div class="calendly-inner">
     <h2 data-en="Book your free Impact Scan" data-pt="Marque a sua Impact Scan gratuita">Book your free Impact Scan</h2>
-    <p data-en="In 30 minutes we map out exactly what needs to change, so you walk away with a clear plan." data-pt="30 minutos. Analisamos juntos o que precisa de mudar, para sair com um plano claro.">
-      In 30 minutes we map out exactly what needs to change, so you walk away with a clear plan.
+    <p data-en="Book your free Impact Scan. In 30 minutes we map out exactly what needs to change in your business, so you walk away with a clear plan and can move forward straight away." data-pt="Marque a sua Impact Scan gratuita. Em 30 minutos analisamos juntos exatamente o que precisa de mudar no seu negócio, para sair com um plano claro e avançar de imediato.">
+      Book your free Impact Scan. In 30 minutes we map out exactly what needs to change in your business, so you walk away with a clear plan and can move forward straight away.
     </p>
     <div class="calendly-inline-widget calendly-embed" data-url="https://calendly.com/tickettoimpact-info/call"></div>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
@@ -491,7 +545,7 @@
     });
   }
 
-  // Read-more toggles for review cards
+  // Read-more toggles
   (function() {
     var pairs = [
       ['judithToggle', 'judithQuote'],
@@ -513,6 +567,51 @@
             : (currentLang === 'en' ? 'Read more' : 'Ler mais');
         }
       });
+    });
+  })();
+
+  // Carousel (mobile only)
+  (function() {
+    var grid = document.getElementById('reviewsGrid');
+    var dots = document.querySelectorAll('.carousel-dot');
+    var cards = grid.querySelectorAll('.review-card');
+    var currentIndex = 0;
+
+    function updateDots(index) {
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === index); });
+      currentIndex = index;
+    }
+
+    // Sync dots on scroll
+    grid.addEventListener('scroll', function() {
+      var scrollLeft = grid.scrollLeft;
+      var cardWidth = cards[0].offsetWidth + 16; // gap
+      var index = Math.round(scrollLeft / cardWidth);
+      updateDots(Math.min(index, cards.length - 1));
+    });
+
+    // Dot click
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        var index = parseInt(dot.getAttribute('data-index'));
+        var cardWidth = cards[0].offsetWidth + 16;
+        grid.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+        updateDots(index);
+      });
+    });
+
+    // Arrow buttons
+    document.getElementById('prevBtn').addEventListener('click', function() {
+      var index = Math.max(currentIndex - 1, 0);
+      var cardWidth = cards[0].offsetWidth + 16;
+      grid.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+      updateDots(index);
+    });
+    document.getElementById('nextBtn').addEventListener('click', function() {
+      var index = Math.min(currentIndex + 1, cards.length - 1);
+      var cardWidth = cards[0].offsetWidth + 16;
+      grid.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+      updateDots(index);
     });
   })();
 </script>
