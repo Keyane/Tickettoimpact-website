@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ticket to Impact — Free Impact Scan for Hospitality</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink:       #2B3A2F;
+      --sun:       #C97B4A;
+      --coral:     #D9533F;
+      --cream:     #F8F3EA;
+      --grey:      #EAE6DC;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      background: var(--cream);
+      border-bottom: 1px solid rgba(43,58,47,.1);
+    }
+    .wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: .02em;
+    }
+    .lang-toggle {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      opacity: .55;
+      padding: 2px 0;
+      border-bottom: 2px solid transparent;
+      transition: opacity .2s, border-color .2s;
+    }
+    .lang-btn.active {
+      opacity: 1;
+      border-bottom-color: var(--sun);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--cream);
+      padding: 64px 24px 56px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 8vw, 62px);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--sun);
+    }
+    .hero .subheading {
+      font-size: clamp(15px, 3.5vw, 18px);
+      color: var(--sun);
+      font-weight: 500;
+      letter-spacing: .01em;
+    }
+
+    /* ── PILLARS ── */
+    .pillars {
+      background: var(--cream);
+      padding: 48px 24px 56px;
+    }
+    .pillars-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    @media (min-width: 640px) {
+      .pillars-inner { flex-direction: row; gap: 24px; }
+    }
+    .pillar {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .pillar-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .pillar-dot.green  { background: var(--ink); }
+    .pillar-dot.sun    { background: var(--sun); }
+    .pillar-dot.coral  { background: var(--coral); }
+    .pillar-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--ink);
+    }
+    .pillar-desc {
+      font-size: 14.5px;
+      color: var(--ink);
+      opacity: .75;
+      line-height: 1.55;
+    }
+
+    /* ── INTRO ── */
+    .intro {
+      background: var(--grey);
+      padding: 56px 24px;
+    }
+    .intro-card {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .intro-card p {
+      font-size: clamp(15px, 3vw, 17px);
+      line-height: 1.75;
+      color: var(--ink);
+    }
+    .intro-card p + p {
+      margin-top: 20px;
+    }
+
+    /* ── REVIEWS ── */
+    .reviews {
+      background: var(--cream);
+      padding: 56px 24px;
+    }
+    .reviews-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 6vw, 40px);
+      font-weight: 600;
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .reviews-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    @media (min-width: 640px) {
+      .reviews-grid { flex-direction: row; align-items: stretch; }
+    }
+    .review-card {
+      flex: 1;
+      background: var(--cream);
+      border: 1.5px solid rgba(43,58,47,.2);
+      border-radius: 10px;
+      padding: 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .review-text {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--ink);
+    }
+    .review-snippet { }
+    .review-full {
+      display: none;
+      margin-top: 6px;
+    }
+    .review-full.open { display: block; }
+    .read-more-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--sun);
+      padding: 0;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      margin-top: 4px;
+    }
+    .review-name {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .review-role {
+      font-size: 12.5px;
+      color: var(--ink);
+      opacity: .6;
+    }
+
+    /* ── CALENDLY ── */
+    .calendly-section {
+      background: var(--ink);
+      padding: 56px 24px 48px;
+    }
+    .calendly-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .calendly-inner h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 6vw, 42px);
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 14px;
+    }
+    .calendly-inner p {
+      font-size: 15px;
+      color: var(--cream);
+      opacity: .8;
+      line-height: 1.65;
+      margin-bottom: 36px;
+    }
+    .calendly-embed {
+      min-height: 650px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="site-header">
+  <a class="wordmark" href="https://tickettoimpact.com">Ticket to Impact</a>
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-pt" onclick="setLang('pt')">PT</button>
+  </div>
+</header>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <h1>
+    <span data-en="More guests. Less hassle." data-pt="Mais hóspedes. Menos complicações.">More guests. Less hassle.</span><br>
+    <em data-en="All year round." data-pt="Durante todo o ano.">All year round.</em>
+  </h1>
+  <p class="subheading" data-en="For restaurants, accommodations &amp; rentals in the Algarve" data-pt="Para restaurantes, alojamentos e arrendamentos no Algarve">
+    For restaurants, accommodations &amp; rentals in the Algarve
+  </p>
+</section>
+
+<!-- ── PILLARS ── -->
+<section class="pillars">
+  <div class="pillars-inner">
+    <div class="pillar">
+      <div class="pillar-dot green"></div>
+      <div class="pillar-title" data-en="Get found" data-pt="Seja encontrado">Get found</div>
+      <div class="pillar-desc" data-en="Top of Google &amp; looking your best." data-pt="No topo do Google e com a melhor aparência.">Top of Google &amp; looking your best.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-dot sun"></div>
+      <div class="pillar-title" data-en="Stay full" data-pt="Mantenha-se cheio">Stay full</div>
+      <div class="pillar-desc" data-en="Bookings that run themselves." data-pt="Reservas que funcionam sozinhas.">Bookings that run themselves.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-dot coral"></div>
+      <div class="pillar-title" data-en="Beat the season" data-pt="Vença a época baixa">Beat the season</div>
+      <div class="pillar-desc" data-en="Busy in the quiet months too." data-pt="Movimento também nos meses calmos.">Busy in the quiet months too.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INTRO ── -->
+<section class="intro">
+  <div class="intro-card">
+    <p data-en="You scanned this because something resonated. This is the perfect place to start." data-pt="Leu isto e algo fez sentido. Este é o lugar certo para começar.">
+      You scanned this because something resonated. This is the perfect place to start.
+    </p>
+    <p data-en="Book your free Impact Scan — 30 minutes in which we map out exactly what needs to change in your business, so you walk away with a clear plan and can move forward straight away." data-pt="Marque a sua Impact Scan gratuita — 30 minutos em que analisamos juntos exatamente o que precisa de mudar no seu negócio, para sair com um plano claro e avançar de imediato.">
+      Book your free Impact Scan — 30 minutes in which we map out exactly what needs to change in your business, so you walk away with a clear plan and can move forward straight away.
+    </p>
+  </div>
+</section>
+
+<!-- ── REVIEWS ── -->
+<section class="reviews">
+  <h2 class="reviews-heading" data-en="What others say" data-pt="O que dizem os outros">What others say</h2>
+  <div class="reviews-grid">
+
+    <div class="review-card">
+      <div class="review-text">
+        <span class="review-snippet" data-en="What makes working with Florian and Keyane so valuable to me is that they really look at who I am as an entrepreneur." data-pt="What makes working with Florian and Keyane so valuable to me is that they really look at who I am as an entrepreneur.">What makes working with Florian and Keyane so valuable to me is that they really look at who I am as an entrepreneur.</span>
+        <span class="review-full" id="judith-full" data-en=" For important decisions about the future of my business, like choosing systems and growth path, they helped me with clear analysis and well-founded insights. At the same time, I felt genuinely seen. Florian and Keyane don't work from a standard approach or what 'should' be done, but from what actually fits me. That combination of data, expertise, and genuine involvement is incredibly valuable." data-pt=" For important decisions about the future of my business, like choosing systems and growth path, they helped me with clear analysis and well-founded insights. At the same time, I felt genuinely seen. Florian and Keyane don't work from a standard approach or what 'should' be done, but from what actually fits me. That combination of data, expertise, and genuine involvement is incredibly valuable."> For important decisions about the future of my business, like choosing systems and growth path, they helped me with clear analysis and well-founded insights. At the same time, I felt genuinely seen. Florian and Keyane don't work from a standard approach or what 'should' be done, but from what actually fits me. That combination of data, expertise, and genuine involvement is incredibly valuable.</span>
+        <br>
+        <button class="read-more-btn" onclick="toggleReview('judith-full', this)" data-en="Read more" data-pt="Ler mais">Read more</button>
+      </div>
+      <div>
+        <div class="review-name">Judith</div>
+        <div class="review-role" data-en="Owner · CuteCotton &amp; Menstruatiecups.nl" data-pt="Owner · CuteCotton &amp; Menstruatiecups.nl">Owner · CuteCotton &amp; Menstruatiecups.nl</div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-text">
+        <span class="review-snippet" data-en="I was paying thousands a year for my online platform. Florian took one look and showed me exactly where I was overpaying." data-pt="I was paying thousands a year for my online platform. Florian took one look and showed me exactly where I was overpaying.">I was paying thousands a year for my online platform. Florian took one look and showed me exactly where I was overpaying.</span>
+        <span class="review-full" id="kasper-full" data-en=" Within three weeks, all my sites were migrated to a leaner setup, significant savings, zero stress." data-pt=" Within three weeks, all my sites were migrated to a leaner setup, significant savings, zero stress."> Within three weeks, all my sites were migrated to a leaner setup, significant savings, zero stress.</span>
+        <br>
+        <button class="read-more-btn" onclick="toggleReview('kasper-full', this)" data-en="Read more" data-pt="Ler mais">Read more</button>
+      </div>
+      <div>
+        <div class="review-name">Kasper</div>
+        <div class="review-role" data-en="Founder · PLNTR" data-pt="Founder · PLNTR">Founder · PLNTR</div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-text">
+        <span class="review-snippet" data-en="What stood out immediately was how fast Keyane got up to speed with our work. Within no time she understood our content and knew how to communicate it clearly and convincingly to our clients." data-pt="What stood out immediately was how fast Keyane got up to speed with our work. Within no time she understood our content and knew how to communicate it clearly and convincingly to our clients.">What stood out immediately was how fast Keyane got up to speed with our work. Within no time she understood our content and knew how to communicate it clearly and convincingly to our clients.</span>
+        <span class="review-full" id="marjon-full" data-en=" Keyane is goal-oriented, thinks along proactively, and moves fast, and she continuously fed us valuable insights that helped us make better decisions about our offer. Not just a strong executor. She genuinely adds strategic value." data-pt=" Keyane is goal-oriented, thinks along proactively, and moves fast, and she continuously fed us valuable insights that helped us make better decisions about our offer. Not just a strong executor. She genuinely adds strategic value."> Keyane is goal-oriented, thinks along proactively, and moves fast, and she continuously fed us valuable insights that helped us make better decisions about our offer. Not just a strong executor. She genuinely adds strategic value.</span>
+        <br>
+        <button class="read-more-btn" onclick="toggleReview('marjon-full', this)" data-en="Read more" data-pt="Ler mais">Read more</button>
+      </div>
+      <div>
+        <div class="review-name">Marjon</div>
+        <div class="review-role" data-en="The LiveLabCompany" data-pt="The LiveLabCompany">The LiveLabCompany</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CALENDLY ── -->
+<section class="calendly-section">
+  <div class="calendly-inner">
+    <h2 data-en="Book your free Impact Scan" data-pt="Marque a sua Impact Scan gratuita">Book your free Impact Scan</h2>
+    <p data-en="In 30 minutes we map out exactly what needs to change, so you walk away with a clear plan." data-pt="30 minutos. Analisamos juntos o que precisa de mudar, para sair com um plano claro.">
+      In 30 minutes we map out exactly what needs to change, so you walk away with a clear plan.
+    </p>
+    <div class="calendly-inline-widget calendly-embed" data-url="https://calendly.com/tickettoimpact-info/call"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  </div>
+</section>
+
+<script>
+  var currentLang = 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+
+    document.querySelectorAll('[data-en]').forEach(function(el) {
+      var val = el.getAttribute('data-' + lang);
+      if (val !== null) el.innerHTML = val;
+    });
+
+    // Update read-more buttons text
+    document.querySelectorAll('.read-more-btn').forEach(function(btn) {
+      var fullId = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
+      var full = document.getElementById(fullId);
+      if (full && full.classList.contains('open')) {
+        btn.innerHTML = lang === 'en' ? 'Read less' : 'Ler menos';
+      } else {
+        btn.innerHTML = lang === 'en' ? 'Read more' : 'Ler mais';
+      }
+    });
+  }
+
+  function toggleReview(id, btn) {
+    var el = document.getElementById(id);
+    var isOpen = el.classList.toggle('open');
+    btn.innerHTML = isOpen
+      ? (currentLang === 'en' ? 'Read less' : 'Ler menos')
+      : (currentLang === 'en' ? 'Read more' : 'Ler mais');
+  }
+</script>
+</body>
+</html>
