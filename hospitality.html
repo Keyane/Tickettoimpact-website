@@ -40,14 +40,18 @@
       gap: 10px;
       text-decoration: none;
     }
-    .logo-bars {
+    .logo-wordmark-block {
       display: flex;
       flex-direction: column;
+      gap: 5px;
+    }
+    .logo-bars {
+      display: flex;
+      flex-direction: row;
       gap: 4px;
-      margin-left: 2px;
     }
     .logo-bar {
-      width: 8px;
+      width: 24px;
       height: 3px;
       border-radius: 2px;
     }
@@ -102,7 +106,7 @@
     .hero h1 em {
       font-style: italic;
       font-weight: 500;
-      color: var(--sun);
+      color: #3f7a44;
     }
     .hero .subheading {
       font-size: 1.1rem;
@@ -145,11 +149,13 @@
     .pillar-dot.coral  { background: var(--coral); }
     .pillar-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       font-weight: 500;
       font-style: italic;
-      color: var(--ink);
     }
+    .pillar-title.green { color: var(--ink); }
+    .pillar-title.sun   { color: var(--sun); }
+    .pillar-title.coral { color: var(--coral); }
     .pillar-desc {
       font-size: 0.95rem;
       color: var(--ink);
@@ -184,8 +190,8 @@
 
     /* ── REVIEWS ── */
     .reviews {
-      background: var(--cream);
-      padding: 56px 24px;
+      background: #f5f2ec;
+      padding: 64px 24px;
     }
     .reviews-heading {
       font-family: 'Cormorant Garamond', serif;
@@ -193,61 +199,105 @@
       font-weight: 600;
       color: var(--ink);
       text-align: center;
-      margin-bottom: 36px;
+      margin-bottom: 40px;
     }
     .reviews-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 960px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 980px;
       margin: 0 auto;
     }
     @media (min-width: 640px) {
-      .reviews-grid { flex-direction: row; align-items: stretch; }
+      .reviews-grid { grid-template-columns: repeat(3, 1fr); }
     }
     .review-card {
-      flex: 1;
-      background: var(--cream);
-      border: 1.5px solid rgba(43,58,47,.2);
-      border-radius: 10px;
-      padding: 24px 22px;
+      background: #faf5e8;
+      border-radius: 18px;
+      padding: 36px 30px 30px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
     }
-    .review-text {
-      font-size: 14.5px;
-      line-height: 1.65;
+    .review-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      line-height: .6;
+      margin-bottom: 14px;
+    }
+    .review-mark.green { color: #2B3A2F; }
+    .review-mark.sun   { color: #C97B4A; }
+    .review-mark.coral { color: #D9533F; }
+    .review-blockquote {
+      margin: 0 0 24px;
+      padding: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.45;
       color: var(--ink);
+      flex: 1;
     }
-    .review-snippet { }
-    .review-full {
-      display: none;
-      margin-top: 6px;
+    .quote-clamp {
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
-    .review-full.open { display: block; }
-    .read-more-btn {
+    .quote-clamp.is-open {
+      display: block;
+      overflow: visible;
+    }
+    .quote-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
       background: none;
       border: none;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--sun);
       padding: 0;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-      margin-top: 4px;
+      margin: 8px 0 0;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12.5px;
+      color: #3f7a44;
+      cursor: pointer;
+      letter-spacing: .04em;
     }
+    .quote-toggle svg { transition: transform .3s ease; }
+    .quote-toggle.is-open svg { transform: rotate(180deg); }
+    .review-who {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid rgba(43,58,47,.12);
+      padding-top: 18px;
+      margin-top: auto;
+    }
+    .review-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      flex: 0 0 38px;
+      object-fit: cover;
+    }
+    .review-avatar.initials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 16px;
+      color: #faf5e8;
+    }
+    .review-avatar.a-1 { background: #3f7a44; }
+    .review-avatar.a-2 { background: linear-gradient(180deg, #C97B4A 0%, #D9533F 100%); }
+    .review-avatar.a-3 { background: #2B3A2F; }
     .review-name {
-      font-size: 13.5px;
+      font-size: 14px;
       font-weight: 500;
       color: var(--ink);
     }
     .review-role {
       font-size: 12.5px;
-      color: var(--ink);
-      opacity: .6;
+      color: #6b7563;
     }
 
     /* ── CALENDLY ── */
@@ -297,11 +347,13 @@
       <!-- petal 3: coral, bottom-left -->
       <ellipse cx="16" cy="9" rx="5.5" ry="9" fill="#D9533F" transform="rotate(240 16 16)" />
     </svg>
-    <span class="wordmark">Ticket to Impact</span>
-    <div class="logo-bars">
-      <div class="logo-bar" style="background:#2B3A2F"></div>
-      <div class="logo-bar" style="background:#C97B4A"></div>
-      <div class="logo-bar" style="background:#D9533F"></div>
+    <div class="logo-wordmark-block">
+      <span class="wordmark">Ticket to Impact</span>
+      <div class="logo-bars">
+        <div class="logo-bar" style="background:#2B3A2F"></div>
+        <div class="logo-bar" style="background:#C97B4A"></div>
+        <div class="logo-bar" style="background:#D9533F"></div>
+      </div>
     </div>
   </a>
   <div class="lang-toggle" role="group" aria-label="Language">
@@ -326,17 +378,17 @@
   <div class="pillars-inner">
     <div class="pillar">
       <div class="pillar-dot green"></div>
-      <div class="pillar-title" data-en="Get found" data-pt="Seja encontrado">Get found</div>
+      <div class="pillar-title green" data-en="Get found" data-pt="Seja encontrado">Get found</div>
       <div class="pillar-desc" data-en="Top of Google &amp; looking your best." data-pt="No topo do Google e com a melhor aparência.">Top of Google &amp; looking your best.</div>
     </div>
     <div class="pillar">
       <div class="pillar-dot sun"></div>
-      <div class="pillar-title" data-en="Stay full" data-pt="Mantenha-se cheio">Stay full</div>
+      <div class="pillar-title sun" data-en="Stay full" data-pt="Mantenha-se cheio">Stay full</div>
       <div class="pillar-desc" data-en="Bookings that run themselves." data-pt="Reservas que funcionam sozinhas.">Bookings that run themselves.</div>
     </div>
     <div class="pillar">
       <div class="pillar-dot coral"></div>
-      <div class="pillar-title" data-en="Beat the season" data-pt="Vença a época baixa">Beat the season</div>
+      <div class="pillar-title coral" data-en="Beat the season" data-pt="Vença a época baixa">Beat the season</div>
       <div class="pillar-desc" data-en="Busy in the quiet months too." data-pt="Movimento também nos meses calmos.">Busy in the quiet months too.</div>
     </div>
   </div>
@@ -359,44 +411,59 @@
   <h2 class="reviews-heading" data-en="What others say" data-pt="O que dizem os outros">What others say</h2>
   <div class="reviews-grid">
 
-    <div class="review-card">
-      <div class="review-text">
-        <span class="review-snippet" data-en="What makes working with Florian and Keyane so valuable to me is that they really look at who I am as an entrepreneur." data-pt="What makes working with Florian and Keyane so valuable to me is that they really look at who I am as an entrepreneur.">What makes working with Florian and Keyane so valuable to me is that they really look at who I am as an entrepreneur.</span>
-        <span class="review-full" id="judith-full" data-en=" For important decisions about the future of my business, like choosing systems and growth path, they helped me with clear analysis and well-founded insights. At the same time, I felt genuinely seen. Florian and Keyane don't work from a standard approach or what 'should' be done, but from what actually fits me. That combination of data, expertise, and genuine involvement is incredibly valuable." data-pt=" For important decisions about the future of my business, like choosing systems and growth path, they helped me with clear analysis and well-founded insights. At the same time, I felt genuinely seen. Florian and Keyane don't work from a standard approach or what 'should' be done, but from what actually fits me. That combination of data, expertise, and genuine involvement is incredibly valuable."> For important decisions about the future of my business, like choosing systems and growth path, they helped me with clear analysis and well-founded insights. At the same time, I felt genuinely seen. Florian and Keyane don't work from a standard approach or what 'should' be done, but from what actually fits me. That combination of data, expertise, and genuine involvement is incredibly valuable.</span>
-        <br>
-        <button class="read-more-btn" onclick="toggleReview('judith-full', this)" data-en="Read more" data-pt="Ler mais">Read more</button>
+    <article class="review-card">
+      <div class="review-mark green">"</div>
+      <blockquote class="review-blockquote">
+        <span class="quote-clamp" id="judithQuote">What makes working with Florian and Keyane so valuable to me is that they really look at who I am as an entrepreneur. For important decisions about the future of my business, like choosing systems and growth path, they helped me with clear analysis and well-founded insights. At the same time, I felt genuinely seen. Florian and Keyane don't work from a standard approach or what 'should' be done, but from what actually fits me. That combination of data, expertise, and genuine involvement is incredibly valuable.</span>
+        <button class="quote-toggle" id="judithToggle" aria-expanded="false" aria-controls="judithQuote">
+          <span class="toggle-label" data-en="Read more" data-pt="Ler mais">Read more</span>
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </blockquote>
+      <div class="review-who">
+        <div class="review-avatar initials a-3">J</div>
+        <div>
+          <div class="review-name">Judith</div>
+          <div class="review-role" data-en="Owner · CuteCotton &amp; Menstruatiecups.nl" data-pt="Owner · CuteCotton &amp; Menstruatiecups.nl">Owner · CuteCotton &amp; Menstruatiecups.nl</div>
+        </div>
       </div>
-      <div>
-        <div class="review-name">Judith</div>
-        <div class="review-role" data-en="Owner · CuteCotton &amp; Menstruatiecups.nl" data-pt="Owner · CuteCotton &amp; Menstruatiecups.nl">Owner · CuteCotton &amp; Menstruatiecups.nl</div>
-      </div>
-    </div>
+    </article>
 
-    <div class="review-card">
-      <div class="review-text">
-        <span class="review-snippet" data-en="I was paying thousands a year for my online platform. Florian took one look and showed me exactly where I was overpaying." data-pt="I was paying thousands a year for my online platform. Florian took one look and showed me exactly where I was overpaying.">I was paying thousands a year for my online platform. Florian took one look and showed me exactly where I was overpaying.</span>
-        <span class="review-full" id="kasper-full" data-en=" Within three weeks, all my sites were migrated to a leaner setup, significant savings, zero stress." data-pt=" Within three weeks, all my sites were migrated to a leaner setup, significant savings, zero stress."> Within three weeks, all my sites were migrated to a leaner setup, significant savings, zero stress.</span>
-        <br>
-        <button class="read-more-btn" onclick="toggleReview('kasper-full', this)" data-en="Read more" data-pt="Ler mais">Read more</button>
+    <article class="review-card">
+      <div class="review-mark sun">"</div>
+      <blockquote class="review-blockquote">
+        <span class="quote-clamp" id="kasperQuote">I was paying thousands a year for my online platform. Florian took one look and showed me exactly where I was overpaying. Within three weeks, all my sites were migrated to a leaner setup, significant savings, zero stress.</span>
+        <button class="quote-toggle" id="kasperToggle" aria-expanded="false" aria-controls="kasperQuote">
+          <span class="toggle-label" data-en="Read more" data-pt="Ler mais">Read more</span>
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </blockquote>
+      <div class="review-who">
+        <img class="review-avatar a-1" src="photos/plntr.jpeg" alt="Kasper" />
+        <div>
+          <div class="review-name">Kasper</div>
+          <div class="review-role" data-en="Founder · PLNTR" data-pt="Founder · PLNTR">Founder · PLNTR</div>
+        </div>
       </div>
-      <div>
-        <div class="review-name">Kasper</div>
-        <div class="review-role" data-en="Founder · PLNTR" data-pt="Founder · PLNTR">Founder · PLNTR</div>
-      </div>
-    </div>
+    </article>
 
-    <div class="review-card">
-      <div class="review-text">
-        <span class="review-snippet" data-en="What stood out immediately was how fast Keyane got up to speed with our work. Within no time she understood our content and knew how to communicate it clearly and convincingly to our clients." data-pt="What stood out immediately was how fast Keyane got up to speed with our work. Within no time she understood our content and knew how to communicate it clearly and convincingly to our clients.">What stood out immediately was how fast Keyane got up to speed with our work. Within no time she understood our content and knew how to communicate it clearly and convincingly to our clients.</span>
-        <span class="review-full" id="marjon-full" data-en=" Keyane is goal-oriented, thinks along proactively, and moves fast, and she continuously fed us valuable insights that helped us make better decisions about our offer. Not just a strong executor. She genuinely adds strategic value." data-pt=" Keyane is goal-oriented, thinks along proactively, and moves fast, and she continuously fed us valuable insights that helped us make better decisions about our offer. Not just a strong executor. She genuinely adds strategic value."> Keyane is goal-oriented, thinks along proactively, and moves fast, and she continuously fed us valuable insights that helped us make better decisions about our offer. Not just a strong executor. She genuinely adds strategic value.</span>
-        <br>
-        <button class="read-more-btn" onclick="toggleReview('marjon-full', this)" data-en="Read more" data-pt="Ler mais">Read more</button>
+    <article class="review-card">
+      <div class="review-mark coral">"</div>
+      <blockquote class="review-blockquote">
+        <span class="quote-clamp" id="marjonQuote">What stood out immediately was how fast Keyane got up to speed with our work. Within no time she understood our content and knew how to communicate it clearly and convincingly to our clients. Keyane is goal-oriented, thinks along proactively, and moves fast, and she continuously fed us valuable insights that helped us make better decisions about our offer. Not just a strong executor. She genuinely adds strategic value.</span>
+        <button class="quote-toggle" id="marjonToggle" aria-expanded="false" aria-controls="marjonQuote">
+          <span class="toggle-label" data-en="Read more" data-pt="Ler mais">Read more</span>
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </blockquote>
+      <div class="review-who">
+        <img class="review-avatar a-2" src="photos/thelivelabcompany.jpeg" alt="Marjon" />
+        <div>
+          <div class="review-name">Marjon</div>
+          <div class="review-role" data-en="The LiveLabCompany" data-pt="The LiveLabCompany">The LiveLabCompany</div>
+        </div>
       </div>
-      <div>
-        <div class="review-name">Marjon</div>
-        <div class="review-role" data-en="The LiveLabCompany" data-pt="The LiveLabCompany">The LiveLabCompany</div>
-      </div>
-    </div>
+    </article>
 
   </div>
 </section>
@@ -420,31 +487,36 @@
     currentLang = lang;
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
-
     document.querySelectorAll('[data-en]').forEach(function(el) {
       var val = el.getAttribute('data-' + lang);
       if (val !== null) el.innerHTML = val;
     });
+  }
 
-    // Update read-more buttons text
-    document.querySelectorAll('.read-more-btn').forEach(function(btn) {
-      var fullId = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
-      var full = document.getElementById(fullId);
-      if (full && full.classList.contains('open')) {
-        btn.innerHTML = lang === 'en' ? 'Read less' : 'Ler menos';
-      } else {
-        btn.innerHTML = lang === 'en' ? 'Read more' : 'Ler mais';
-      }
+  // Read-more toggles for review cards
+  (function() {
+    var pairs = [
+      ['judithToggle', 'judithQuote'],
+      ['kasperToggle', 'kasperQuote'],
+      ['marjonToggle', 'marjonQuote']
+    ];
+    pairs.forEach(function(pair) {
+      var btn = document.getElementById(pair[0]);
+      var quote = document.getElementById(pair[1]);
+      if (!btn || !quote) return;
+      btn.addEventListener('click', function() {
+        var isOpen = quote.classList.toggle('is-open');
+        btn.classList.toggle('is-open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen);
+        var label = btn.querySelector('.toggle-label');
+        if (label) {
+          label.textContent = isOpen
+            ? (currentLang === 'en' ? 'Read less' : 'Ler menos')
+            : (currentLang === 'en' ? 'Read more' : 'Ler mais');
+        }
+      });
     });
-  }
-
-  function toggleReview(id, btn) {
-    var el = document.getElementById(id);
-    var isOpen = el.classList.toggle('open');
-    btn.innerHTML = isOpen
-      ? (currentLang === 'en' ? 'Read less' : 'Ler menos')
-      : (currentLang === 'en' ? 'Read more' : 'Ler mais');
-  }
+  })();
 </script>
 </body>
 </html>
