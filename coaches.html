@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ticket to Impact — Free Impact Scan for Coaches</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink:   #2B3A2F;
+      --sun:   #C97B4A;
+      --coral: #D9533F;
+      --cream: #F8F3EA;
+      --grey:  #EAE6DC;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: var(--cream);
+      border-bottom: 1px solid rgba(43,58,47,.1);
+    }
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-wordmark-block {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .logo-bars {
+      display: flex;
+      flex-direction: row;
+      gap: 4px;
+    }
+    .logo-bar {
+      width: 24px;
+      height: 3px;
+      border-radius: 2px;
+    }
+    .wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: .02em;
+    }
+    .lang-toggle {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      opacity: .55;
+      padding: 2px 0;
+      border-bottom: 2px solid transparent;
+      transition: opacity .2s, border-color .2s;
+    }
+    .lang-btn.active {
+      opacity: 1;
+      border-bottom-color: var(--sun);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--cream);
+      padding: 48px 24px 32px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    @media (min-width: 640px) {
+      .hero h1 { font-size: 4rem; }
+    }
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 500;
+      color: #3f7a44;
+    }
+    .hero .subheading {
+      font-size: 1.1rem;
+      color: var(--sun);
+      font-weight: 500;
+      letter-spacing: .02em;
+    }
+
+    /* ── PILLARS ── */
+    .pillars {
+      background: var(--cream);
+      padding: 32px 24px 32px;
+    }
+    .pillars-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    @media (min-width: 640px) {
+      .pillars-inner { flex-direction: row; gap: 24px; }
+    }
+    .pillar {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .pillar-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-bottom: 8px;
+    }
+    .pillar-dot.green  { background: #3f7a44; }
+    .pillar-dot.sun    { background: var(--sun); }
+    .pillar-dot.coral  { background: var(--coral); }
+    .pillar-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      font-style: italic;
+    }
+    .pillar-title.green { color: #3f7a44 !important; }
+    .pillar-title.sun   { color: #C97B4A !important; }
+    .pillar-title.coral { color: #D9533F !important; }
+    .pillar-desc {
+      font-size: 0.95rem;
+      color: var(--ink);
+      opacity: .75;
+      line-height: 1.55;
+    }
+    @media (max-width: 768px) {
+      .pillar-desc { display: none; }
+    }
+
+    /* ── TAGLINE ── */
+    .tagline {
+      background: var(--cream);
+      padding: 24px 24px 24px;
+      text-align: center;
+    }
+    .tagline p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--ink);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── REVIEWS ── */
+    .reviews {
+      background: #f5f2ec;
+      padding: 48px 24px;
+    }
+    .reviews-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 6vw, 40px);
+      font-weight: 600;
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) {
+      .reviews-grid {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        max-width: 100%;
+        padding: 0 24px 16px;
+      }
+      .reviews-grid::-webkit-scrollbar { display: none; }
+      .review-card {
+        flex: 0 0 85vw;
+        scroll-snap-align: start;
+      }
+    }
+    .review-card {
+      background: #faf5e8;
+      border-radius: 18px;
+      padding: 36px 30px 30px;
+      display: flex;
+      flex-direction: column;
+    }
+    .review-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      line-height: .6;
+      margin-bottom: 14px;
+    }
+    .review-mark.green { color: #2B3A2F; }
+    .review-mark.sun   { color: #C97B4A; }
+    .review-mark.coral { color: #D9533F; }
+    .review-blockquote {
+      margin: 0 0 24px;
+      padding: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.45;
+      color: var(--ink);
+      flex: 1;
+    }
+    .quote-clamp {
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .quote-clamp.is-open {
+      display: block;
+      overflow: visible;
+    }
+    .quote-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 8px 0 0;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12.5px;
+      color: #3f7a44;
+      cursor: pointer;
+      letter-spacing: .04em;
+    }
+    .quote-toggle svg { transition: transform .3s ease; }
+    .quote-toggle.is-open svg { transform: rotate(180deg); }
+    .review-who {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid rgba(43,58,47,.12);
+      padding-top: 18px;
+      margin-top: auto;
+    }
+    .review-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      flex: 0 0 38px;
+      object-fit: cover;
+    }
+    .review-avatar.a-1 { background: #3f7a44; }
+    .review-avatar.a-2 { background: linear-gradient(180deg, #C97B4A 0%, #D9533F 100%); }
+    .review-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .review-role {
+      font-size: 12.5px;
+      color: #6b7563;
+    }
+    .carousel-controls { display: none; }
+    @media (max-width: 768px) {
+      .carousel-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 16px;
+      }
+      .carousel-arrow {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--sun);
+        font-size: 20px;
+        padding: 4px 8px;
+        line-height: 1;
+      }
+      .carousel-dots { display: flex; gap: 8px; align-items: center; }
+      .carousel-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid;
+        background: transparent;
+        cursor: pointer;
+        padding: 0;
+        transition: background .2s;
+      }
+      .carousel-dot:nth-child(1) { border-color: #2B3A2F; }
+      .carousel-dot:nth-child(2) { border-color: #C97B4A; }
+      .carousel-dot:nth-child(3) { border-color: #D9533F; }
+      .carousel-dot:nth-child(1).active { background: #2B3A2F; }
+      .carousel-dot:nth-child(2).active { background: #C97B4A; }
+      .carousel-dot:nth-child(3).active { background: #D9533F; }
+    }
+
+    /* ── CALENDLY ── */
+    .calendly-section {
+      background: var(--ink);
+      padding: 48px 24px 48px;
+      overflow: visible;
+    }
+    .calendly-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .calendly-inner h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 6vw, 2.8rem);
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 14px;
+    }
+    .calendly-inner p {
+      font-size: 1.05rem;
+      color: var(--cream);
+      opacity: .8;
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .calendly-embed {
+      min-width: 320px;
+      height: 700px;
+      border-radius: 10px;
+      overflow: visible;
+    }
+    @media (max-width: 768px) {
+      .calendly-embed { height: 900px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="site-header">
+  <a class="logo-link" href="https://tickettoimpact.com">
+    <img src="photos/logo.png" alt="Ticket to Impact" style="height:36px;width:auto;">
+    <div class="logo-wordmark-block">
+      <span class="wordmark">Ticket to Impact</span>
+      <div class="logo-bars">
+        <div class="logo-bar" style="background:#2B3A2F"></div>
+        <div class="logo-bar" style="background:#C97B4A"></div>
+        <div class="logo-bar" style="background:#D9533F"></div>
+      </div>
+    </div>
+  </a>
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-pt" onclick="setLang('pt')">PT</button>
+  </div>
+</header>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <h1>
+    <span data-en="From side project to" data-pt="De projeto paralelo a">From side project to</span><br>
+    <em data-en="sustainable business." data-pt="negócio sustentável.">sustainable business.</em>
+  </h1>
+  <p class="subheading" data-en="For coaches, practitioners &amp; conscious brands in the Algarve" data-pt="Para coaches, terapeutas e marcas conscientes no Algarve">
+    For coaches, practitioners &amp; conscious brands in the Algarve
+  </p>
+</section>
+
+<!-- ── PILLARS ── -->
+<section class="pillars">
+  <div class="pillars-inner">
+    <div class="pillar">
+      <div class="pillar-dot green"></div>
+      <div class="pillar-title green" data-en="Get clarity" data-pt="Ganhe clareza">Get clarity</div>
+      <div class="pillar-desc" data-en="Know exactly what to focus on next." data-pt="Saiba exatamente onde focar a seguir.">Know exactly what to focus on next.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-dot sun"></div>
+      <div class="pillar-title sun" data-en="Get structure" data-pt="Ganhe estrutura">Get structure</div>
+      <div class="pillar-desc" data-en="A strategy that actually fits your life." data-pt="Uma estratégia que se ajusta à sua vida.">A strategy that actually fits your life.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-dot coral"></div>
+      <div class="pillar-title coral" data-en="Get growing" data-pt="Ganhe crescimento">Get growing</div>
+      <div class="pillar-desc" data-en="From idea to a business that scales." data-pt="Da ideia a um negócio que escala.">From idea to a business that scales.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TAGLINE ── -->
+<section class="tagline">
+  <p data-en="You know what you do best. Now let's make sure the right people find you, trust you, and say yes." data-pt="Sabe o que faz melhor. Agora vamos garantir que as pessoas certas o encontrem, confiem em si e digam sim.">
+    You know what you do best. Now let's make sure the right people find you, trust you, and say yes.
+  </p>
+</section>
+
+<!-- ── REVIEWS ── -->
+<section class="reviews">
+  <h2 class="reviews-heading" data-en="What others say" data-pt="O que dizem os outros">What others say</h2>
+  <div class="reviews-grid" id="reviewsGrid">
+
+    <article class="review-card">
+      <div class="review-mark green">"</div>
+      <blockquote class="review-blockquote">
+        <span class="quote-clamp" id="judithQuote">What makes working with Florian and Keyane so valuable to me is that they really look at who I am as an entrepreneur. For important decisions about the future of my business, like choosing systems and growth path, they helped me with clear analysis and well-founded insights. At the same time, I felt genuinely seen. Florian and Keyane don't work from a standard approach or what 'should' be done, but from what actually fits me. That combination of data, expertise, and genuine involvement is incredibly valuable.</span>
+        <button class="quote-toggle" id="judithToggle" aria-expanded="false" aria-controls="judithQuote">
+          <span class="toggle-label" data-en="Read more" data-pt="Ler mais">Read more</span>
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </blockquote>
+      <div class="review-who">
+        <img class="review-avatar" src="photos/Judith.jpeg" alt="Judith" />
+        <div>
+          <div class="review-name">Judith</div>
+          <div class="review-role" data-en="Owner · CuteCotton &amp; Menstruatiecups.nl" data-pt="Owner · CuteCotton &amp; Menstruatiecups.nl">Owner · CuteCotton &amp; Menstruatiecups.nl</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="review-card">
+      <div class="review-mark sun">"</div>
+      <blockquote class="review-blockquote">
+        <span class="quote-clamp" id="kasperQuote">I was paying thousands a year for my online platform. Florian took one look and showed me exactly where I was overpaying. Within three weeks, all my sites were migrated to a leaner setup, significant savings, zero stress.</span>
+        <button class="quote-toggle" id="kasperToggle" aria-expanded="false" aria-controls="kasperQuote">
+          <span class="toggle-label" data-en="Read more" data-pt="Ler mais">Read more</span>
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </blockquote>
+      <div class="review-who">
+        <img class="review-avatar a-1" src="photos/plntr.jpeg" alt="Kasper" />
+        <div>
+          <div class="review-name">Kasper</div>
+          <div class="review-role" data-en="Founder · PLNTR" data-pt="Founder · PLNTR">Founder · PLNTR</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="review-card">
+      <div class="review-mark coral">"</div>
+      <blockquote class="review-blockquote">
+        <span class="quote-clamp" id="marjonQuote">What stood out immediately was how fast Keyane got up to speed with our work. Within no time she understood our content and knew how to communicate it clearly and convincingly to our clients. Keyane is goal-oriented, thinks along proactively, and moves fast, and she continuously fed us valuable insights that helped us make better decisions about our offer. Not just a strong executor. She genuinely adds strategic value.</span>
+        <button class="quote-toggle" id="marjonToggle" aria-expanded="false" aria-controls="marjonQuote">
+          <span class="toggle-label" data-en="Read more" data-pt="Ler mais">Read more</span>
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </blockquote>
+      <div class="review-who">
+        <img class="review-avatar a-2" src="photos/thelivelabcompany.jpeg" alt="Marjon" />
+        <div>
+          <div class="review-name">Marjon</div>
+          <div class="review-role" data-en="The LiveLabCompany" data-pt="The LiveLabCompany">The LiveLabCompany</div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="carousel-controls" id="carouselControls">
+    <button class="carousel-arrow" id="prevBtn" aria-label="Previous">&#8592;</button>
+    <div class="carousel-dots">
+      <button class="carousel-dot active" data-index="0" aria-label="Review 1"></button>
+      <button class="carousel-dot" data-index="1" aria-label="Review 2"></button>
+      <button class="carousel-dot" data-index="2" aria-label="Review 3"></button>
+    </div>
+    <button class="carousel-arrow" id="nextBtn" aria-label="Next">&#8594;</button>
+  </div>
+</section>
+
+<!-- ── CALENDLY ── -->
+<section class="calendly-section">
+  <div class="calendly-inner">
+    <h2 data-en="Book your free Impact Scan" data-pt="Marque a sua Impact Scan gratuita">Book your free Impact Scan</h2>
+    <p data-en="Book your free Impact Scan. In 30 minutes we map out exactly what your next move is, so you walk away with total clarity and can take action straight away." data-pt="Marque a sua Impact Scan gratuita. Em 30 minutos definimos juntos exatamente qual é o seu próximo passo, para sair com total clareza e agir de imediato.">
+      Book your free Impact Scan. In 30 minutes we map out exactly what your next move is, so you walk away with total clarity and can take action straight away.
+    </p>
+    <div class="calendly-inline-widget calendly-embed" data-url="https://calendly.com/tickettoimpact-info/call"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  </div>
+</section>
+
+<script>
+  var currentLang = 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+    document.querySelectorAll('[data-en]').forEach(function(el) {
+      var val = el.getAttribute('data-' + lang);
+      if (val !== null) el.innerHTML = val;
+    });
+  }
+
+  (function() {
+    var pairs = [
+      ['judithToggle', 'judithQuote'],
+      ['kasperToggle', 'kasperQuote'],
+      ['marjonToggle', 'marjonQuote']
+    ];
+    pairs.forEach(function(pair) {
+      var btn = document.getElementById(pair[0]);
+      var quote = document.getElementById(pair[1]);
+      if (!btn || !quote) return;
+      btn.addEventListener('click', function() {
+        var isOpen = quote.classList.toggle('is-open');
+        btn.classList.toggle('is-open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen);
+        var label = btn.querySelector('.toggle-label');
+        if (label) {
+          label.textContent = isOpen
+            ? (currentLang === 'en' ? 'Read less' : 'Ler menos')
+            : (currentLang === 'en' ? 'Read more' : 'Ler mais');
+        }
+      });
+    });
+  })();
+
+  (function() {
+    var grid = document.getElementById('reviewsGrid');
+    var dots = document.querySelectorAll('.carousel-dot');
+    var cards = grid.querySelectorAll('.review-card');
+    var currentIndex = 0;
+
+    function updateDots(index) {
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === index); });
+      currentIndex = index;
+    }
+
+    grid.addEventListener('scroll', function() {
+      var cardWidth = cards[0].offsetWidth + 16;
+      var index = Math.round(grid.scrollLeft / cardWidth);
+      updateDots(Math.min(index, cards.length - 1));
+    });
+
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        var index = parseInt(dot.getAttribute('data-index'));
+        var cardWidth = cards[0].offsetWidth + 16;
+        grid.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+        updateDots(index);
+      });
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', function() {
+      var index = Math.max(currentIndex - 1, 0);
+      grid.scrollTo({ left: index * (cards[0].offsetWidth + 16), behavior: 'smooth' });
+      updateDots(index);
+    });
+    document.getElementById('nextBtn').addEventListener('click', function() {
+      var index = Math.min(currentIndex + 1, cards.length - 1);
+      grid.scrollTo({ left: index * (cards[0].offsetWidth + 16), behavior: 'smooth' });
+      updateDots(index);
+    });
+  })();
+</script>
+</body>
+</html>
