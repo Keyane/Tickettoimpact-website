@@ -34,9 +34,26 @@
       background: var(--cream);
       border-bottom: 1px solid rgba(43,58,47,.1);
     }
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-left: 2px;
+    }
+    .logo-bar {
+      width: 8px;
+      height: 3px;
+      border-radius: 2px;
+    }
     .wordmark {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
+      font-size: 1.2rem;
       font-weight: 600;
       color: var(--ink);
       text-decoration: none;
@@ -68,32 +85,36 @@
     /* ── HERO ── */
     .hero {
       background: var(--cream);
-      padding: 64px 24px 56px;
+      padding: 80px 24px 60px;
       text-align: center;
     }
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(36px, 8vw, 62px);
+      font-size: 2.6rem;
       font-weight: 600;
       line-height: 1.15;
       color: var(--ink);
       margin-bottom: 20px;
     }
+    @media (min-width: 640px) {
+      .hero h1 { font-size: 4rem; }
+    }
     .hero h1 em {
       font-style: italic;
+      font-weight: 500;
       color: var(--sun);
     }
     .hero .subheading {
-      font-size: clamp(15px, 3.5vw, 18px);
+      font-size: 1.1rem;
       color: var(--sun);
       font-weight: 500;
-      letter-spacing: .01em;
+      letter-spacing: .02em;
     }
 
     /* ── PILLARS ── */
     .pillars {
       background: var(--cream);
-      padding: 48px 24px 56px;
+      padding: 60px 24px 60px;
     }
     .pillars-inner {
       display: flex;
@@ -117,19 +138,20 @@
       height: 14px;
       border-radius: 50%;
       flex-shrink: 0;
+      margin-bottom: 8px;
     }
     .pillar-dot.green  { background: var(--ink); }
     .pillar-dot.sun    { background: var(--sun); }
     .pillar-dot.coral  { background: var(--coral); }
     .pillar-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      font-weight: 600;
+      font-size: 1.6rem;
+      font-weight: 500;
       font-style: italic;
       color: var(--ink);
     }
     .pillar-desc {
-      font-size: 14.5px;
+      font-size: 0.95rem;
       color: var(--ink);
       opacity: .75;
       line-height: 1.55;
@@ -138,19 +160,25 @@
     /* ── INTRO ── */
     .intro {
       background: var(--grey);
-      padding: 56px 24px;
+      padding: 60px 24px 60px;
     }
     .intro-card {
       max-width: 680px;
       margin: 0 auto;
       text-align: center;
     }
-    .intro-card p {
-      font-size: clamp(15px, 3vw, 17px);
-      line-height: 1.75;
+    .intro-card .intro-lead {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.4rem;
+      line-height: 1.6;
       color: var(--ink);
     }
-    .intro-card p + p {
+    .intro-card .intro-body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--ink);
       margin-top: 20px;
     }
 
@@ -225,7 +253,7 @@
     /* ── CALENDLY ── */
     .calendly-section {
       background: var(--ink);
-      padding: 56px 24px 48px;
+      padding: 60px 24px 60px;
     }
     .calendly-inner {
       max-width: 780px;
@@ -234,20 +262,23 @@
     }
     .calendly-inner h2 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(28px, 6vw, 42px);
+      font-size: clamp(28px, 6vw, 2.8rem);
       font-weight: 600;
       color: var(--cream);
       margin-bottom: 14px;
     }
     .calendly-inner p {
-      font-size: 15px;
+      font-size: 1.05rem;
       color: var(--cream);
       opacity: .8;
-      line-height: 1.65;
+      line-height: 1.7;
       margin-bottom: 36px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .calendly-embed {
-      min-height: 650px;
+      min-height: 900px;
       border-radius: 10px;
       overflow: hidden;
     }
@@ -257,7 +288,22 @@
 
 <!-- ── HEADER ── -->
 <header class="site-header">
-  <a class="wordmark" href="https://tickettoimpact.com">Ticket to Impact</a>
+  <a class="logo-link" href="https://tickettoimpact.com">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- petal 1: dark green, top -->
+      <ellipse cx="16" cy="9" rx="5.5" ry="9" fill="#2B3A2F" rx="5.5" ry="9" transform="rotate(0 16 16)" />
+      <!-- petal 2: terracotta, bottom-right -->
+      <ellipse cx="16" cy="9" rx="5.5" ry="9" fill="#C97B4A" transform="rotate(120 16 16)" />
+      <!-- petal 3: coral, bottom-left -->
+      <ellipse cx="16" cy="9" rx="5.5" ry="9" fill="#D9533F" transform="rotate(240 16 16)" />
+    </svg>
+    <span class="wordmark">Ticket to Impact</span>
+    <div class="logo-bars">
+      <div class="logo-bar" style="background:#2B3A2F"></div>
+      <div class="logo-bar" style="background:#C97B4A"></div>
+      <div class="logo-bar" style="background:#D9533F"></div>
+    </div>
+  </a>
   <div class="lang-toggle" role="group" aria-label="Language">
     <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
     <button class="lang-btn" id="btn-pt" onclick="setLang('pt')">PT</button>
@@ -299,10 +345,10 @@
 <!-- ── INTRO ── -->
 <section class="intro">
   <div class="intro-card">
-    <p data-en="You scanned this because something resonated. This is the perfect place to start." data-pt="Leu isto e algo fez sentido. Este é o lugar certo para começar.">
+    <p class="intro-lead" data-en="You scanned this because something resonated. This is the perfect place to start." data-pt="Leu isto e algo fez sentido. Este é o lugar certo para começar.">
       You scanned this because something resonated. This is the perfect place to start.
     </p>
-    <p data-en="Book your free Impact Scan — 30 minutes in which we map out exactly what needs to change in your business, so you walk away with a clear plan and can move forward straight away." data-pt="Marque a sua Impact Scan gratuita — 30 minutos em que analisamos juntos exatamente o que precisa de mudar no seu negócio, para sair com um plano claro e avançar de imediato.">
+    <p class="intro-body" data-en="Book your free Impact Scan — 30 minutes in which we map out exactly what needs to change in your business, so you walk away with a clear plan and can move forward straight away." data-pt="Marque a sua Impact Scan gratuita — 30 minutos em que analisamos juntos exatamente o que precisa de mudar no seu negócio, para sair com um plano claro e avançar de imediato.">
       Book your free Impact Scan — 30 minutes in which we map out exactly what needs to change in your business, so you walk away with a clear plan and can move forward straight away.
     </p>
   </div>
