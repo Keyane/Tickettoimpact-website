@@ -185,17 +185,31 @@
       margin: 0 auto;
       line-height: 1.6;
     }
+    .tagline-bars {
+      display: none;
+    }
     @media (max-width: 768px) {
       .tagline {
         padding: 32px 24px 32px;
-        text-align: left;
+        text-align: center;
+      }
+      .tagline-bars {
+        display: flex;
+        flex-direction: row;
+        gap: 6px;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+      .tagline-bar {
+        width: 24px;
+        height: 3px;
+        border-radius: 2px;
       }
       .tagline p {
         font-size: 1.5rem;
-        font-weight: 500;
+        font-weight: 700;
+        font-style: normal;
         color: #2B3A2F;
-        border-left: 3px solid #C97B4A;
-        padding-left: 16px;
         max-width: 100%;
       }
     }
@@ -447,6 +461,11 @@
 
 <!-- ── TAGLINE ── -->
 <section class="tagline">
+  <div class="tagline-bars">
+    <div class="tagline-bar" style="background:#2B3A2F"></div>
+    <div class="tagline-bar" style="background:#C97B4A"></div>
+    <div class="tagline-bar" style="background:#D9533F"></div>
+  </div>
   <p data-en="You know what you do best. Now let's make sure the right people find you, trust you, and say yes." data-pt="Sabe o que faz melhor. Agora vamos garantir que as pessoas certas o encontrem, confiem em si e digam sim.">
     You know what you do best. Now let's make sure the right people find you, trust you, and say yes.
   </p>
