@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>She Moves Startbundel — She Leads Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bordeaux: #8B2635;
+    --creme: #FAF7F2;
+    --goud: #C4956A;
+    --tekst: #2C2C2C;
+    --licht: #6B6B6B;
+  }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: #E8E4DE;
+    color: var(--tekst);
+  }
+
+  .pagina {
+    width: 210mm;
+    min-height: 297mm;
+    background: var(--creme);
+    margin: 0 auto 20px auto;
+    padding: 20mm;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Typografie */
+  h1.cover-titel {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 54pt;
+    font-weight: 700;
+    color: var(--bordeaux);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+
+  h1.sectie-titel {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28pt;
+    font-weight: 700;
+    color: var(--bordeaux);
+    line-height: 1.2;
+    margin-top: 6px;
+    margin-bottom: 14px;
+  }
+
+  h2.sub-kop {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14pt;
+    font-weight: 600;
+    color: var(--bordeaux);
+    margin-top: 14px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p {
+    font-family: 'Lato', sans-serif;
+    font-size: 10pt;
+    line-height: 1.75;
+    color: var(--tekst);
+    margin-bottom: 10px;
+  }
+
+  .italic-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13pt;
+    color: var(--bordeaux);
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .deel-nummer {
+    font-family: 'Lato', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--goud);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .goud-lijn {
+    border: none;
+    border-top: 1px solid var(--goud);
+    margin-bottom: 12px;
+  }
+
+  .paginanummer {
+    position: absolute;
+    bottom: 14mm;
+    right: 20mm;
+    font-family: 'Lato', sans-serif;
+    font-size: 8pt;
+    color: var(--licht);
+    letter-spacing: 1px;
+  }
+
+  /* Schrijflijnen */
+  .schrijflijn {
+    border: none;
+    border-bottom: 1px dotted #C4956A;
+    display: block;
+    margin: 6px 0 4px 0;
+    width: 100%;
+    height: 14px;
+  }
+
+  .schrijflijnen-groep {
+    margin-bottom: 10px;
+  }
+
+  /* Layout hulp */
+  .twee-kolom {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .tekst-kolom { flex: 1; }
+  .svg-kolom { flex-shrink: 0; }
+
+  .energie-blok {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .energie-tekst { flex: 1; }
+
+  .ritueel-rij {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .ritueel-tekst { flex: 1; }
+
+  .oefening-blok { margin-bottom: 16px; }
+
+  .qr-wrapper {
+    position: absolute;
+    bottom: 24mm;
+    right: 20mm;
+    text-align: center;
+  }
+
+  .qr-kader {
+    border: 1.5px solid var(--goud);
+    padding: 8px;
+    display: inline-block;
+  }
+
+  .qr-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 7pt;
+    color: var(--licht);
+    margin-top: 4px;
+    display: block;
+  }
+
+  .footer-tekst {
+    position: absolute;
+    bottom: 14mm;
+    left: 20mm;
+    right: 60mm;
+    font-family: 'Lato', sans-serif;
+    font-size: 7.5pt;
+    color: #AAAAAA;
+    letter-spacing: 0.5px;
+  }
+
+  /* Cover specifiek */
+  .cover-subtitel {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15pt;
+    color: var(--goud);
+    margin-top: 10px;
+    margin-bottom: 8px;
+  }
+
+  .cover-ondertitel {
+    font-family: 'Lato', sans-serif;
+    font-size: 10pt;
+    font-weight: 300;
+    color: var(--licht);
+    letter-spacing: 0.3px;
+    max-width: 240px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  .cover-naam {
+    font-family: 'Lato', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--bordeaux);
+  }
+
+  /* Print */
+  @media print {
+    body { background: none; }
+    .pagina {
+      margin: 0;
+      padding: 20mm;
+      page-break-before: always;
+      page-break-after: always;
+      break-before: page;
+      width: 210mm;
+      height: 297mm;
+      min-height: unset;
+    }
+    .pagina:first-child { page-break-before: avoid; }
+    @page { size: A4; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGINA 1 — COVER -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="pagina" id="cover">
+
+  <!-- Botanische hoekdecoratie links boven -->
+  <svg style="position:absolute;top:0;left:0;opacity:0.35" width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10,10 C10,10 15,25 8,40 C5,48 12,55 20,50 C28,45 25,30 30,20 C35,10 45,8 50,15 C55,22 48,35 55,42 C62,49 70,44 65,35" stroke="#C4956A" stroke-width="1" fill="none" stroke-linecap="round"/>
+    <path d="M5,5 C5,5 18,18 12,35 C9,44 5,50 15,52 C22,54 28,42 22,30" stroke="#C4956A" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+    <path d="M20,5 C20,5 30,20 25,38" stroke="#C4956A" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+    <path d="M30,5 C26,12 28,20 35,22" stroke="#C4956A" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+  </svg>
+
+  <!-- Botanische hoekdecoratie rechts boven -->
+  <svg style="position:absolute;top:0;right:0;opacity:0.35;transform:scaleX(-1)" width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10,10 C10,10 15,25 8,40 C5,48 12,55 20,50 C28,45 25,30 30,20 C35,10 45,8 50,15 C55,22 48,35 55,42 C62,49 70,44 65,35" stroke="#C4956A" stroke-width="1" fill="none" stroke-linecap="round"/>
+    <path d="M5,5 C5,5 18,18 12,35 C9,44 5,50 15,52 C22,54 28,42 22,30" stroke="#C4956A" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+    <path d="M20,5 C20,5 30,20 25,38" stroke="#C4956A" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+  </svg>
+
+  <!-- Botanische hoekdecoratie links onder -->
+  <svg style="position:absolute;bottom:0;left:0;opacity:0.35;transform:scaleY(-1)" width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10,10 C10,10 15,25 8,40 C5,48 12,55 20,50 C28,45 25,30 30,20 C35,10 45,8 50,15 C55,22 48,35 55,42 C62,49 70,44 65,35" stroke="#C4956A" stroke-width="1" fill="none" stroke-linecap="round"/>
+    <path d="M5,5 C5,5 18,18 12,35 C9,44 5,50 15,52 C22,54 28,42 22,30" stroke="#C4956A" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+  </svg>
+
+  <!-- Botanische hoekdecoratie rechts onder -->
+  <svg style="position:absolute;bottom:0;right:0;opacity:0.35;transform:scale(-1,-1)" width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10,10 C10,10 15,25 8,40 C5,48 12,55 20,50 C28,45 25,30 30,20 C35,10 45,8 50,15 C55,22 48,35 55,42 C62,49 70,44 65,35" stroke="#C4956A" stroke-width="1" fill="none" stroke-linecap="round"/>
+    <path d="M5,5 C5,5 18,18 12,35 C9,44 5,50 15,52 C22,54 28,42 22,30" stroke="#C4956A" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+  </svg>
+
+  <!-- Tekst links, illustratie rechts -->
+  <div style="display:flex;align-items:flex-start;gap:10mm;height:calc(297mm - 40mm)">
+
+    <div style="flex:1;padding-top:30mm">
+      <h1 class="cover-titel">She Moves<br>Startbundel</h1>
+      <p class="cover-subtitel">Leven vanuit rust,<br>kiezen vanuit vrijheid.</p>
+      <p class="cover-ondertitel">Een gids voor de vrouw die voelt dat er iets wil veranderen.</p>
+
+      <div style="width:40mm;border-top:1px solid var(--goud);margin-bottom:20px"></div>
+
+      <p class="cover-naam">Manon de Lange<br><span style="font-weight:300;letter-spacing:1px;text-transform:none">She Leads Academy</span></p>
+    </div>
+
+    <!-- Grote vrouwenfiguur in meditatieve houding -->
+    <div style="flex-shrink:0;padding-top:10mm">
+      <svg width="150" height="280" viewBox="0 0 150 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- One-line art: vrouw in meditatieve zithouding -->
+        <path d="
+          M75,18
+          C78,18 82,20 83,24
+          C84,28 82,32 80,34
+          C77,36 73,36 71,34
+          C68,31 68,26 70,23
+          C72,20 73,18 75,18
+
+          M75,36
+          C72,38 68,42 67,48
+          C66,54 67,62 70,68
+          C68,72 65,76 63,80
+          C60,86 58,95 56,102
+          C53,112 51,122 50,130
+          C54,132 60,132 66,131
+          C66,136 65,142 64,148
+          C62,158 60,168 58,175
+          C55,180 52,182 50,180
+          C46,178 44,172 43,166
+          C44,163 46,162 48,162
+
+          M102,130
+          C100,122 98,112 95,102
+          C93,95 91,86 88,80
+          C86,76 83,72 81,68
+          C84,62 85,54 84,48
+          C83,42 79,38 76,36
+
+          M102,130
+          C106,132 112,132 116,130
+          C115,122 113,112 110,102
+          C107,95 105,86 102,80
+          C99,73 95,67 92,62
+
+          M58,175
+          C56,182 54,192 53,200
+          C52,208 52,218 54,226
+          C55,232 57,236 60,240
+
+          M92,175
+          C94,182 96,192 97,200
+          C98,208 98,218 96,226
+          C95,232 93,236 90,240
+
+          M50,130
+          L102,130
+
+          M66,131
+          L84,131
+
+          M48,162
+          C55,165 65,166 75,166
+          C85,166 95,165 102,162
+
+          M90,240
+          C85,244 80,246 75,246
+          C70,246 65,244 60,240
+
+          M75,246
+          C75,252 75,258 75,262
+        "
+        stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <!-- Handen in schoot/meditatie -->
+        <path d="M63,115 C60,118 56,120 52,120 C50,120 48,119 47,117 M87,115 C90,118 94,120 98,120 C100,120 102,119 103,117" stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+
+  </div>
+
+  <div class="paginanummer">1</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGINA 2 — OVER DEZE GIDS -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="pagina">
+
+  <div class="twee-kolom">
+    <div class="tekst-kolom">
+      <h1 class="sectie-titel">Over deze gids</h1>
+
+      <p>Ik ben Manon. Ondernemer, moeder en iemand die jarenlang heeft geleefd alsof haar lichaam een obstakel was in plaats van een kompas dat precies aangaf wat goed voor mij was.</p>
+
+      <p>Ik wist alles over doorzetten, presteren, doorgaan ook als ik leeg was. Wat ik niet wist, was hoe ik moest stoppen. Hoe ik moest luisteren en mezelf de ruimte mocht geven om te kiezen wat ik écht wilde.</p>
+
+      <p>Ayurveda leerde me dat mijn lichaam niet kapot was maar uitgeput. En dat is iets totaal anders. Daarom studeer ik nu Ayurvedische geneeskunde op HBO-niveau en werk vanuit die kennis met vrouwen die precies voelen wat ik toen voelde. Die de ja al in zich dragen maar niet weten hoe ze die omzetten naar daad.</p>
+
+      <p>Ik ben geen arts maar deel wat ik leer, vanuit mijn opleiding, mijn ervaring, mijn eigen lichaam en mijn werk met anderen. Heb je lichamelijke klachten, raadpleeg dan ook altijd een arts of specialist als dit noodzakelijk is.</p>
+
+      <p>Deze gids is het begin. Niet van een programma of een protocol. Maar van een andere manier van luisteren naar jezelf. Zodat je stopt met overleven en begint met leven zoals jij dat wil. Vrij in je keuzes, vrij in je gezondheid en vrij in hoe je je leven inricht, ook financieel.</p>
+    </div>
+
+    <div class="svg-kolom" style="margin-top:60px">
+      <!-- Vrouw met hand op hart -->
+      <svg width="120" height="180" viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="
+          M60,12 C63,12 66,14 67,17 C68,20 67,24 65,26 C63,28 57,28 55,26 C53,23 53,18 55,15 C57,13 58,12 60,12
+
+          M60,28
+          C57,30 54,34 53,40
+          C52,46 53,54 56,60
+
+          M60,28
+          C63,30 66,34 67,40
+          C68,46 67,54 64,60
+
+          M56,60
+          C54,65 52,72 50,80
+          C48,88 47,96 46,104
+
+          M64,60
+          C66,65 68,72 70,80
+          C72,88 73,96 74,104
+
+          M46,104
+          L74,104
+
+          M46,104
+          C45,112 44,122 43,132
+          C42,138 42,144 44,150
+
+          M74,104
+          C75,112 76,122 77,132
+          C78,138 78,144 76,150
+
+          M44,150
+          C46,156 48,162 50,168
+
+          M76,150
+          C74,156 72,162 70,168
+
+          M50,168 C55,172 65,172 70,168
+
+          M53,75
+          C50,74 47,74 45,76
+          C42,78 41,82 43,85
+          C45,88 49,89 52,87
+          C55,85 57,81 57,78
+          C57,75 55,73 53,75
+        " stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <!-- Hand op hart -->
+        <path d="M44,76 C38,72 33,70 30,73 C27,76 28,82 32,84 C36,86 42,84 46,80" stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="paginanummer">2</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGINA 3 — INHOUDSOPGAVE -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="pagina">
+
+  <h1 class="sectie-titel">Inhoudsopgave</h1>
+
+  <p class="italic-intro">"Dit is geen informatie om te onthouden. Het is een uitnodiging om te voelen, te kiezen en te beginnen."</p>
+
+  <!-- Botanische tak onder de openingszin -->
+  <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:20px;display:block">
+    <path d="M10,20 C30,18 50,22 70,18 C90,14 110,22 130,18 C150,14 165,20 175,19" stroke="#C4956A" stroke-width="1" stroke-linecap="round" fill="none"/>
+    <path d="M40,18 C38,12 42,8 46,10" stroke="#C4956A" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+    <path d="M70,18 C68,10 74,6 78,10" stroke="#C4956A" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+    <path d="M100,20 C98,12 104,8 107,13" stroke="#C4956A" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+    <path d="M130,18 C128,10 134,7 136,12" stroke="#C4956A" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+    <path d="M55,18 C54,24 58,28 62,26" stroke="#C4956A" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+    <path d="M85,20 C84,26 88,30 91,28" stroke="#C4956A" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+    <path d="M115,18 C114,24 118,28 121,26" stroke="#C4956A" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+  </svg>
+
+  <div style="display:flex;flex-direction:column;gap:18px">
+
+    <div style="display:flex;align-items:baseline;gap:12px;border-bottom:0.5px solid #E8E0D4;padding-bottom:10px">
+      <span style="font-family:'Lato',sans-serif;font-size:8pt;color:var(--goud);letter-spacing:2px;font-weight:700;min-width:52px">Deel 01</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:13pt;color:var(--bordeaux)">Waarom je lichaam gespannen is en wat dat met jou doet</span>
+    </div>
+
+    <div style="display:flex;align-items:baseline;gap:12px;border-bottom:0.5px solid #E8E0D4;padding-bottom:10px">
+      <span style="font-family:'Lato',sans-serif;font-size:8pt;color:var(--goud);letter-spacing:2px;font-weight:700;min-width:52px">Deel 02</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:13pt;color:var(--bordeaux)">Het verschil tussen overleven en echt leven, en hoe je dat voelt</span>
+    </div>
+
+    <div style="display:flex;align-items:baseline;gap:12px;border-bottom:0.5px solid #E8E0D4;padding-bottom:10px">
+      <span style="font-family:'Lato',sans-serif;font-size:8pt;color:var(--goud);letter-spacing:2px;font-weight:700;min-width:52px">Deel 03</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:13pt;color:var(--bordeaux)">De drie energieën: herken waar jij nu staat</span>
+    </div>
+
+    <div style="display:flex;align-items:baseline;gap:12px;border-bottom:0.5px solid #E8E0D4;padding-bottom:10px">
+      <span style="font-family:'Lato',sans-serif;font-size:8pt;color:var(--goud);letter-spacing:2px;font-weight:700;min-width:52px">Deel 04</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:13pt;color:var(--bordeaux)">Eerste stappen om spanning los te laten (15 minuten, doe het zelf)</span>
+    </div>
+
+    <div style="display:flex;align-items:baseline;gap:12px;border-bottom:0.5px solid #E8E0D4;padding-bottom:10px">
+      <span style="font-family:'Lato',sans-serif;font-size:8pt;color:var(--goud);letter-spacing:2px;font-weight:700;min-width:52px">Deel 05</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:13pt;color:var(--bordeaux)">Zenuwstelsel meditatie met So Ham (15 minuten, doe het zelf)</span>
+    </div>
+
+    <div style="display:flex;align-items:baseline;gap:12px;border-bottom:0.5px solid #E8E0D4;padding-bottom:10px">
+      <span style="font-family:'Lato',sans-serif;font-size:8pt;color:var(--goud);letter-spacing:2px;font-weight:700;min-width:52px">Deel 06</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:13pt;color:var(--bordeaux)">Een dagelijks ritueel dat je lichaam herinnert dat het veilig is</span>
+    </div>
+
+    <div style="display:flex;align-items:baseline;gap:12px;border-bottom:0.5px solid #E8E0D4;padding-bottom:10px">
+      <span style="font-family:'Lato',sans-serif;font-size:8pt;color:var(--goud);letter-spacing:2px;font-weight:700;min-width:52px">Deel 07</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:13pt;color:var(--bordeaux)">Kleine rituelen die je vandaag nog kunt doen</span>
+    </div>
+
+    <div style="display:flex;align-items:baseline;gap:12px;padding-bottom:10px">
+      <span style="font-family:'Lato',sans-serif;font-size:8pt;color:var(--goud);letter-spacing:2px;font-weight:700;min-width:52px">Deel 08</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:13pt;color:var(--bordeaux)">Reflectievragen per energietype, zodat je weet wat jij nu nodig hebt</span>
+    </div>
+
+  </div>
+
+  <div class="paginanummer">3</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGINA 4 — DEEL 01 -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="pagina">
+
+  <div class="twee-kolom">
+    <div class="tekst-kolom">
+      <div class="deel-nummer">Deel 01</div>
+      <hr class="goud-lijn">
+      <h1 class="sectie-titel">Waarom je lichaam gespannen is</h1>
+
+      <p>Er is een spier diep in je lichaam die alles bijhoudt. Elke keer dat je voelde dat je iets wilde veranderen maar toch bleef zitten waar je zat. Elke deadline die je haalde terwijl je eigenlijk leeg was. Elke nacht dat je lichaam wel lag maar je hoofd bleef draaien over alles wat je nog wil, nog moet, nog durft.</p>
+
+      <p>Die spier heet de psoas. Hij loopt van je onderrug door je bekken naar je dijbeen en verbindt letterlijk je boven en onderlichaam. Maar het is meer dan een spier. De psoas is direct verbonden met je zenuwstelsel, met het deel dat verantwoordelijk is voor vechten, vluchten en bevriezen. Elke keer als jij je gestrest voelt, onder druk staat of het gevoel hebt dat je alles moet dragen, trekt de psoas samen. En als dat jarenlang je standaard is, raakt hij chronisch gespannen.</p>
+
+      <p>Herken je dat je onderrug, bekken of heupen altijd wel ergens een beetje gespannen zijn? Dat je moeite hebt met echt diep ademhalen? Dat je een soort achtergrondgeluid van alertheid met je meedraagt dat maar niet weggaat, ook niet na een weekend rust? Dan vertelt je lichaam je al een tijdje iets. Het vraagt om iets anders dan wat je het tot nu toe hebt gegeven.</p>
+    </div>
+
+    <div class="svg-kolom" style="margin-top:80px">
+      <!-- Vrouw handen op onderrug -->
+      <svg width="130" height="185" viewBox="0 0 130 185" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="
+          M65,14 C68,14 71,16 72,19 C73,23 72,27 70,29 C67,31 62,31 60,28 C58,25 58,20 60,17 C62,15 63,14 65,14
+
+          M65,31
+          C62,33 59,37 58,43
+          C57,49 58,56 61,62
+          C59,66 57,71 55,77
+          C53,83 51,92 50,100
+
+          M65,31
+          C68,33 71,37 72,43
+          C73,49 72,56 69,62
+          C71,66 73,71 75,77
+          C77,83 79,92 80,100
+
+          M50,100 L80,100
+
+          M50,100
+          C49,110 48,120 47,130
+          C46,138 46,145 48,152
+
+          M80,100
+          C81,110 82,120 83,130
+          C84,138 84,145 82,152
+
+          M48,152
+          C50,160 52,168 54,175
+
+          M82,152
+          C80,160 78,168 76,175
+
+          M54,175 C58,178 70,178 76,175
+        " stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <!-- Handen op onderrug -->
+        <path d="M50,100 C44,102 38,104 35,108 C33,112 35,116 39,115 C44,114 48,109 50,105" stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M80,100 C86,102 92,104 95,108 C97,112 95,116 91,115 C86,114 82,109 80,105" stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="paginanummer">4</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGINA 5 — DEEL 02 -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="pagina">
+
+  <div class="twee-kolom">
+    <div class="tekst-kolom">
+      <div class="deel-nummer">Deel 02</div>
+      <hr class="goud-lijn">
+      <h1 class="sectie-titel">Het verschil tussen overleven en echt leven</h1>
+
+      <p>Er is een verschil tussen leven vanuit overleefstand en leven vanuit verbinding. Je lichaam kent dat verschil al, ook als je hoofd het nog niet helemaal heeft toegelaten.</p>
+
+      <p>Overleefstand voelt niet altijd als overleven. Het voelt als doorzetten, als verantwoordelijk zijn, als sterk zijn voor anderen. Het voelt als normaal, omdat het al zo lang je normaal is. Maar ergens weet je dat er meer is. Dat de versie van jou die echt leeft, echt kiest en echt vrij is, er al is. Ze wacht alleen tot jij haar de ruimte geeft.</p>
+
+      <p>Het kantelpunt waarop jij nu staat is geen toevalligheid. Je lichaam en je gevoel trekken al een tijdje aan je mouw. Niet om je bang te maken, maar om je te laten zien dat er een andere manier is.</p>
+
+      <p>Stel je voor dat je opstaat zonder dat je eerste gedachte al een to-do lijst is. Dat je een keuze maakt vanuit wat jij wil, niet vanuit wat er van je verwacht wordt. Dat je energie voelt die niet geforceerd is maar gewoon er is. Je kent dat gevoel al. De innerlijke rust tijdens een ochtendwandeling, de yogales waarna je de energie daadwerkelijk in je lijf hebt gevoeld, de kalmte tijdens een meditatie of de stilte tijdens het lezen van een boek op de bank. Dat was geen toeval. Dat was jouw lichaam dat je liet proeven van hoe het ook kan zijn.</p>
+
+      <p>Dit is het verschil. En jij voelt het al.</p>
+    </div>
+
+    <div class="svg-kolom" style="margin-top:70px">
+      <!-- Vrouw armen gespreid, vrijheid -->
+      <svg width="140" height="200" viewBox="0 0 140 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="
+          M70,14 C73,14 76,16 77,19 C78,23 77,27 75,29 C72,31 67,31 65,28 C63,25 63,20 65,17 C67,15 68,14 70,14
+
+          M70,31
+          C67,33 64,37 63,43
+          C62,49 63,55 66,61
+
+          M70,31
+          C73,33 76,37 77,43
+          C78,49 77,55 74,61
+
+          M66,61
+          C64,67 62,74 60,82
+          C58,90 57,98 56,106
+
+          M74,61
+          C76,67 78,74 80,82
+          C82,90 83,98 84,106
+
+          M56,106 L84,106
+
+          M56,106
+          C55,116 54,126 53,136
+          C52,144 53,150 55,156
+
+          M84,106
+          C85,116 86,126 87,136
+          C88,144 87,150 85,156
+
+          M55,156 C57,165 59,174 61,182
+          M85,156 C83,165 81,174 79,182
+          M61,182 C65,186 75,186 79,182
+        " stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <!-- Armen gespreid naar buiten -->
+        <path d="M63,58 C55,54 44,50 34,52 C28,54 24,58 26,62 C28,66 34,66 40,64 C48,62 56,62 63,62" stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M77,58 C85,54 96,50 106,52 C112,54 116,58 114,62 C112,66 106,66 100,64 C92,62 84,62 77,62" stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="paginanummer">5</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGINA 6 — DEEL 03 -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="pagina">
+
+  <div class="deel-nummer">Deel 03</div>
+  <hr class="goud-lijn">
+  <h1 class="sectie-titel">De drie energieën: herken waar jij nu staat</h1>
+
+  <p>Niet elke vrouw die vastloopt, loopt op dezelfde manier vast. Je kunt dit bekijken vanuit 3 verschillende energiestromen: een spiegel die je helpt te herkennen waar jij op dit moment staat en wat jij op dit moment nodig hebt.</p>
+
+  <!-- Sterk -->
+  <div class="energie-blok">
+    <svg width="30" height="40" viewBox="0 0 30 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15,38 C15,38 10,30 11,22 C12,16 14,10 15,4 C16,10 18,16 19,22 C20,30 15,38 15,38 Z M11,22 C8,20 5,18 4,15 M19,22 C22,20 25,18 26,15" stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+    <div class="energie-tekst">
+      <h2 class="sub-kop" style="margin-top:0">Sterk</h2>
+      <p>Je bent aan. Je regelt, je draagt, je zet door, continu. Van buiten zie je er goed uit maar van binnen ben je voortdurend op scherp. Pauze voelt als achteruitgang en rust verdien je pas als alles af is. Je doet veel maar voelt er weinig van.</p>
+      <p><strong>Wat jij nu nodig hebt</strong> is niet meer doen, maar minder. Stoppen, nee zeggen, vertragen en rust toelaten zonder schuldgevoel.</p>
+    </div>
+  </div>
+
+  <!-- Soepel -->
+  <div class="energie-blok">
+    <svg width="30" height="40" viewBox="0 0 30 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5,20 C5,20 10,10 15,14 C20,18 10,26 15,30 C20,34 25,28 25,20" stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    </svg>
+    <div class="energie-tekst">
+      <h2 class="sub-kop" style="margin-top:0">Soepel</h2>
+      <p>Je voelt dat er iets wil veranderen maar de richting is vaag. Je bent open, beweeglijk en leergierig. Je hebt de ja al in je maar weet niet hoe je hem omzet naar een echte keuze. Je intuïtie weet het al, alleen je hoofd twijfelt nog.</p>
+      <p><strong>Wat jij nu nodig hebt</strong> is focus. Één keuze tegelijk, aarden en luisteren naar wat je al voelt.</p>
+    </div>
+  </div>
+
+  <!-- Stil -->
+  <div class="energie-blok">
+    <svg width="30" height="40" viewBox="0 0 30 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15,8 C21,8 26,13 26,19 C26,25 21,30 15,30 C9,30 4,25 4,19 C4,13 9,8 15,8" stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <path d="M20,7 C24,4 28,5 29,8" stroke="#8B2635" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+    </svg>
+    <div class="energie-tekst">
+      <h2 class="sub-kop" style="margin-top:0">Stil</h2>
+      <p>Je bent moe op een diep niveau. Niet de vermoeidheid die weggaat na een nacht slapen, maar iets dat verder zit. Je zenuwstelsel is in beschermstand en wat je het meeste nodig hebt is veiligheid en zachtheid. Dit is geen zwakte. Dit is het begin van terugkomen bij jezelf.</p>
+      <p><strong>Wat jij nu nodig hebt</strong> is ruimte. Kleine stappen en jezelf de toestemming geven om even niets te hoeven.</p>
+    </div>
+  </div>
+
+  <p>Herken je jezelf in één van deze drie? Misschien zelfs in meerdere tegelijk. Dat mag. Ze zijn niet permanent en ze vragen elk iets anders. De rest van deze bundel helpt je om vanuit jouw energie te bewegen, niet tegen haar in.</p>
+
+  <p>Wil je weten in welke energie jij nu staat? Doe de quiz via de QR-code hieronder en ontdek wat jij op dit moment nodig hebt.</p>
+
+  <!-- QR-code rechtsonder -->
+  <div class="qr-wrapper">
+    <div class="qr-kader">
+      <!-- QR-code SVG voor www.sheleadsacademy.nl/quiz -->
+      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Finder pattern links boven -->
+        <rect x="2" y="2" width="22" height="22" rx="1" stroke="#8B2635" stroke-width="1.5" fill="none"/>
+        <rect x="6" y="6" width="14" height="14" rx="0.5" fill="#8B2635"/>
+        <rect x="8" y="8" width="10" height="10" rx="0.3" fill="#FAF7F2"/>
+        <rect x="10" y="10" width="6" height="6" rx="0.2" fill="#8B2635"/>
+        <!-- Finder pattern rechts boven -->
+        <rect x="56" y="2" width="22" height="22" rx="1" stroke="#8B2635" stroke-width="1.5" fill="none"/>
+        <rect x="60" y="6" width="14" height="14" rx="0.5" fill="#8B2635"/>
+        <rect x="62" y="8" width="10" height="10" rx="0.3" fill="#FAF7F2"/>
+        <rect x="64" y="10" width="6" height="6" rx="0.2" fill="#8B2635"/>
+        <!-- Finder pattern links onder -->
+        <rect x="2" y="56" width="22" height="22" rx="1" stroke="#8B2635" stroke-width="1.5" fill="none"/>
+        <rect x="6" y="60" width="14" height="14" rx="0.5" fill="#8B2635"/>
+        <rect x="8" y="62" width="10" height="10" rx="0.3" fill="#FAF7F2"/>
+        <rect x="10" y="64" width="6" height="6" rx="0.2" fill="#8B2635"/>
+        <!-- Data modules middengebied (patroon dat visueel op QR-code lijkt) -->
+        <rect x="28" y="2" width="4" height="4" fill="#8B2635"/>
+        <rect x="34" y="2" width="4" height="4" fill="#8B2635"/>
+        <rect x="40" y="2" width="4" height="4" fill="#8B2635"/>
+        <rect x="46" y="2" width="4" height="4" fill="#8B2635"/>
+        <rect x="28" y="8" width="4" height="4" fill="#8B2635"/>
+        <rect x="40" y="8" width="4" height="4" fill="#8B2635"/>
+        <rect x="46" y="8" width="4" height="4" fill="#8B2635"/>
+        <rect x="34" y="14" width="4" height="4" fill="#8B2635"/>
+        <rect x="46" y="14" width="4" height="4" fill="#8B2635"/>
+        <rect x="28" y="20" width="4" height="4" fill="#8B2635"/>
+        <rect x="34" y="20" width="4" height="4" fill="#8B2635"/>
+        <rect x="40" y="20" width="4" height="4" fill="#8B2635"/>
+        <rect x="2" y="28" width="4" height="4" fill="#8B2635"/>
+        <rect x="8" y="28" width="4" height="4" fill="#8B2635"/>
+        <rect x="20" y="28" width="4" height="4" fill="#8B2635"/>
+        <rect x="28" y="28" width="4" height="4" fill="#8B2635"/>
+        <rect x="40" y="28" width="4" height="4" fill="#8B2635"/>
+        <rect x="52" y="28" width="4" height="4" fill="#8B2635"/>
+        <rect x="58" y="28" width="4" height="4" fill="#8B2635"/>
+        <rect x="70" y="28" width="4" height="4" fill="#8B2635"/>
+        <rect x="76" y="28" width="4" height="4" fill="#8B2635"/>
+        <rect x="2" y="34" width="4" height="4" fill="#8B2635"/>
+        <rect x="14" y="34" width="4" height="4" fill="#8B2635"/>
+        <rect x="20" y="34" width="4" height="4" fill="#8B2635"/>
+        <rect x="28" y="34" width="4" height="4" fill="#8B2635"/>
+        <rect x="34" y="34" width="4" height="4" fill="#8B2635"/>
+        <rect x="46" y="34" width="4" height="4" fill="#8B2635"/>
+        <rect x="58" y="34" width="4" height="4" fill="#8B2635"/>
+        <rect x="64" y="34" width="4" height="4" fill="#8B2635"/>
+        <rect x="76" y="34" width="4" height="4" fill="#8B2635"/>
+        <rect x="8" y="40" width="4" height="4" fill="#8B2635"/>
+        <rect x="20" y="40" width="4" height="4" fill="#8B2635"/>
+        <rect x="28" y="40" width="4" height="4" fill="#8B2635"/>
+        <rect x="40" y="40" width="4" height="4" fill="#8B2635"/>
+        <rect x="52" y="40" width="4" height="4" fill="#8B2635"/>
+        <rect x="64" y="40" width="4" height="4" fill="#8B2635"/>
+        <rect x="70" y="40" width="4" height="4" fill="#8B2635"/>
+        <rect x="2" y="46" width="4" height="4" fill="#8B2635"/>
+        <rect x="14" y="46" width="4" height="4" fill="#8B2635"/>
+        <rect x="28" y="46" width="4" height="4" fill="#8B2635"/>
+        <rect x="34" y="46" width="4" height="4" fill="#8B2635"/>
+        <rect x="46" y="46" width="4" height="4" fill="#8B2635"/>
+        <rect x="58" y="46" width="4" height="4" fill="#8B2635"/>
+        <rect x="70" y="46" width="4" height="4" fill="#8B2635"/>
+        <rect x="76" y="46" width="4" height="4" fill="#8B2635"/>
+        <rect x="28" y="52" width="4" height="4" fill="#8B2635"/>
+        <rect x="40" y="52" width="4" height="4" fill="#8B2635"/>
+        <rect x="52" y="52" width="4" height="4" fill="#8B2635"/>
+        <rect x="58" y="52" width="4" height="4" fill="#8B2635"/>
+        <rect x="70" y="52" width="4" height="4" fill="#8B2635"/>
+        <rect x="28" y="58" width="4" height="4" fill="#8B2635"/>
+        <rect x="34" y="58" width="4" height="4" fill="#8B2635"/>
+        <rect x="46" y="58" width="4" height="4" fill="#8B2635"/>
+        <rect x="52" y="58" width="4" height="4" fill="#8B2635"/>
+        <rect x="64" y="58" width="4" height="4" fill="#8B2635"/>
+        <rect x="76" y="58" width="4" height="4" fill="#8B2635"/>
+        <rect x="28" y="64" width="4" height="4" fill="#8B2635"/>
+        <rect x="40" y="64" width="4" height="4" fill="#8B2635"/>
+        <rect x="52" y="64" width="4" height="4" fill="#8B2635"/>
+        <rect x="58" y="64" width="4" height="4" fill="#8B2635"/>
+        <rect x="70" y="64" width="4" height="4" fill="#8B2635"/>
+        <rect x="34" y="70" width="4" height="4" fill="#8B2635"/>
+        <rect x="46" y="70" width="4" height="4" fill="#8B2635"/>
+        <rect x="52" y="70" width="4" height="4" fill="#8B2635"/>
+        <rect x="64" y="70" width="4" height="4" fill="#8B2635"/>
+        <rect x="76" y="70" width="4" height="4" fill="#8B2635"/>
+        <rect x="28" y="76" width="4" height="4" fill="#8B2635"/>
+        <rect x="40" y="76" width="4" height="4" fill="#8B2635"/>
+        <rect x="58" y="76" width="4" height="4" fill="#8B2635"/>
+        <rect x="70" y="76" width="4" height="4" fill="#8B2635"/>
+      </svg>
+    </div>
+    <span class="qr-label">sheleadsacademy.nl/quiz</span>
+  </div>
+
+  <div class="paginanummer">6</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGINA 7 — DEEL 04 -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="pagina">
+
+  <div class="deel-nummer">Deel 04</div>
+  <hr class="goud-lijn">
+  <h1 class="sectie-titel">Eerste stappen om spanning los te laten</h1>
+
+  <p>Je hoeft hier niets te presteren. Dit zijn geen oefeningen om beter te worden in iets. Het zijn uitnodigingen aan je lichaam om even te stoppen met aan te staan.</p>
+  <p>Zoek een rustig plekje, leg een mat of handdoek neer en geef jezelf de komende tien tot vijftien minuten. Dat is alles wat je nodig hebt.</p>
+
+  <!-- Oefening 1 -->
+  <div class="oefening-blok">
+    <h2 class="sub-kop">Oefening 1 — Aankomen <span style="font-weight:300;font-size:11pt;color:var(--licht)">(2 minuten)</span></h2>
+    <p>Ga op je rug liggen met je knieën gebogen en je voeten plat op de grond. Leg je handen op je buik. Adem rustig in door je neus en voel hoe je buik omhoog komt. Adem langzaam uit en laat alles zakken. Doe dit een paar keer en laat je lichaam zwaarder worden bij elke uitademing. Je hoeft nergens heen.</p>
+    <div style="text-align:center;margin:8px 0">
+      <svg width="220" height="90" viewBox="0 0 220 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Vrouw liggend op rug, knieën gebogen, handen op buik -->
+        <path d="
+          M30,45 C30,45 50,42 80,44 C110,46 140,44 170,45 C185,45 195,46 200,46
+
+          M80,44
+          C80,44 78,36 76,32
+          C73,26 70,22 68,22
+
+          M68,22 C64,20 60,21 58,24 C56,27 58,32 62,33 C66,34 70,32 70,28
+
+          M80,44
+          C82,42 86,36 90,32
+
+          M90,32
+          C88,26 86,20 88,16
+
+          M110,44
+          C110,44 112,36 115,30
+
+          M115,30
+          C112,24 110,18 113,14
+
+          M113,14 C116,10 121,11 122,16 C123,21 118,24 114,22
+
+          M90,32
+          C94,34 100,36 106,34 C112,32 115,30 115,30
+
+          M30,46
+          C28,48 25,52 24,56
+
+          M200,46
+          C202,48 205,52 206,56
+        " stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <!-- Handen op buik -->
+        <path d="M144,40 C140,38 136,37 133,39 C130,41 131,45 135,45 C139,45 143,43 144,40 Z M158,39 C154,37 150,37 148,39 C146,41 148,45 152,45 C156,45 159,43 158,39 Z" stroke="#8B2635" stroke-width="1.2" fill="none"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Oefening 2 -->
+  <div class="oefening-blok">
+    <h2 class="sub-kop">Oefening 2 — Psoas rek <span style="font-weight:300;font-size:11pt;color:var(--licht)">(6 minuten)</span></h2>
+    <p>Kom in een lage lunge: één knie op de grond, de andere voet voor je. Zorg dat je voorste knie recht boven je enkel staat. Duw je heupen zachtjes naar voren totdat je een diepe rek voelt aan de voorkant van je heup en lies. Houd dit drie minuten vast per kant. Adem rustig door en laat de spanning bij elke uitademing iets verder los.</p>
+    <div style="text-align:center;margin:8px 0">
+      <svg width="220" height="120" viewBox="0 0 220 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Vrouw in lage lunge -->
+        <path d="
+          M100,16 C103,16 106,18 107,21 C108,25 107,29 104,31 C101,33 96,32 95,29 C93,26 94,21 97,18 C98,17 99,16 100,16
+
+          M100,33
+          C97,36 94,41 93,48
+
+          M100,33
+          C103,36 106,41 107,48
+
+          M93,48
+          C90,54 87,62 85,70
+          C83,76 82,82 83,88
+
+          M107,48
+          C110,54 112,60 113,66
+          C114,72 114,78 112,84
+          C110,90 107,96 104,102
+
+          M83,88
+          C80,88 75,90 70,94
+          C64,98 60,104 58,110
+
+          M83,88
+          C85,92 88,96 90,100
+
+          M112,84
+          C116,82 122,80 128,82
+          C134,84 138,90 136,96
+          C134,100 128,102 124,99
+          C120,96 120,90 124,88
+
+          M104,102 C100,108 96,114 92,118
+          M90,100 C92,108 92,114 90,118
+        " stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Oefening 3 -->
+  <div class="oefening-blok">
+    <h2 class="sub-kop">Oefening 3 — Ontspanning <span style="font-weight:300;font-size:11pt;color:var(--licht)">(5 minuten)</span></h2>
+    <p>Ga weer op je rug liggen, strek je benen en laat je voeten naar buiten vallen. Leg je armen naast je lichaam met je handpalmen omhoog. Sluit je ogen. Adem in, span heel even je hele lichaam aan en laat bij de uitademing alles los. Blijf zo liggen en laat je lichaam doen wat het wil doen.</p>
+    <div style="text-align:center;margin:8px 0">
+      <svg width="220" height="80" viewBox="0 0 220 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Vrouw liggend gestrekt -->
+        <path d="
+          M40,36 C40,36 70,34 100,36 C130,38 160,36 190,38
+
+          M100,36
+          C100,36 98,28 96,24
+          C93,18 90,14 88,14
+
+          M88,14 C84,12 80,13 78,16 C76,19 78,24 82,25 C86,26 90,24 90,20
+
+          M100,36
+          C100,36 102,28 104,24
+
+          M104,24
+          C103,18 105,13 108,12
+
+          M108,12 C112,10 116,12 117,17 C118,22 113,25 109,23
+
+          M40,36
+          C34,38 28,40 22,44
+
+          M190,38
+          C196,36 202,34 208,38
+
+          M60,34
+          C58,42 56,50 54,58
+
+          M148,36
+          C150,44 152,52 154,60
+        " stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="paginanummer">7</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGINA 8 — DEEL 05 -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="pagina">
+
+  <div class="deel-nummer">Deel 05</div>
+  <hr class="goud-lijn">
+  <h1 class="sectie-titel">Zenuwstelsel meditatie met So Ham</h1>
+
+  <div class="twee-kolom">
+    <div class="tekst-kolom">
+      <p>Je zenuwstelsel heeft geen grote ingreep nodig om te kalmeren. Het heeft herhaling nodig. Kleine momenten van rust die je steeds opnieuw aanbiedt, totdat je lichaam begint te geloven dat het veilig is om los te laten.</p>
+
+      <p>So Ham is een ademmantra uit de Ayurveda. <em>So</em> betekent "ik ben" en <em>Ham</em> betekent "dat." Samen betekenen ze: <em>ik ben dat wat altijd al aanwezig was.</em> Je gebruikt de mantra niet om iets te bereiken maar om terug te komen bij jezelf.</p>
+
+      <h2 class="sub-kop">Hoe je het doet</h2>
+
+      <p>Zoek een rustige plek waar je rechtop kunt zitten, op een stoel of op de grond. Sluit je ogen en laat je handen rusten op je knieën. Begin met een paar natuurlijke ademhalingen zonder iets te veranderen.</p>
+
+      <p>Adem dan langzaam in door je neus en zeg innerlijk <em>"So."</em> Adem langzaam uit en zeg innerlijk <em>"Ham."</em> Laat de mantra met je adem meebewegen, niet andersom. Als je gedachten afdwalen, en dat doen ze, kom dan rustig terug naar de adem en de mantra. Zonder oordeel, zonder frustratie. Gewoon terug.</p>
+
+      <p>Doe dit vijftien minuten. Zet een timer zodat je er niet over hoeft na te denken.</p>
+
+      <p>Als je klaar bent, blijf nog even zitten met je ogen dicht. Voel hoe je lichaam aanvoelt.</p>
+
+      <div style="margin-top:16px;padding:12px 16px;border-left:2px solid var(--goud);background:rgba(196,149,106,0.06)">
+        <p style="margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13pt;color:var(--bordeaux)">So — inademen<br>Ham — uitademen</p>
+      </div>
+    </div>
+
+    <!-- Vrouw in kleermakerszit -->
+    <div class="svg-kolom" style="margin-top:30px">
+      <svg width="160" height="200" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="
+          M80,14 C83,14 86,16 87,19 C88,23 87,27 85,29 C82,31 77,31 75,28 C73,25 73,20 75,17 C77,15 78,14 80,14
+
+          M80,31
+          C77,33 74,37 73,43
+          C72,49 73,55 76,61
+
+          M80,31
+          C83,33 86,37 87,43
+          C88,49 87,55 84,61
+
+          M76,61
+          C74,67 71,72 68,76
+          C65,80 61,82 57,82
+          C52,82 46,80 43,76
+
+          M84,61
+          C86,67 89,72 92,76
+          C95,80 99,82 103,82
+          C108,82 114,80 117,76
+
+          M43,76
+          C40,80 38,86 38,92
+          C38,98 40,104 44,108
+          C50,114 60,116 70,116
+          C76,116 80,116 80,116
+
+          M117,76
+          C120,80 122,86 122,92
+          C122,98 120,104 116,108
+          C110,114 100,116 90,116
+          C84,116 80,116 80,116
+
+          M43,76
+          C50,74 62,76 70,80
+          C74,82 78,84 80,84
+
+          M117,76
+          C110,74 98,76 90,80
+          C86,82 82,84 80,84
+        " stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <!-- Handen op knieën -->
+        <path d="M43,76 C40,78 36,78 34,76 C32,73 34,70 37,70 C40,70 43,73 43,76" stroke="#8B2635" stroke-width="1.2" fill="none"/>
+        <path d="M117,76 C120,78 124,78 126,76 C128,73 126,70 123,70 C120,70 117,73 117,76" stroke="#8B2635" stroke-width="1.2" fill="none"/>
+        <!-- Rechte rug lijn -->
+        <path d="M80,84 C80,92 80,100 80,108" stroke="#8B2635" stroke-width="1" stroke-dasharray="2,3" fill="none"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="paginanummer">8</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGINA 9 — DEEL 06 -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="pagina">
+
+  <div class="deel-nummer">Deel 06</div>
+  <hr class="goud-lijn">
+  <h1 class="sectie-titel">Een dagelijks ritueel dat je lichaam herinnert dat het veilig is</h1>
+
+  <div class="twee-kolom">
+    <div class="tekst-kolom">
+      <p>Een ritueel is geen routine. Een routine doe je om iets af te vinken. Een ritueel doe je om bij jezelf te komen.</p>
+
+      <p>Je zenuwstelsel leert via herhaling. Elke keer als je op hetzelfde moment van de dag even stopt, dezelfde geur ruikt, dezelfde ademhaling doet of dezelfde beweging maakt, begint je lichaam dat moment te herkennen als veilig. En veiligheid is precies wat een gespannen zenuwstelsel het meeste nodig heeft.</p>
+
+      <p>Je hoeft hier niets groots voor te doen. Een ritueel van twee tot vijf minuten is genoeg om het verschil te voelen, als je het consequent doet.</p>
+
+      <h2 class="sub-kop">Een voorbeeld van hoe dat eruit kan zien</h2>
+
+      <p>Begin je ochtend voordat je je telefoon pakt. Zet je voeten op de grond, adem drie keer diep in en uit en stel jezelf één vraag: <em>hoe voel ik me vandaag, echt?</em> Niet wat er op de planning staat, maar wat er in je lichaam leeft.</p>
+
+      <p>In mijn eigen ritueel en in mijn werk met vrouwen gebruik ik doTERRA essentiële oliën als onderdeel van dit moment. Geur is de snelste weg naar het limbisch systeem, het deel van je brein dat emoties en veiligheid reguleert. doTERRA Balance is een blend die ik zelf dagelijks gebruik om te aarden, een druppel op je polsen of je voetzolen voordat je je dag begint. Vetiver werkt kalmerend bij een hoofd dat maar niet stil wil worden. En Wild Orange geeft energie zonder je zenuwstelsel op te jagen.</p>
+
+      <p>Dit zijn geen verplichte toevoegingen. Maar als je merkt dat je ritueel iets mist, kunnen de oliën het verankeren op een manier die woorden alleen niet kunnen.</p>
+
+      <p>Dit is jouw moment. Niet voor iemand anders. Alleen voor jou.</p>
+    </div>
+
+    <!-- Vrouw handen omhoog, intentie ritueel -->
+    <div class="svg-kolom" style="margin-top:50px">
+      <svg width="120" height="175" viewBox="0 0 120 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="
+          M60,13 C63,13 66,15 67,18 C68,22 67,26 64,28 C61,30 56,29 55,26 C53,23 54,18 57,15 C58,14 59,13 60,13
+
+          M60,30
+          C57,32 54,36 53,42
+          C52,48 53,54 56,60
+
+          M60,30
+          C63,32 66,36 67,42
+          C68,48 67,54 64,60
+
+          M56,60
+          C54,66 52,72 50,78
+          C48,86 47,95 46,103
+
+          M64,60
+          C66,66 68,72 70,78
+          C72,86 73,95 74,103
+
+          M46,103 L74,103
+
+          M46,103
+          C45,111 44,120 43,129
+          C42,136 43,143 45,150
+
+          M74,103
+          C75,111 76,120 77,129
+          C78,136 77,143 75,150
+
+          M45,150 C47,158 50,166 53,172
+          M75,150 C73,158 70,166 67,172
+          M53,172 C57,175 63,175 67,172
+        " stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <!-- Polsen omhoog, handen open -->
+        <path d="M46,103 C42,98 36,94 30,96 C26,98 25,103 28,106 C31,109 36,108 40,105 C43,103 45,101 46,100" stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M74,103 C78,98 84,94 90,96 C94,98 95,103 92,106 C89,109 84,108 80,105 C77,103 75,101 74,100" stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <!-- Druppel symbool -->
+        <path d="M60,48 C60,44 57,40 57,37 C57,34 58,32 60,32 C62,32 63,34 63,37 C63,40 60,44 60,48 Z" stroke="#8B2635" stroke-width="1" fill="none"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="paginanummer">9</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGINA 10 — DEEL 07 -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="pagina">
+
+  <div class="deel-nummer">Deel 07</div>
+  <hr class="goud-lijn">
+  <h1 class="sectie-titel">Kleine rituelen die je vandaag nog kunt doen</h1>
+
+  <p>Je hoeft niet te wachten tot je meer tijd hebt, een betere routine of een rustiger leven. De vrouwen die echt veranderen beginnen niet als alles perfect is. Ze beginnen gewoon, met wat ze nu hebben.</p>
+  <p>Micro-rituelen zijn kleine momenten die je terugbrengen naar jezelf. Ze duren geen uur. Ze vragen geen voorbereiding. Ze werken omdat je ze doet, niet omdat ze groot zijn.</p>
+
+  <!-- Ritueel 1 -->
+  <div class="ritueel-rij" style="margin-top:20px">
+    <div style="flex-shrink:0;width:54px;text-align:center">
+      <!-- Deur/drempel icoon -->
+      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8,45 L8,8 C8,7 9,6 10,6 L40,6 C41,6 42,7 42,8 L42,45" stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M5,45 L45,45" stroke="#8B2635" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M22,6 L22,45" stroke="#8B2635" stroke-width="1.2" stroke-linecap="round"/>
+        <circle cx="20" cy="26" r="1.5" stroke="#8B2635" stroke-width="1.2" fill="none"/>
+      </svg>
+    </div>
+    <div class="ritueel-tekst">
+      <h2 class="sub-kop" style="margin-top:0">Ritueel 1 — De drempeladem</h2>
+      <p>Elke keer als je een deur doorloopt, adem je één keer bewust in en uit voordat je verder gaat. Thuis, op het werk, overal. Het klinkt simpel en dat is het ook. Maar je zenuwstelsel merkt elk bewust moment op.</p>
+    </div>
+  </div>
+
+  <!-- Ritueel 2 -->
+  <div class="ritueel-rij">
+    <div style="flex-shrink:0;width:54px;text-align:center">
+      <!-- Handen op hart icoon -->
+      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M25,38 C25,38 8,26 8,16 C8,11 12,8 17,9 C20,10 23,13 25,16 C27,13 30,10 33,9 C38,8 42,11 42,16 C42,26 25,38 25,38 Z" stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M14,28 C10,26 7,22 6,18" stroke="#8B2635" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+        <path d="M36,28 C40,26 43,22 44,18" stroke="#8B2635" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+    <div class="ritueel-tekst">
+      <h2 class="sub-kop" style="margin-top:0">Ritueel 2 — De handenpauze</h2>
+      <p>Leg midden op de dag, op welk moment dan ook, je handen op je buik of je hart. Sluit je ogen voor dertig seconden. Voel de warmte van je eigen handen. Dat is alles. Dertig seconden terug bij jezelf.</p>
+    </div>
+  </div>
+
+  <!-- Ritueel 3 -->
+  <div class="ritueel-rij">
+    <div style="flex-shrink:0;width:54px;text-align:center">
+      <!-- Maan met ster icoon -->
+      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20,8 C14,12 10,18 10,26 C10,36 18,44 28,44 C36,44 42,40 45,33 C42,35 38,36 34,36 C24,36 16,28 16,18 C16,14 17,10 20,8 Z" stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M36,10 L37,13 L40,14 L37,15 L36,18 L35,15 L32,14 L35,13 Z" stroke="#8B2635" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+    <div class="ritueel-tekst">
+      <h2 class="sub-kop" style="margin-top:0">Ritueel 3 — De avondvraag</h2>
+      <p>Stel jezelf elke avond voor het slapen één vraag: <em>wat heb ik vandaag voor mezelf gedaan?</em> Niet wat je voor anderen hebt gedaan, niet wat je hebt afgevinkt. Wat was er voor jou?</p>
+    </div>
+  </div>
+
+  <div style="margin-top:24px;padding:14px 18px;border:1px solid rgba(196,149,106,0.3);background:rgba(196,149,106,0.05)">
+    <p style="margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12pt;color:var(--bordeaux)">Kleine dingen, elke dag gedaan, bouwen een fundament dat standhoudt.</p>
+  </div>
+
+  <div class="paginanummer">10</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGINA 11 — DEEL 08 -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="pagina">
+
+  <div class="deel-nummer">Deel 08</div>
+  <hr class="goud-lijn">
+  <h1 class="sectie-titel">Reflectievragen per energietype</h1>
+
+  <p>Neem een notitieboekje, je telefoon of gewoon even de ruimte in je hoofd. Er zijn geen goede of foute antwoorden. Alleen eerlijke.</p>
+  <p>En weet dit: door de tijd heen komen alle drie de energietypes bij je langs. Je bent niet altijd Sterk, Soepel of Stil. Je bent soms alle drie, soms na elkaar, soms door elkaar. Beantwoord daarom gerust de vragen van elk type. Ze zijn allemaal voor jou.</p>
+
+  <!-- STERK -->
+  <div style="margin-top:14px">
+    <h2 class="sub-kop">Sterk</h2>
+    <div style="margin-bottom:12px">
+      <p style="margin-bottom:3px">Wanneer heb je voor het laatst iets gedaan puur omdat jij het wilde, zonder dat het iets opleverde voor een ander?</p>
+      <div class="schrijflijnen-groep"><span class="schrijflijn"></span><span class="schrijflijn"></span><span class="schrijflijn"></span></div>
+    </div>
+    <div style="margin-bottom:12px">
+      <p style="margin-bottom:3px">Wat zou je loslaten als je wist dat het mocht?</p>
+      <div class="schrijflijnen-groep"><span class="schrijflijn"></span><span class="schrijflijn"></span><span class="schrijflijn"></span></div>
+    </div>
+    <div style="margin-bottom:12px">
+      <p style="margin-bottom:3px">Hoe zou jouw dag eruit zien als rust geen beloning was maar een vertrekpunt?</p>
+      <div class="schrijflijnen-groep"><span class="schrijflijn"></span><span class="schrijflijn"></span><span class="schrijflijn"></span></div>
+    </div>
+  </div>
+
+  <!-- SOEPEL -->
+  <div style="margin-top:10px">
+    <h2 class="sub-kop">Soepel</h2>
+    <div style="margin-bottom:12px">
+      <p style="margin-bottom:3px">Wat weet je diep van binnen al, maar durf je nog niet hardop te zeggen?</p>
+      <div class="schrijflijnen-groep"><span class="schrijflijn"></span><span class="schrijflijn"></span><span class="schrijflijn"></span></div>
+    </div>
+    <div style="margin-bottom:12px">
+      <p style="margin-bottom:3px">Welke keuze heb je al een tijdje voor je uitgeschoven en waarom eigenlijk?</p>
+      <div class="schrijflijnen-groep"><span class="schrijflijn"></span><span class="schrijflijn"></span><span class="schrijflijn"></span></div>
+    </div>
+    <div style="margin-bottom:12px">
+      <p style="margin-bottom:3px">Als je nu één kleine stap zou zetten naar wat je wil, wat zou die stap dan zijn?</p>
+      <div class="schrijflijnen-groep"><span class="schrijflijn"></span><span class="schrijflijn"></span><span class="schrijflijn"></span></div>
+    </div>
+  </div>
+
+  <!-- STIL -->
+  <div style="margin-top:10px">
+    <h2 class="sub-kop">Stil</h2>
+    <div style="margin-bottom:12px">
+      <p style="margin-bottom:3px">Wanneer heb je voor het laatst echt goed voor jezelf gezorgd zonder schuldgevoel?</p>
+      <div class="schrijflijnen-groep"><span class="schrijflijn"></span><span class="schrijflijn"></span><span class="schrijflijn"></span></div>
+    </div>
+    <div style="margin-bottom:12px">
+      <p style="margin-bottom:3px">Wat heeft jouw lichaam je de laatste tijd geprobeerd te vertellen?</p>
+      <div class="schrijflijnen-groep"><span class="schrijflijn"></span><span class="schrijflijn"></span><span class="schrijflijn"></span></div>
+    </div>
+    <div style="margin-bottom:12px">
+      <p style="margin-bottom:3px">Wat heb jij nodig om je veilig genoeg te voelen om te beginnen bewegen?</p>
+      <div class="schrijflijnen-groep"><span class="schrijflijn"></span><span class="schrijflijn"></span><span class="schrijflijn"></span></div>
+    </div>
+  </div>
+
+  <div class="paginanummer">11</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGINA 12 — TOT SLOT -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="pagina">
+
+  <h1 class="sectie-titel">Tot slot</h1>
+
+  <p>Als je deze bundel hebt gelezen en de oefeningen hebt gedaan, heb je al iets gedaan wat veel vrouwen uitstellen. Je bent begonnen.</p>
+
+  <p>Misschien voel je nu dat de rust die je hier even proefde, er vaker mag zijn. Dat de ja die je al een tijdje in je draagt eindelijk ergens naartoe mag.</p>
+
+  <p>Dan is dit het moment om een volgende stap te zetten.</p>
+
+  <p>Ik begeleid vrouwen die precies voelen wat jij nu voelt. Die weten dat er iets wil veranderen maar niet goed weten hoe ze dat omzetten naar daad. In mijn trajecten werken we samen aan rust in je zenuwstelsel, helderheid in je hoofd en vrijheid in hoe jij je leven inricht. Niet over een jaar. Nu.</p>
+
+  <p>Als dit voelt als iets voor jou, dan wil ik je graag leren kennen.</p>
+
+  <p>Stuur me een berichtje via Instagram <strong>@manon.de.lange</strong> of stuur me een berichtje via de link in mijn bio.</p>
+
+  <div style="margin-top:30px;margin-bottom:4px">
+    <p style="margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13pt;color:var(--bordeaux);line-height:1.6">Leven vanuit rust, kiezen vanuit vrijheid.<br>Voor jou ook.</p>
+  </div>
+
+  <div style="margin-top:24px">
+    <p style="margin:0;font-family:'Cormorant Garamond',serif;font-size:12pt;color:var(--bordeaux)">Liefs,</p>
+    <p style="margin:4px 0 0 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22pt;color:var(--bordeaux)">Manon</p>
+  </div>
+
+  <!-- Vlinder onder handtekening -->
+  <div style="margin-top:12px">
+    <svg width="80" height="60" viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- One-line art vlinder -->
+      <path d="
+        M40,30
+        C38,26 32,18 24,14
+        C16,10 8,12 6,18
+        C4,24 8,32 16,34
+        C24,36 34,32 40,30
+
+        C46,28 56,24 64,26
+        C72,28 76,36 74,42
+        C72,48 64,50 56,46
+        C48,42 42,34 40,30
+
+        C38,28 36,24 38,20
+        C40,16 42,16 40,20
+        C38,24 38,28 40,30
+
+        M40,30
+        C40,34 40,38 40,44
+      " stroke="#8B2635" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <!-- Vleugeldetails -->
+      <path d="M40,30 C32,28 22,24 18,20" stroke="#8B2635" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+      <path d="M40,30 C48,28 58,24 62,28" stroke="#8B2635" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="footer-tekst">
+    @manon.de.lange &nbsp;|&nbsp; She Leads Academy &nbsp;|&nbsp; sheleadsacademy.nl
+  </div>
+
+  <div class="paginanummer">12</div>
+</div>
+
+
+</body>
+</html>
